@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MUNet: Motion Uncertainty-aware Semi-supervised Video Object Segmentation</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>MUNet: Motion Uncertainty-aware Semi-supervised <br> Video Object Segmentation</h2>
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">arXiv: 2111.14646</h4>
+          <hr>
+          <h6>
+            <a href="https://sunjiadai.xyz/" target="_blank">Jiadai Sun</a><sup>1*</sup>,
+            <a href="https://github.com/fupiao1998" target="_blank">Yuxin Mao</a><sup>1*</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=E9NVOBUAAAAJ&hl=en" target="_blank">Yiran Zhong</a><sup>2</sup>,
+            <a href="https://jytime.github.io/" target="_blank">Jianyuan Wang</a><sup>3</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>SenseTime &nbsp;&nbsp;
+            <sup>3</sup>Australian National University
+            <br>
+            <sup>*</sup> denotes equal contribution
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2111.14646" role="button" target="_blank">
+                  <i class="fa fa-file"></i> arXiv </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> The task of semi-supervised video object segmentation (VOS) has been greatly advanced and state-of-the-art performance has been made by dense matching-based methods. 
+          The recent methods leverage space-time memory (STM) networks and learn to retrieve relevant information from all available sources, where the past frames with object masks form an external memory and the current frame as the query is segmented using the mask information in the memory. However, when forming the memory and performing matching, these methods only exploit the appearance information while ignoring the motion information. In this paper, we advocate the return of the <b>motion information</b> and propose a motion uncertainty-aware framework (MUNet) for semi-supervised VOS. First, we propose an implicit method to learn the spatial correspondences between neighboring frames, building upon a correlation cost volume. 
+          To handle the challenging cases of occlusion and textureless regions during constructing dense correspondences, we incorporate the uncertainty in dense matching and achieve motion uncertainty-aware feature representation. Second, we introduce a motion-aware spatial attention module to effectively fuse the motion feature with the semantic feature. 
+          Comprehensive experiments on challenging benchmarks show that <b><em>using a small amount of data and combining it with powerful motion information can bring a significant performance boost</em></b>. We achieve 76.5% J&F only using DAVIS17 for training, which significantly outperforms the SOTA methods under the low-data protocol. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/0p7uUSMkahw" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>MUNet Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="100%" src="images/network_framework.png" alt="Architecture">
+        <p class="text-left"> First, we use <b>Enc-Q</b> and <b>Enc-R</b> to extract the semantic features $\mathcal{F}^{s}_{t}, \mathcal{F}^{s}_{t-1}$ of $\mathcal{I}_t, \mathcal{I}_{t-1}$ from image appearance. 
+          Then, we use <b>MU-Layer</b> to calculate the motion feature $\mathcal{F}^{m}_{t}$, and feed it into <b>MSAM</b> to guide and enhance the semantic feature $\mathcal{F}^{s}_{t}$. The matching results of Key-value Matcher is fed into the <b>Decoder</b> to generate the object mask $\widehat{\mathcal{M}}_t$, and the memory feature-bank is updated dynamically over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative comparison</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/compare_three_seq.png" alt="ablation study">
+        <p class="text-left"> 
+          Qualitative comparison with competing some methods on three sequences of DAVIS17 validation set. Through the implicit modeling of objects motion and uncertainty, we can obtain more accurate results, especially in multiple bodies movements (row#1,3) and thin lines (row#2). The inaccurate parts are marked with a yellow dashed box.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Visualization of the displacement and uncertainty map</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/flow_uncertainty.png" alt="flow uncertainty visualization">
+        <p class="text-center"> 
+        We project the uncertainty map into a heat map and add it to the original image for better visualization.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>IoU per-frame over time</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/iou_with_time.png" alt="IoU per-frame over time">
+        <p class="text-left"> 
+        IoU per-frame over time of Ours, STM and AFB-URR on five video sequences from DAVIS17 validation set. The last three columns have multiple objects, while the first two columns have only a single object. Since we effectively use the motion information between adjacent frames, the IoU can remain high even in the latter part of the video sequences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{sun2021munet,
+  title={MUNet: Motion Uncertainty-aware Semi-supervised Video Object Segmentation},
+  author={Sun, Jiadai and Mao, Yuxin and Dai, Yuchao and Zhong, Yiran and Wang, Jianyuan},
+  journal={arXiv preprint arXiv:2111.14646},
+  year={2021}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
