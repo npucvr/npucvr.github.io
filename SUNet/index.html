@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SUNet: Symmetric Undistortion Network for Rolling Shutter Correction</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>SUNet: Symmetric Undistortion Network for Rolling Shutter Correction</h2>
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">ICCV 2021</h4>
+          <hr>
+          <h6>
+            <a href="https://gitcvfb.github.io/" target="_blank">Bin Fan</a>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a>,
+            <a href="https://scholar.google.com/citations?user=gLnLpAsAAAAJ&hl=en" target="_blank">Mingyi He</a>
+          </h6>
+          <p>School of Electronics and Information, Northwestern Polytechnical University, Xi'an, China &nbsp;&nbsp;
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Fan_SUNet_Symmetric_Undistortion_Network_for_Rolling_Shutter_Correction_ICCV_2021_paper.pdf" role="button" target="">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2108.04775" role="button" target="_blank">
+                  <i class="fa fa-file"></i> ArXiv </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/GitCVfb/SUNet" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://dianzi.nwpu.edu.cn/info/1454/12978.htm" role="button" target="">
+                  <i class="fa fa-database"></i> 学院要闻 </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> The vast majority of modern consumer-grade cameras employ a rolling shutter (RS) mechanism, leading to image distortions if the camera moves during image acquisition. 
+          In this paper, we present a novel deep network to solve the generic rolling shutter correction problem with two consecutive frames. 
+          Our pipeline is symmetrically designed to predict the global shutter (GS) image corresponding to the intermediate time of these two frames, which is difficult for existing methods because it corresponds to a camera pose that differs most from the two frames. 
+          First, two time-symmetric dense undistortion flows are estimated by using well-established principles: pyramidal construction, warping, and cost volume processing. Then, both rolling shutter images are warped into a common global shutter one in the feature space, respectively. 
+          Finally, a symmetric consistency constraint is constructed in the image decoder to effectively aggregate the contextual cues of two rolling shutter images, thereby recovering the high-quality global shutter image. 
+          Extensive experiments with both synthetic and real data from public benchmarks demonstrate the superiority of our proposed approach over the state-of-the-art methods. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We propose an efficient end-to-end symmetric RS undistortion network to solve the generic RS correction problem with two consecutive frames.</li>
+            <li>Our context-aware cost volume together with the symmetric consistency constraint can aggregate the contextual cues of two input RS images effectively.</li>
+            <li>Extensive experiments show that our approach performs favorably against the state-of-the-art methods in both GS image restoration and inference efficiency.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview Video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/s-Me2JSDz0s" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="90%" src="images/Network_framework.jpg" alt="Architecture">
+        <p class="text-left"> Our pipeline mainly consists of two sub-networks: a PWC-based undistortion flow estimator and a time-centered GS image decoder. We only show the RS correction modules at the top two levels. 
+          For the rest of the pyramidal levels (excluding the first two layers), the overall RS correction modules have a similar structure as the second to the top level. Note that only the second to fifth pyramid features are warped, following a tailored correlation GS image decoder. 
+          Our network is designed symmetrically to aggregate two consecutive RS images in a coarse-to-fine manner. The symmetric convolutional layers of the same color share the same weights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- demo video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Demo Video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/vrs3QgYLctw" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative Comparison</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="90%" src="images/Qualitative_comparison.jpg" alt="ablation study">
+        <p class="text-left"> 
+          Qualitative results against baseline methods. Even rows: absolute difference between the corresponding image and the ground truth GS image. (a) The original second frame RS images. (b-e) GS images predicted by existing methods and our SUNet, respectively.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>3D Reconstruction</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="90%" src="images/3D_reconstruction.jpg" alt="flow uncertainty visualization">
+        <p class="text-left"> 
+          SfM results by Colmap for a building. (a) Reconstructed 3D model with original RS images. (b) Reconstructed 3D model with corrected GS images. (c) Reconstructed 3D model with ground truth GS images. 
+          It demonstrates that our pipeline removes the undesired RS distortion and generates a more accurate 3D model as the ground truth one.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{fan_SUNet_ICCV21,
+  title={SUNet: Symmetric Undistortion Network for Rolling Shutter Correction},
+  author={Fan, Bin and Dai, Yuchao and He, Mingyi},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={4541--4550},
+  year={2021}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
