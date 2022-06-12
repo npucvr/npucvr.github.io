@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MUNet: Motion Uncertainty-aware Semi-supervised Video Object Segmentation</title>
+  <title>Deep Non-rigid Structure-from-Motion: A Sequence-to-Sequence Translation</title>
   <!-- Bootstrap -->
   <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,27 +31,28 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>MUNet: Motion Uncertainty-aware Semi-supervised <br> Video Object Segmentation</h2>
+          <h2>Deep Non-rigid Structure-from-Motion: A Sequence-to-Sequence Translation Perspective
           <!-- <h4 style="color:#5a6268;">On submission</h4> -->
-          <h4 style="color:#5a6268;">arXiv: 2111.14646</h4>
+          <h4 style="color:#5a6268;">arXiv: 2204.04730</h4>
           <hr>
           <h6>
-            <a href="https://sunjiadai.xyz/" target="_blank">Jiadai Sun</a><sup>1*</sup>,
-            <a href="https://github.com/fupiao1998" target="_blank">Yuxin Mao</a><sup>1*</sup>,
+            <a href="" target="_blank">Hui Deng</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=kCy8JG8AAAAJ&hl=en" target="_blank">Tong Zhang</a><sup>2</sup>,
             <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
-            <a href="https://scholar.google.com/citations?user=E9NVOBUAAAAJ&hl=en" target="_blank">Yiran Zhong</a><sup>2</sup>,
-            <a href="https://jytime.github.io/" target="_blank">Jianyuan Wang</a><sup>3</sup>
+            <a href="" target="_blank">Jiawei Shi</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=E9NVOBUAAAAJ&hl=en" target="_blank">Yiran Zhong</a><sup>3,4</sup>,
+            <a href="https://cecs.anu.edu.au/~hongdong" target="_blank">Hongdong Li</a><sup>5</sup>
           </h6>
-          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
-            <sup>2</sup>SenseTime &nbsp;&nbsp;
-            <sup>3</sup>Australian National University
-            <br>
-            <sup>*</sup> denotes equal contribution
+          <p><sup>1</sup>School of Electronics and Information, Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>School of Computer and Communication Sciences, EPFL &nbsp;&nbsp;<br>
+            <sup>3</sup>SenseTime Research &nbsp;&nbsp;
+            <sup>4</sup>Shanghai AI Laboratory &nbsp;&nbsp;
+            <sup>5</sup>Australian National University
           </p>
 
           <div class="row justify-content-center">
             <div class="column">
-              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2111.14646" role="button" target="_blank">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2204.04730" role="button" target="_blank">
                   <i class="fa fa-file"></i> arXiv </a> </p>
             </div>
             <div class="column">
@@ -77,17 +78,14 @@
       <div class="col-12 text-center">
         <h3>Abstract</h3>
         <hr style="margin-top:0px">
-        <p class="text-left"> The task of semi-supervised video object segmentation (VOS) has been greatly advanced and state-of-the-art performance has been made by dense matching-based methods. 
-          The recent methods leverage space-time memory (STM) networks and learn to retrieve relevant information from all available sources, where the past frames with object masks form an external memory and the current frame as the query is segmented using the mask information in the memory. However, when forming the memory and performing matching, these methods only exploit the appearance information while ignoring the motion information. In this paper, we advocate the return of the <b>motion information</b> and propose a motion uncertainty-aware framework (MUNet) for semi-supervised VOS. First, we propose an implicit method to learn the spatial correspondences between neighboring frames, building upon a correlation cost volume. 
-          To handle the challenging cases of occlusion and textureless regions during constructing dense correspondences, we incorporate the uncertainty in dense matching and achieve motion uncertainty-aware feature representation. Second, we introduce a motion-aware spatial attention module to effectively fuse the motion feature with the semantic feature. 
-          Comprehensive experiments on challenging benchmarks show that <b><em>using a small amount of data and combining it with powerful motion information can bring a significant performance boost</em></b>. We achieve 76.5% J&F only using DAVIS17 for training, which significantly outperforms the SOTA methods under the low-data protocol. </p>
+        <p class="text-left">Directly regressing the non-rigid shape and camera pose from the individual 2D frame is ill-suited to the Non-Rigid Structure-from-Motion (NRSfM) problem. This frame-by-frame 3D reconstruction pipeline overlooks the inherent spatial-temporal nature of NRSfM, i.e., reconstructing the whole 3D sequence from the input 2D sequence. In this paper, we propose to model deep NRSfM from a sequence-to-sequence translation perspective, where the input 2D frame sequence is taken as a whole to reconstruct the deforming 3D non-rigid shape sequence. First, we apply a shape-motion predictor to estimate the initial non-rigid shape and camera motion from a single frame. Then we propose a context modeling module to model camera motions and complex non-rigid shapes. To tackle the difficulty in enforcing the global structure constraint within the deep framework, we propose to impose the union-of-subspace structure by replacing the self-expressiveness layer with multi-head attention and delayed regularizers, which enables end-to-end batch-wise training. Experimental results across different datasets such as Human3.6M, CMU Mocap and InterHand prove the superiority of our framework. The code will be made publicly available. </p>
       </div>
     </div>
   </div>
 </section>
 <br>
 
-<!-- overview video -->
+<!-- overview video
 <section>
   <div class="container">
     <div class="row">
@@ -103,18 +101,17 @@
     </div>
   </div>
 </section>
-<br>
+<br> -->
 
 <!-- showcase -->
 <section>
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3>MUNet Architecture</h3>
+        <h3>Our Architecture</h3>
         <hr style="margin-top:0px">
-          <img class="img-fluid" width="100%" src="images/network_framework.png" alt="Architecture">
-        <p class="text-left"> First, we use <b>Enc-Q</b> and <b>Enc-R</b> to extract the semantic features $\mathcal{F}^{s}_{t}, \mathcal{F}^{s}_{t-1}$ of $\mathcal{I}_t, \mathcal{I}_{t-1}$ from image appearance. 
-          Then, we use <b>MU-Layer</b> to calculate the motion feature $\mathcal{F}^{m}_{t}$, and feed it into <b>MSAM</b> to guide and enhance the semantic feature $\mathcal{F}^{s}_{t}$. The matching results of Key-value Matcher is fed into the <b>Decoder</b> to generate the object mask $\widehat{\mathcal{M}}_t$, and the memory feature-bank is updated dynamically over time.</p>
+          <img class="img-fluid" width="95%" src="images/structure.png" alt="Architecture">
+        <p class="text-left"> An overview of our sequence-to-sequence NRSfM framework. Our framework consists of two core modules: Shape/Motion predictor (b) for estimating the initial 3D shape and camera motion from a single frame, and Context Layer (c) for adjusting the 3D shape sequence by exploiting the inherent structure within the whole sequence..</p>
       </div>
     </div>
   </div>
@@ -128,9 +125,10 @@
       <div class="col-12 text-center">
         <h3>Qualitative comparison</h3>
         <hr style="margin-top:0px">
-        <img class="img-fluid" width="95%" src="images/compare_three_seq.png" alt="ablation study">
+        <img class="img-fluid" width="95%" src="images/comparison.png" alt="Qualitative comparison">
         <p class="text-left"> 
-          Qualitative comparison with competing some methods on three sequences of DAVIS17 validation set. Through the implicit modeling of objects motion and uncertainty, we can obtain more accurate results, especially in multiple bodies movements (row#1,3) and thin lines (row#2). The inaccurate parts are marked with a yellow dashed box.
+          Qualitative comparison between our method and frame-to-shape method <strong>C3dpo</strong> and <strong>DNRSfM</strong> on Human3.6M, where we use the red line to mark the error
+between the predicted 3D shape and the ground truth 3D shape.
         </p>
       </div>
     </div>
@@ -143,11 +141,11 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3>Visualization of the displacement and uncertainty map</h3>
+        <h3>Visualization on more dataset</h3>
         <hr style="margin-top:0px">
-        <img class="img-fluid" width="95%" src="images/flow_uncertainty.png" alt="flow uncertainty visualization">
+        <img class="img-fluid" width="95%" src="images/viz.png" alt="flow uncertainty visualization">
         <p class="text-center"> 
-        We project the uncertainty map into a heat map and add it to the original image for better visualization.
+          Visualization of several methods on Human3.6M with detected 2D keypoint and Interhand2.6M dataset
         </p>
       </div>
     </div>
@@ -155,7 +153,7 @@
 </section>
 <br>
 
-<!-- More visualization -->
+<!-- More visualization
 <section>
   <div class="container">
     <div class="row">
@@ -170,7 +168,7 @@
     </div>
   </div>
 </section>
-<br>
+<br> -->
 
 <!-- citing -->
 <div class="container">
@@ -180,10 +178,10 @@
       <hr style="margin-top:0px">
       <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
 <code>@article{sun2021munet,
-  title={MUNet: Motion Uncertainty-aware Semi-supervised Video Object Segmentation},
-  author={Sun, Jiadai and Mao, Yuxin and Dai, Yuchao and Zhong, Yiran and Wang, Jianyuan},
-  journal={arXiv preprint arXiv:2111.14646},
-  year={2021}
+  title={Deep Non-rigid Structure-from-Motion: A Sequence-to-Sequence Translation Perspective},
+  author={Deng, Hui and Zhang, Tong and Dai, Yuchao and Shi, Jiawei and Zhong, Yiran and Li, Hongdong},
+  journal={arXiv preprint arXiv:2204.04730},
+  year={2022}
 }
 </code></pre>
       <hr>
