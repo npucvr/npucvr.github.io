@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Differential SfM and Image Correction for a Rolling Shutter Stereo Rig</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Differential SfM and Image Correction for a Rolling Shutter Stereo Rig</h2>
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">IVC 2022</h4>
+          <hr>
+          <h6>
+            <a href="https://gitcvfb.github.io/" target="_blank">Bin Fan</a>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a>,
+            <a href="https://scholar.google.com/citations?user=CQ17Dj8AAAAJ&hl=zh-CN" target="_blank">Zhiyuan Zhang</a>,
+            <a>Ke Wang</a>
+          </h6>
+          <p>School of Electronics and Information, Northwestern Polytechnical University, Xi'an, China &nbsp;&nbsp;
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://www.sciencedirect.com/science/article/pii/S0262885622001214" role="button" target="">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Most modern consumer-grade cameras are equipped with an electronic rolling shutter (RS), leading to image distortions when the camera moves during image acquisition.
+          We explore the first structure and motion estimation problem of a dynamic generalized RS stereo camera. Such a general configuration is commonplace in robots and autonomous driving applications.
+          We propose a tractable RS stereo differential structure from motion (SfM) algorithm, taking into account the RS effect during consecutive imaging, which effectively compensates for the RS-stereo image distortion by a linear scaling operation on each optical flow.
+          We further propose embedding the cheirality into RANSAC and develop a robust RS-stereo-aware full-motion estimation framework.
+          We demonstrate that the RS stereo motion and depth map refined by our non-linear optimization schemes within the maximum likelihood criterion can be used for image correction to recover high-quality global shutter (GS) stereo images. 
+          Moreover, using the proposed generalized RS stereo differential SfM pipeline, the corrected images produce an accurate 3D scene structure as the ground-truth structure.
+          Extensive experiments on both synthetic and real RS stereo data demonstrate the effectiveness of our model and method in various configurations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We develop a simple and flexible generalized RS stereo differential SfM algorithm over two consecutive frames, and propose imposing the cheirality to reach a robust RANSAC-based RS stereo motion estimation pipeline.</li>
+            <li>We propose two effective and efficient RS-stereo non-linear optimization techniques based on the maximum likelihood criterion to refine the camera relative pose.</li>
+            <li>We advance an RS-stereo image correction method to remove the inaccuracies induced by the RS effect, which can produce an accurate 3D scene geometry as the ground-truth.</li>
+            <li>The proposed model and method are universal and tractable. It neither forces identical specifications of the RS stereo rig nor requires strict time synchronization and scanline alignment between left and right RS cameras.</li>
+            <li>Extensive experiments on both simulated data and synthetic RS stereo images show the effectiveness and robustness of our proposed method.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Illustration of the generalized RS stereo configuration</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="44%" src="images/Problem_setups.jpg" alt="Architecture">
+        <p class="text-left"> Illustration of the exposure, readout, idle, and delay mechanisms of the generalized RS stereo camera across two consecutive frames. The sensor is exposed and read out row by row at a constant speed. Assuming the camera exposure is instantaneous, the frame time $\tau_i$ includes readout time $\tau^a_i$ and idle time $\tau^b_i$ in the single RS camera $i=l,r$. 
+          Moreover, there is a calibrated delay time $\tau^d$ between the exposure start times of left and right cameras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview of our generalized RS-stereo differential SfM and image correction pipeline</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="72%" src="images/Method_framework.jpg" alt="Architecture">
+        <p class="text-left">From two consecutive general RS stereo images (a), we establish a generalized RS stereo model to robustly recover the RS stereo motion (b) and the 3D scene structure (c), and then achieve high-quality RS stereo correction (d), in which the red tilted poles in the foreground are repaired. Note that we are only showing an example for standard RS stereo images here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Quantitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Quantitative comparison</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="90%" src="images/Quantitative_comparison.jpg" alt="ablation study">
+        <p class="text-left"> 
+          Quantitative evaluation for generalized RS stereo configuration under various settings: (a) varying the image resolution of the right RS camera, (b) varying the FPS of the right RS camera, (c) varying the exposure delay time of the right RS camera, (d) randomly varying the image resolution, FOV, and readout time ratio of the right RS camera separately.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative comparison on synthetic data</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="90%" src="images/Qualitative_comparison.jpg" alt="ablation study">
+        <p class="text-left"> 
+          Qualitative results on synthetic data with various RS stereo configurations. In the first two columns, we show both left and right RS images to illustrate the generality of our RS stereo configuration. The last two columns represent the residual images, i.e., the absolute difference between the original or corrected RS image and the ground-truth GS image. 
+          From top to bottom: (a) Standard RS stereo camera with the same orientation. (b) RS stereo camera with a vertical orientation. (c) RS stereo camera with opposite orientation. (d) The right camera has a higher frame rate of 60Hz. (e) The right camera delays exposure by 1/60 seconds. (f) The right camera has a larger image resolution of 1200$\times$1200. It demonstrates that our method has excellent performances for varying setups in removing RS distortion and estimating RS depth maps, showing as darker residual images in the last column. Images have been scaled for visualization.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative results on real data</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="90%" src="images/Real_comparison.jpg" alt="flow uncertainty visualization">
+        <p class="text-left"> 
+          Qualitative results on real data collected by a UAV. Our method is effective to reconstruct the accurate 3D structure and remove the undesired RS distortion for the generalized RS stereo configuration in practice.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Acknowledgements -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3>Acknowledgements</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> 
+          We would like to thank DJI for the support of this work.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{fan2022differential,
+	title={Differential sfm and image correction for a rolling shutter stereo rig},
+	author={Fan, Bin and Dai, Yuchao and Zhang Zhiyuan and Wang, Ke},
+	journal={Image and Vision Computing}, 
+	year={2022},
+	volume={},
+	number={},
+	pages={104492},
+	publisher={Elsevier}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rolling-Shutter-Stereo-Aware Motion Estimation and Image Correction</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Rolling-Shutter-Stereo-Aware Motion Estimation and Image Correction</h2>
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">CVIU 2021</h4>
+          <hr>
+          <h6>
+            <a href="https://gitcvfb.github.io/" target="_blank">Bin Fan</a>,
+            <a>Ke Wang</a>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a>,
+            <a href="https://scholar.google.com/citations?user=gLnLpAsAAAAJ&hl=en" target="_blank">Mingyi He</a>
+          </h6>
+          <p>School of Electronics and Information, Northwestern Polytechnical University, Xi'an, China &nbsp;&nbsp;
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://www.sciencedirect.com/science/article/pii/S1077314221001405" role="button" target="">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> The vast majority of modern consumer-grade cameras employ the Rolling Shutter (RS) mechanism, which often produces geometrically distorted images due to inter-row delay during imaging, that needs to be properly handled.
+          While several models and solutions have been proposed for the motion estimation problem of the monocular RS camera, the corresponding motion estimation model and algorithm have not been developed for the standard RS stereo setup.
+          This is primarily due to the temporal-dynamic nature of the RS camera, which results in scanline-varying camera poses. 
+          This paper fills in this gap by developing two tractable RS stereo models under constant velocity motion and constant acceleration motion respectively, which only need to simply scale the optical flow vector.
+          We further propose two corresponding RS stereo motion estimation algorithms to accurately compute the relative pose of the RS stereo camera between two consecutive frames.
+          As a result of utilizing these RS stereo models associated with the parallel visual rays, our proposed methods offer better disambiguation of the translation and rotation, hence leading to significantly improved performance compared with the Global Shutter (GS) stereo model.
+          Furthermore, we develop an RS stereo image correction method to remove RS distortions and recover high-quality GS images by conducting motion compensation.
+          Experimental results on both simulated data and real RS stereo images show the superiority of our proposed models and methods.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We propose two tractable RS stereo models under constant velocity motion and constant acceleration motion respectively, which can compensate the RS intra-frame motion effectively.</li>
+            <li>We develop two efficient RS-stereo-aware motion estimation algorithms to obtain the subtle RS stereo full motion of each scanline.</li>
+            <li>We present an RS-stereo-aware image correction algorithm to remove the geometric distortion in RS stereo images.</li>
+            <li>Experiments on both simulated data and real RS stereo images show the effectiveness of our proposed algorithms.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Illustration of the standard RS stereo configuration</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="40%" src="images/Problem_setups.jpg" alt="Architecture">
+        <p class="text-left"> Given multiple pairs of point correspondences like $({p}_l,{p}_r)$ and their optical flow values, the relative motion $({t}, {\omega})$ of the stereo center $O$ between two consecutive frames can be estimated by our proposed algorithms. 
+          Note that each pair of point correspondences is generated by parallel projection rays (red) and therefore shares the same image coordinates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview of our RS-stereo-aware motion estimation and image correction pipeline</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="77%" src="images/Network_framework.jpg" alt="Architecture">
+        <p class="text-left"> From two consecutive RS stereo images, we establish RS stereo models to robustly recover the RS stereo motion and then achieve high-quality image correction (e.g., the red dotted pole in the foreground is repaired) combined with the RS depth map estimated by the GS stereo matching method, such as the SGM method.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Quantitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Quantitative comparison</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/Quantitative_comparison.jpg" alt="ablation study">
+        <p class="text-left"> 
+          Quantitative error analysis based on the constant velocity model under various settings: (a) translation size, (b) rotation size, (c) optical flow noise, (d) readout time ratio, (e) baseline length, (f) number of correspondences. Note that the x-axes of (a) and (b) represent the multiples of translation and rotation, respectively.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Rolling shutter correction results on real data</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/Real_comparison.jpg" alt="flow uncertainty visualization">
+        <p class="text-left"> 
+          (a) The original RS left images. (b-c) The corrected left images by the constant velocity model and constant acceleration model, respectively. (d) Our experimental platform. Our model and method are effective to remove the RS distortion in the real-world RS stereo images.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Acknowledgements -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3>Acknowledgements</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> 
+          We would like to thank DJI for the support of this work.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{fan2021rsstereo,
+  title={Rolling-shutter-stereo-aware motion estimation and image correction},
+  author={Fan, Bin and Wang, Ke and Dai, Yuchao and He, Mingyi},
+  journal={Computer Vision and Image Understanding}, 
+  year={2021},
+  volume={213},
+  number={},
+  pages={103296},
+  publisher={Elsevier}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
