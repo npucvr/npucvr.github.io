@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Efficient Spatial-Temporal Information Fusion for LiDAR-Based 3D Moving Object Segmentation.</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Efficient Spatial-Temporal Information Fusion <br> for LiDAR-Based 3D Moving Object Segmentation</h2>
+          <h4 style="color:#5a6268;">IROS 2022</h4>
+          <hr>
+          <h6>
+            <a href="https://sunjiadai.xyz/" target="_blank">Jiadai Sun</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+            <a href="https://github.com/zoojing" target="_blank">Xianjing Zhang</a><sup>2</sup>,
+            Jintao Xu<sup>2</sup>, Rui Ai<sup>2</sup>, Weihao Gu<sup>2</sup>,
+            <a href="https://github.com/Chen-Xieyuanli" target="_blank">Xieyuanli Chen</a>
+
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>HAOMO.AI &nbsp;&nbsp;
+            <br>
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/" role="button" target="_blank">
+                  <i class="fa fa-file"></i> arXiv </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/haomo-ai/MotionSeg3D" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/haomo-ai/MotionSeg3D/blob/master/config/kitti_road_mos.md" role="button" target="_blank">
+                  <i class="fa fa-database"></i> KITTI-Road-MOS </a> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Accurate moving object segmentation is an essential task for autonomous driving. It can provide effective information for many downstream tasks, such as collision avoidance, path planning, and static map construction.
+          How to effectively exploit the spatial-temporal information is a critical question for 3D LiDAR moving object segmentation (LiDAR-MOS).
+          In this work, we propose a novel deep neural network exploiting both spatial-temporal information and different representation modalities of LiDAR scans to improve LiDAR-MOS performance.
+          Specifically, we first use a range image-based dual-branch structure to separately deal with spatial and temporal information that can be obtained from sequential LiDAR scans, and later combine them using motion-guided attention modules. We also use a point refinement module via 3D sparse convolution to fuse the information from both LiDAR range image and point cloud representations and reduce the artifacts on the borders of the objects.
+          We verify the effectiveness of our proposed approach on the LiDAR-MOS benchmark of SemanticKITTI. Our method outperforms the state-of-the-art methods significantly in terms of LiDAR-MOS IoU.
+          Benefiting from the devised coarse-to-fine architecture, our method operates online at sensor frame rate.   
+          <!-- The implementation of our method is available as open source at https://github.com/haomo-ai/MotionSeg3D. -->
+
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Visualization video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/carIdfwLX_s" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>MotionSeg3D Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="100%" src="images/MotionSeg3D_framework.png" alt="Architecture">
+        <p class="text-left"> Overview of our method. We extend and modify SalsaNext into a dual-branch and dual-head architecture, consisting of a range image branch (Enc-A) to encode the appearance feature, a residual image branch (Enc-M) to encode the temporal motion information, and use multi-scales motion guided attention module to fuse them. And then an image head with skip connections is used to decode the features from fronts. Finally, we back-project 2D features to 3D points and use a point head to further refine the segmentation results. Specifically, BlockA and BlockE are the ResBlocks with dilated convolution, BlockB is the pooling and optional dropout layer, BlockC is the PixelShuffle and optional dropout layer, BlockD is the skip connection with optional dropout, BlockF is the fully connected layer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Ablation study</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/ablation_study.png" alt="ablation study">
+        <p class="text-center"> 
+          Ablation study of components on the validation set (seq08). "$\Delta$" shows the improvement compared to the vanilla baseline (a).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison of our Point-Head and kNN post-processing</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/compare_boundary_blurring.jpg" alt="flow uncertainty visualization">
+        <p class="text-center"> 
+          As can be seen, there is a clear improvement at the boundary, with fewer mis-predictions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>More qualitative comparison</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/compare_result.png" alt="IoU per-frame over time">
+        <p class="text-left"> 
+          Qualitative results of different methods for LiDAR-MOS on the validation set of the SemanticKITTI-MOS dataset. Blue circles highlight incorrect predictions and blurred boundaries. Best viewed in color and zoom in for details.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Acknowledgements -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3>Acknowledgements</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> 
+          We would like to thank Yufei Wang and Mochu Xiang for their insightful and effective discussions. And we would like to thank HAOMO.AI for the support of this work.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{sun2022mos3d,
+  title={Efficient Spatial-Temporal Information Fusion for LiDAR-Based 3D Moving Object Segmentation},
+  author={Sun, Jiadai and Dai, Yuchao and Zhang, Xianjing and Xu, Jintao and Ai, Rui and Gu, Weihao and Chen, Xieyuanli},
+  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year={2022},
+  organization={IEEE}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
