@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A General Divergence Modeling Strategy for Salient Object Detection</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>A General Divergence Modeling Strategy for Salient Object Detection</h2>
+          <h4 style="color:#5a6268;">ACCV 2022</h4>
+          <hr>
+          <h6>
+            <a href="https://github.com/txynwpu" target="_blank">Xinyu Tian</a><sup>1</sup>,
+            <a href="https://github.com/JingZhang617" target="_blank">Jing Zhang</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>Australian National University
+            <br>
+          </p>
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2111.11827" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Salient object detection is subjective in nature, which implies that multiple estimations should be related to the same input image. Most existing salient object detection models are deterministic following a point to point estimation learning pipeline, making them incapable of estimating the predictive distribution. Although latent variable model based stochastic prediction networks exist to model the prediction variants, the latent space based on the single clean saliency annotation is less reliable in exploring the subjective nature of saliency, leading to less effective saliency "divergence modeling". Given multiple saliency annotations, we introduce a general divergence modeling strategy via random sampling, and apply our strategy to an ensemble based framework and three latent variable model based solutions to explore the "subjective nature" of saliency. Experimental results prove the superior performance of our general divergence modeling strategy. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Model Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/netimg.png" alt="Architecture">
+        <p class="text-left">  The proposed strategy within the ensemble based framework (left) and the latent variable model based solutions (right). By randomly selecting one ground truth from the multiple annotations for model updating, the proposed strategy can better explore the contribution of multiple annotations for human visual system exploration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- ablation study1 -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Uncertainty Comparison with Single Annotation</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="80%" src="images/random_majority_compare.png" alt="Architecture">
+        <p class="text-left">Uncertainty maps of latent variable models with single majority voting GT
+("_M") and multiple (M = 5) diverse GT using our divergence modeling strategy ("_R"). </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- ablation study2 -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Uncertainty w.r.t. Diversity of Annotation</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="80%" src="images/label_num_compare.png" alt="Architecture">
+        <p class="text-left">Uncertainty map comparison w.r.t. the number of annotations for each image.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- ablation study3 -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Applying Our Solution to SOTA SOD Model</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="80%" src="images/apply.png" alt="Architecture">
+        <p class="text-left">Uncertainty maps of SOTA SOD model (PFSNet in particular) with the proposed general divergence modeling strategy, where "-E", "-G", "-V" and "-A" indicate the corresponding deep ensemble, GAN, VAE and ABP based model. The first column show image and the majority voting ground
+truth, and from the second column to the last one, we show prediction (top) and the corresponding predictive uncertainty (bottom).</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- results -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Generated saliency maps and uncertainty maps</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/predictions.png" alt="Architecture">
+        <p class="text-left">Generated diverse saliency maps. For each example, the first column shows, from left to right, input image, ground truth map after majority voting, and ground truth maps from 5 different annotators; the second column shows the predicted uncertainty map, prediction of our majority voting branch, and five generated diverse saliency maps. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{tian2022general,
+  title={A General Divergence Modeling Strategy for Salient Object Detection},
+  author={Xinyu Tian, Jing Zhang, Yuchao Dai},
+  booktitle={Proceedings of the Asian Conference on Computer Vision},
+  year={2022}
+} 
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
