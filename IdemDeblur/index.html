@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deep Idempotent Network for Efficient Single Image Blind Deblurring</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Deep Idempotent Network for Efficient Single Image Blind Deblurring</h2>
+          <h4 style="color:#5a6268;">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT 2022)</h4>
+          <hr>
+          <h6>
+            <a href="https://github.com/fupiao1998" target="_blank">Yuxin Mao</a><sup>1*</sup>,
+            <a href="https://github.com/danqu130" target="_blank">Zhexiong Wan</a></a><sup>1*</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>1#</sup>,
+            <a href="https://scholar.google.com/citations?user=oxdtuSEAAAAJ" target="_blank">Yu Xin</a><sup>2</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>University of Technology Sydney
+            <br>
+            <sup>*</sup> denotes equal contribution
+            <sup>#</sup> corresponding author
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2210.07122" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Arxiv</a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ieeexplore.ieee.org/document/9868799" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> IEEE </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/fupiao1998" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Single image blind deblurring is highly ill-posed as neither the latent sharp image nor the blur kernel is known. Even though considerable progress has been made, several major difficulties remain for blind deblurring, including the trade-off between high-performance deblurring and real-time processing. Besides, we observe that current single image blind deblurring networks cannot further improve or stabilize the performance but significantly degrades the performance when re-deblurring is repeatedly applied. This implies the limitation of these networks in modeling an ideal deblurring process. In this work, we make two contributions to tackle the above difficulties:(1) We introduce the idempotent constraint into the deblurring framework and present a deep idempotent network to achieve improved blind non-uniform deblurring performance with stable re-deblurring. (2) We propose a simple yet efficient deblurring network with lightweight encoder-decoder units and a recurrent structure that can deblur images in a progressive residual fashion. Extensive experiments on synthetic and realistic datasets prove the superiority of our proposed framework. Remarkably, our proposed network is nearly 6.5× smaller and 6.4× faster than the state-of-the-art while achieving comparable high performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Speed vs Performance</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="imgs/scatter_cropped.png" alt="Architecture">
+
+        <p> Each circle represents the performance of a model in terms of FPS and PSNR on the GoPro dataset with 1280x720 images using an RTX 2080Ti GPU. The radius of each circle denotes the model’s number of parameters. Our method achieves high performance with real-time runtime and small parameters compared with state-of-the-art blind deblurring methods. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Repeatedly Re-Deblurring</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="imgs/idem_blur.png" alt="Architecture">
+
+        <p> We repeatedly input the deblurred image to the network by multiple times and report the deblurring results on the GoPro dataset. Our proposed deep idempotent network achieves very stable deblurring results while the performance of all other state-of-the-art methods decreases as the repeating times increase. 
+          Note that, to keep the training settings consistent with our results without idempotent constraint, we re-trained MT-RNN without their multi-temporal data augmentation. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="imgs/main_net_cropped.png" alt="Architecture">
+
+        <p>The overall framework of our idempotent deblurring network and idempotent constraint. The deblurring network takes blurry images as input and outputs deblurred images by an iterative recurrent lightweight encoder-decoder structure. In all iterations, we only use the same basic model with shared weights and connect them by residual connection. The idempotent loss makes the outputs by repeating re-deblurring consistently in the training phase.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Progressively Deblurring Results</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="imgs/fig_progress_cropped.png" alt="Architecture">
+
+        <p>Same as MTRNN, our model can achieve progressive iterative deblurring over multiple iterations, but without their temporal data augmentation in the training process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Thermal Images Deblurring </h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="80%" src="imgs/thermal.png" alt="Architecture">
+
+        <p>Visual comparisons on the motion blurred thermal samples using GOPro pretrained models. Column (a) is the original blurred thermal images, (b), (c), (d) are the
+          deblurring results from MT-RNN, Stack(4)-DMPHN and our method, respectively.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Extend to Derain and Dehaze </h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="80%" src="imgs/derain.png" alt="Architecture">
+        <img class="img-fluid" width="80%" src="imgs/dehaze.png" alt="Architecture">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{mao2022deepidemdeblur,
+    author={Mao, Yuxin and Wan, Zhexiong and Dai, Yuchao and Yu, Xin},
+    journal={IEEE Transactions on Circuits and Systems for Video Technology}, 
+    title={Deep Idempotent Network for Efficient Single Image Blind Deblurring}, 
+    year={2022},
+    doi={10.1109/TCSVT.2022.3202361}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
