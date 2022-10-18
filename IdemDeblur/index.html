@@ -85,6 +85,8 @@
         <img class="img-fluid" width="50%" src="imgs/scatter_cropped.png" alt="Architecture">
 
         <p> Each circle represents the performance of a model in terms of FPS and PSNR on the GoPro dataset with 1280x720 images using an RTX 2080Ti GPU. The radius of each circle denotes the model’s number of parameters. Our method achieves high performance with real-time runtime and small parameters compared with state-of-the-art blind deblurring methods. </p>
+
+        <p> Note: About the inference time, we follow the setting of the previous method, which does not enable CUDA synchronization. More details in <a href="https://github.com/swz30/MPRNet/issues/83" target="_blank">https://github.com/swz30/MPRNet/issues/83</a> and <a href="https://github.com/chosj95/MIMO-UNet/issues/9" target="_blank">https://github.com/chosj95/MIMO-UNet/issues/9</a>.  </p>
       </div>
     </div>
   </div>
