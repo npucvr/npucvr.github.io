@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning Dense and Continuous Optical Flow from an Event Camera</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Learning Dense and Continuous Optical Flow from an Event Camera</h2>
+          <h4 style="color:#5a6268;">IEEE Transactions on Image Processing (TIP 2022)</h4>
+          <hr>
+          <h6>
+            <a href="https://github.com/danqu130" target="_blank">Zhexiong Wan</a></a>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>#</sup>
+            <a href="https://github.com/fupiao1998" target="_blank">Yuxin Mao</a>,
+          </h6>
+          <p>School of Electronics and Information, Northwestern Polytechnical University, Xi'an, Shaanxi, 710129, China. &nbsp;&nbsp;
+            <br>
+            <sup>#</sup> corresponding author
+            <br>wanzhexiong@mail.nwpu.edu.cn, daiyuchao@nwpu.edu.cn, maoyuxin@mail.nwpu.edu.cn
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Arxiv</a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> IEEE </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/danqu130/DCEIFlow" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Event cameras such as DAVIS can simultaneously output high temporal resolution events and low frame-rate intensity images, which own great potential in capturing scene motion, such as optical flow estimation. Most of the existing optical flow estimation methods are based on two consecutive image frames and can only estimate \emph{discrete flow} at a fixed time interval. Previous work has shown that \emph{continuous flow} estimation can be achieved by changing the quantities or time intervals of events. However, they are difficult to estimate reliable \emph{dense flow}, especially in the regions without any triggered events. In this paper, we propose a novel deep learning-based dense and continuous optical flow estimation framework from a single image with event streams, which facilitates the accurate perception of high-speed motion. Specifically, we first propose an event-image fusion and correlation module to effectively exploit the internal motion from two different modalities of data. Then we propose an iterative update network structure with bidirectional training for optical flow prediction. Therefore, our model can estimate reliable dense flow as two-frame-based methods, as well as estimate temporal continuous flow as event-based methods. Extensive experimental results on both synthetic and real captured datasets demonstrate that our model outperforms existing event-based state-of-the-art methods and our designed baselines for accurate dense and continuous optical flow estimation.  </p>
+  
+        <h3>Waiting for update...</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<!-- <div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{wan2022DCEIFlow,
+    author={Wan, Zhexiong and Dai, Yuchao and Mao, Yuxin},
+    journal={IEEE Transactions on Image Processing}, 
+    title={Learning Dense and Continuous Optical Flow from an Event Camera}, 
+    year={2022}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div> -->
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
