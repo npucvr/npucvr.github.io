@@ -21,7 +21,7 @@
           <h4 style="color:#5a6268;">IEEE Transactions on Image Processing (TIP 2022)</h4>
           <hr>
           <h6>
-            <a href="https://github.com/danqu130" target="_blank">Zhexiong Wan</a></a>,
+            <a href="https://github.com/danqu130" target="_blank">Zhexiong Wan</a>,
             <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>#</sup>
             <a href="https://github.com/fupiao1998" target="_blank">Yuxin Mao</a>,
           </h6>
@@ -45,7 +45,7 @@
             </div>
             <div class="column">
               <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/danqu130/DCEIFlow" role="button" target="_blank">
-                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
             </div>
             <!-- <div class="column">
               <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
@@ -68,7 +68,39 @@
         <hr style="margin-top:0px">
         <p class="text-left"> Event cameras such as DAVIS can simultaneously output high temporal resolution events and low frame-rate intensity images, which own great potential in capturing scene motion, such as optical flow estimation. Most of the existing optical flow estimation methods are based on two consecutive image frames and can only estimate \emph{discrete flow} at a fixed time interval. Previous work has shown that \emph{continuous flow} estimation can be achieved by changing the quantities or time intervals of events. However, they are difficult to estimate reliable \emph{dense flow}, especially in the regions without any triggered events. In this paper, we propose a novel deep learning-based dense and continuous optical flow estimation framework from a single image with event streams, which facilitates the accurate perception of high-speed motion. Specifically, we first propose an event-image fusion and correlation module to effectively exploit the internal motion from two different modalities of data. Then we propose an iterative update network structure with bidirectional training for optical flow prediction. Therefore, our model can estimate reliable dense flow as two-frame-based methods, as well as estimate temporal continuous flow as event-based methods. Extensive experimental results on both synthetic and real captured datasets demonstrate that our model outperforms existing event-based state-of-the-art methods and our designed baselines for accurate dense and continuous optical flow estimation.  </p>
   
-        <h3>Waiting for update...</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>DCEIFlow structure</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/iterative_structure.png" alt="Architecture">
+
+        <p class="text-left"> We use the feature extractor (left) to obtain event and image features and compute the matching correlation using our proposed event-image fusion and correlation construction module (middle). Then we feed them into the iterative flow updater (right) to update the flow iteratively. After the last iteration, we apply the up-sample operation to get the full-resolution output. The structures enclosed by the orange box need to be iteratively updated.  </p>
+  
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Continuous Flow</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="images/viz.png" alt="Architecture">
+        <img class="img-fluid" width="80%" src="images/viz2.png" alt="Architecture">
+
+        <p class="text-left"> Visual comparisons of continuous flow prediction with different time intervals. dt denotes the frame interval (e.g., dt=1.0 represents the time interval between two adjacent frames). The two-frame (I1+I2) approaches can only estimate dense optical flow between frames. The event-only (E) approaches can estimate continuous optical flow, but cannot predict accurate dense flow. Our model can estimate both dense and continuous optical flow by fusing events and the first image (I1+E).  </p>
+  
       </div>
     </div>
   </div>
@@ -76,23 +108,54 @@
 <br>
 
 <!-- citing -->
-<!-- <div class="container">
+<div class="container">
   <div class="row ">
     <div class="col-12">
       <h3>Citation</h3>
       <hr style="margin-top:0px">
+  
+      <p class="text-left"> If our work or code helps you, please cite our paper. If our code is very useful for your new research, I hope you can also open source your code including training. </p>
+
       <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
-<code>@article{wan2022DCEIFlow,
-    author={Wan, Zhexiong and Dai, Yuchao and Mao, Yuxin},
-    journal={IEEE Transactions on Image Processing}, 
-    title={Learning Dense and Continuous Optical Flow from an Event Camera}, 
-    year={2022}
+
+<code> @article{wan2022DCEIFlow,
+  author={Wan, Zhexiong and Dai, Yuchao and Mao, Yuxin},
+  title={Learning Dense and Continuous Optical Flow from an Event Camera}, 
+  journal={IEEE Transactions on Image Processing}, 
+  DOI=10.1109/TIP.2022.3220938,
+  year={2022}
 }
 </code></pre>
       <hr>
     </div>
   </div>
-</div> -->
+</div>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Acknowledgments</h3>
+        <hr style="margin-top:0px">
+
+        <p class="text-left"> This research was sponsored by Zhejiang Lab. </p>
+
+        <p class="text-left"> Thanks the assiciate editor and the reviewers for their comments, which is very helpful to improve our paper. </p>
+
+        <p class="text-left"> Thanks for the following helpful open source projects: 
+          <a href="https://github.com/princeton-vl/RAFT" target="_blank">RAFT</a>, 
+          <a href="https://github.com/TimoStoff/event_utils" target="_blank">event_utils</a>, 
+          <a href="https://github.com/daniilidis-group/EV-FlowNet" target="_blank">EV-FlowNet</a>, 
+          <a href="https://github.com/TimoStoff/mvsec_eval" target="_blank">mvsec_eval</a>, 
+          <a href="https://github.com/uzh-rpg/rpg_vid2e" target="_blank">esim_py</a>, 
+          <a href="https://github.com/Lynn0306/DVS-Voltmeter" target="_blank">DVS-Voltmeter</a>, 
+          <a href="https://github.com/chan8972/Spike-FlowNet" target="_blank">Spike-FlowNet</a>.
+
+      </div>
+    </div>
+  </div>
+</section>
+<br>
 
 <footer class="text-center" style="margin-bottom:10px">
   <br>
