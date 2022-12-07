@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rolling Shutter Camera: Modeling, Optimization and Learning</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Rolling Shutter Camera: Modeling, Optimization and Learning</h2>
+          <h4 style="color:#5a6268;">Half-day Tutorial at ACCV 2022 </h4>
+          <h4 style="color:#5a6268;">Machine Intelligence Research</h4>
+          <hr>
+          <h6>
+            <a href="https://gitcvfb.github.io/" target="_blank">Bin Fan</a>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a>,
+            <a href="https://scholar.google.com/citations?user=gLnLpAsAAAAJ&hl=en" target="_blank">Mingyi He</a>
+          </h6>
+          <p>School of Electronics and Information, Northwestern Polytechnical University, Xi'an, China &nbsp;&nbsp;
+          </p>
+          <p>binfan@mail.nwpu.edu.cn, daiyuchao@nwpu.edu.cn &nbsp;&nbsp;
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/CVPR2022/papers/Fan_Context-Aware_Video_Reconstruction_for_Rolling_Shutter_Cameras_CVPR_2022_paper.pdf" role="button" target="">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://whova.com/embedded/session/f-2iXOUcgoPbz0RhgFMS-nS0toCDzggQshwT2SVOZgU%3D/2780531/?widget=primary" role="button" target="">
+                  <i class="fa fa-database"></i> ACCV Agenda </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <!-- <h3>Abstract of Half-day Tutorial</h3> -->
+        <hr style="margin-top:0px">
+        <p class="text-left"> The vast majority of modern consumer-grade cameras are equipped with an electronic rolling shutter (RS), which is becoming increasingly important in computer vision, robotics, and autonomous driving applications. 
+          Although ubiquitous, its progressive exposure mechanism causes geometric distortions in the acquired images whenever either the camera or the target is moving.
+          In the last two decades, researchers have made significant progress in developing tractable RS models, optimization methods, and learning approaches, aiming to remove the geometry distortion and improve the visual quality. 
+          In particular, since the tutorial entitled ``Multi-view geometry for rolling shutter cameras'' in ACCV 2016, many robust and efficient RS motion models and non-linear optimization methods have emerged. 
+          At the same time, the rise of deep learning techniques has also pushed the research on RS-related problems in the past five years. 
+          In this half-day tutorial, we will give a broad overview of the latest advances in this area from three aspects, i.e., motion modeling, optimization-based solutions, and deep learning-based solutions. 
+          Specifically, we will first systematically present geometric motion models (like discrete, continuous, and special motions), recently proposed in the computer vision community, starting from their theoretical descriptions up to their typical applications. 
+          Then, we will give an introduction to deep learning-based RS image processing methods, such as RS image correction and RS temporal super-resolution, with new results and benchmarks that have recently appeared.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Course Description -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Topics of Half-day Tutorial</h3>
+        <hr style="margin-top:0px">
+            <p class="text-left"> (I) Introduction and Overview of the Tutorial (15 minutes) </p>
+            <p class="text-left"> (II) Geometric Modeling and Non-Linear Optimization of Rolling Shutter Camera (40 minutes) </p>
+                <ul class="text-left">
+                <li>Discrete Motion </li>
+                <li>Continuous Motion </li>
+                <li>Special Motion </li>
+                </ul>
+            <p class="text-left"> (III) Geometric Problems with Rolling Shutter Model (40 minutes) </p>
+                <ul class="text-left">
+                <li>Relative Pose Estimation </li>
+                <li>Absolute Pose Estimation </li>
+                <li>3D Reconstruction </li>
+                </ul>
+            <p class="text-left"> (IV) New Paradigm with Deep Learning (60 minutes) </p>
+                <ul class="text-left">
+                <li>Rolling Shutter Image Correction </li>
+                <li>Rolling Shutter Temporal Super-Resolution </li>
+                <li>Public Rolling Shutter Datasets </li>
+                </ul>
+            <p class="text-left"> (V) Challenges and Future Trends (15 minutes) </p>
+            <p class="text-left"> (VI) Open Questions and Discussions (15 minutes) </p>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Materials -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Materials</h3>
+        <hr style="margin-top:0px">
+            <ul class="text-left">
+            <li><a href="materials/RS_Tutorial_Geometry_Part.pdf"><b>Rolling Shutter Camera: Modeling and Optimization</b></a> </li>
+            <li><a href="materials/RS_Tutorial_Learning_Part.pdf"><b>Rolling Shutter Camera: Learning and Future</b></a> </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{fan2022overview,
+	title={Rolling shutter camera: modeling, optimization and learning},
+	author={Fan, Bin and Dai, Yuchao and He, Mingyi},
+	journal={Machine Intelligence Research},
+	volume={},
+	number={},
+	pages={},
+	year={2022},
+	publisher={Springer}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
