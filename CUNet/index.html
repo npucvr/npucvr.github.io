@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CU-Net: LiDAR Depth-only Completion with Coupled U-Net</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>CU-Net: LiDAR Depth-only Completion with Coupled U-Net</h2>
+          <h4 style="color:#5a6268;">IEEE Robotics and Automation Letters.</h4>
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Yufei Wang</a><sup></sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>*</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Qi Liu</a><sup></sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Peng Yang</a><sup></sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Jiadai Sun</a><sup></sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Bo Li</a><sup>*</sup>
+          </h6>
+          <p><sup></sup> Northwestern Polytechnical University &nbsp;&nbsp;
+            <!-- <sup>2</sup>B University -->
+            <br>
+            <sup>*</sup> Corresponding authors
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2210.14898" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Arxiv </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/YufeiWang777/CU-Net" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left">
+        LiDAR depth-only completion is a challenging task to estimate a dense depth map only from sparse measurement points obtained by LiDAR. Even though the depth-only completion methods have been widely developed, there is still a significant performance gap with the RGB-guided methods that utilize extra color images. We find that existing depth-only methods can obtain satisfactory results in the areas where the measurement points are almost accurate and evenly distributed (denoted as normal areas), while the performance is limited in the areas where the foreground and background points are overlapped due to occlusion (denoted as overlap areas) and the areas where there are no available measurement points around (denoted as blank areas), since the methods have no reliable input information in these areas. Building upon these observations, we propose an effective Coupled U-Net (CU-Net) architecture for depth-only completion. Instead of directly using a large network for regression, we employ the local U-Net to estimate accurate values in the normal areas and provide the global U-Net with reliable initial values in the overlap and blank areas. The depth maps predicted by the two coupled U-Nets complement each other and can be fused by learned confidence maps to obtain the final completion results. In addition, we propose a confidence-based outlier removal module, which identifies the regions with outliers and removes outliers using simple judgment conditions. The proposed method boosts the final dense depth maps with fewer parameters and achieves state-of-the-art results on the KITTI benchmark. Moreover, it owns a powerful generalization ability under various depth densities, varying lighting, and weather conditions.
+         </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/WAQouCouw5E" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>CUNet Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/dunet.png" alt="Architecture">
+
+        <p> Overview of CU-Net. CU-Net consists of a local U-Net and a global U-Net that have the same structure but do not share parameters. The dense depth map predicted by the local U-Net and the sparse depth map after removing outliers are fed into the global U-Net. CU-Net fuses the dense depth maps predicted by these two U-Nets through learned confidence images to obtain the final results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- ablation study -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Ablation studies</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video>
+        <img class="img-fluid" width="95%" src="images/xxx.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- comparison -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison with state-of-the-art methods</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="./videos/xxx.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@ARTICLE{CUNet,
+  author={Wang, Yufei and Dai, Yuchao and Liu, Qi and Yang, Peng and Sun, Jiadai and Li, Bo},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={CU-Net: LiDAR Depth-Only Completion With Coupled U-Net}, 
+  year={2022},
+  volume={7},
+  number={4},
+  pages={11476-11483},
+  doi={10.1109/LRA.2022.3201193}}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
