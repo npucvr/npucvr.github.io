@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Self-supervised rigid transformation equivariance for accurate 3D point cloud registration</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Self-supervised rigid transformation equivariance 
+            for accurate 3D point cloud registration</h2>
+          <h4 style="color:#5a6268;">Pattern Recognition</h4>
+          <hr>
+          <h6>
+            <a href="https://scholar.google.com/citations?user=CQ17Dj8AAAAJ&hl=zh-CN" target="_blank">Zhiyuan Zhang</a><sup>1</sup>,
+            <a href="https://sunjiadai.xyz/" target="_blank">Jiadai Sun</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=pfBeKioAAAAJ&hl=zh-CN" target="_blank">Dingfu Zhou</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=2gudyEQAAAAJ&hl=zh-CN" target="_blank">Xibin Song</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=gLnLpAsAAAAJ&hl=en" target="_blank">Mingyi He</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>Baidu Inc &nbsp;&nbsp;
+            <br>
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://www.sciencedirect.com/science/article/pii/S0031320322002655" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+
+            
+            
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Transformation equivariance has been widely investigated in 3D point cloud representation learning for more informative descriptors, which formulates the change of the representation with respect to the transformation of the input point clouds explicitly. In this paper, we extend this property to the task of 3D point cloud registration and propose a rigid transformation equivariance (RTE) for accurate 3D point cloud registration. Specifically, RTE formulates the change of the relative pose explicitly with respect to the rigid transformation of the input point clouds. To exploit RTE, we adopt a Siamese structure network with two shared registration branches. One focuses on the input pair of point clouds, and the other one focuses on the new pair achieved by applying two random rigid transformations to the input point clouds respectively. Since the change of the two output relative poses has been predicted according to RTE, a new additional self-supervised loss is obtained to supervise the training. This general network structure can be integrated with most learning-based point cloud registration frameworks easily to improve the performance. Our method adopts the state-of-the-art virtual point-based pipelines as our shared branches, in which we propose a data-driven matching based on learned cost volume (LCV) rather than traditional hand-crafted matching strategies. Experimental evaluations on both synthetic datasets and real datasets validate the effectiveness of our proposed framework. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We construct a dedicated RTE in 3D point cloud registration and design a Siamese network structure instead of the traditional “single branch” network. Our RTE structure can be integrated with the learning-based frameworks easily to improve
+              the registration performance.</li>
+            <li>We propose to learn the matching matrix from the LCV instead of the hand-crafted matching strategy, which is more effective and efficient.</li>
+            <li>Remarkable performance on several datasets topping the stateof-the-art methods proves the effectiveness of our proposed method.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/xxx_your_video_ID" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Motivation</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="Image/motivation.png" alt="motivation">
+        <p class="text-left"> Comparison of the equivariance property in 3D point cloud representation learning task and registration task.          
+        </p>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- network -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <img class="img-fluid" width="100%" src="Image/framework.png" alt="Architecture">
+        <p class="text-left"> Illustration of our proposed 3D point cloud registration framework (RTE-structure). First, we augment the input point clouds $\mathcal{X}$ and $\mathcal{Y}$ with random rigid transformations to $\mathcal{X}^\prime$ and $\mathcal{Y}^\prime$. 
+        Then, two shared branches are used to estimate the relative poses $\mathbf{T}$ and $\mathbf{T}^\prime$ between $\{\mathcal{X},\mathcal{Y}\}$ and $\{\mathcal{X}^\prime,\mathcal{Y}^\prime\}$ respectively. Each branch network consists
+        of feature extractor, point matching, and motion estimation. The augmentation operation and the inherent RTE constraint, connect the input and output of the two branches respectively, where a closed-loop is constructed. 
+        This explicit correlation provides a self-supervised loss function without any extra ground truth information. This RTEstructure can be integrated into other learning-based point cloud registration easily.</p>
+        <img class="img-fluid" width="100%" src="Image/branch.png" alt="Architecture">
+        <p class="text-left"> Illustration of the branch registration network architecture. First, we extract the point features for the source and target point clouds $\mathcal{X}$ and $\mathcal{Y}$. Then, in the matching
+          stage, we construct the LCV by replicating and concatenating the features. And the subsequent MLP and row-wise softmax are applied to regress the LCV to the matching matrix. 
+          The virtual corresponding points to $\mathcal{X}$ are obtained by using matching matrix to perform the weighted average on $\mathcal{Y}$. Finally, the Procrustes algorithm is used to
+          estimate the rotation matrix $\mathbf{R}$ and translation vector $\mathbf{t}$. Right part shows the detailed matching matrix learning process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- comparison 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison with state-of-the-art methods</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="./videos/xxx.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Ablation Analyze</h3>
+        <hr style="margin-top:0px">
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <img class="img-fluid" width="100%" src="Image/ablation.png" alt="result">
+      <p class="text-left"> Visualization of Stanford scan data. We provide registration results (i.e. corresponding angular error θ. and translation vector error t.) of Bunny and Dragon. And the complete method is much better than ours w/o RTE and ours w/o RTE&LCV considerably.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@ARTICLE{zhang_rte_pr_2022,
+  title={Self-supervised rigid transformation equivariance for accurate 3D point cloud registration},
+  author={Zhiyuan Zhang and Jiadai Sun and Yuchao Dai and Dingfu Zhou and Xibin Song and Mingyi He},
+  journal={Pattern Recognition},
+  volume    = {130},
+  pages     = {108784},
+  year      = {2022}} 
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>

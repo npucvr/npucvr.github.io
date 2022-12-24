@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VRNet: Learning the Rectified Virtual Corresponding Points for 3D Point Cloud Registration</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>VRNet: Learning the Rectified Virtual Corresponding Points for 3D Point Cloud Registration</h2>
+          <h4 style="color:#5a6268;">IEEE Transactions on Circuits and Systems for Video Technology</h4>
+          <hr>
+          <h6>
+            <a href="https://scholar.google.com/citations?user=CQ17Dj8AAAAJ&hl=zh-CN" target="_blank">Zhiyuan Zhang</a><sup>1</sup>,
+            <a href="https://sunjiadai.xyz/" target="_blank">Jiadai Sun</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+            <a href="https://gitcvfb.github.io/" target="_blank">Bin Fan</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=gLnLpAsAAAAJ&hl=en" target="_blank">Mingyi He</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup>School of Electronics and Information, Northwestern Polytechnical University, Xi'an, China &nbsp;&nbsp;
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9681904" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://download.arxiv.org/pdf/2203.13241v1" role="button" target="_blank">
+                  <i class="fa fa-file"></i> ArXiv </a> </p>
+            </div>
+            
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> 3D point cloud registration is fragile to outliers, which are labeled as the points without corresponding points. To handle this problem, a widely adopted strategy is to estimate the relative pose based only on some accurate correspondences, which is achieved by building correspondences on the identified inliers or by selecting reliable ones. However, these approaches are usually complicated and time-consuming. By contrast, the virtual point-based methods learn the virtual corresponding points (VCPs) for all source points uniformly without distinguishing the outliers and the inliers. Although this strategy is time-efficient, the learned VCPs usually exhibit serious collapse degeneration due to insufficient supervision and the inherent distribution limitation. In this paper, we propose to exploit the best of both worlds and present a novel robust 3D point cloud registration framework. We follow the idea of the virtual point-based methods but learn a new type of virtual points called rectified virtual corresponding points (RCPs), which are defined as the point set with the same shape as the source and with the same pose as the target . Hence, a pair of consistent point clouds, i.e . source and RCPs, is formed by rectifying VCPs to RCPs (VRNet), through which reliable correspondences between source and RCPs can be accurately obtained. Since the relative pose between source and RCPs is the same as the relative pose between source and target , the input point clouds can be registered naturally. Specifically, we first construct the initial VCPs by using an estimated soft matching matrix to perform a weighted average on the target points. Then, we design a correction-walk module to learn an offset to rectify VCPs to RCPs, which effectively breaks the distribution limitation of VCPs. Finally, we develop a hybrid loss function to enforce the shape and geometry structure consistency of the learned RCPs and the source to provide sufficient supervision. Extensive experiments on several benchmark datasets demonstrate that our method achieves advanced registration performance and time-efficiency simultaneously.  </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We propose a point cloud registration method named VRNet to guarantee high accuracy and high timeefficiency. We present a new type of virtual points called RCPs, which maintain the same shape as the source and the same pose as the target, to help build reliable
+              correspondences.</li>
+            <li>We design a novel correction-walk module in our VRNet to learn an offset to break the distribution limitation of the initial VCPs. Besides, a hybrid loss function is proposed to enhance the rigidity and geometric structure
+              consistency between the learned RCPs and the source.</li>
+            <li>Remarkable results on benchmark datasets validate the superiority and effectiveness of our proposed method for robust 3D point cloud registration.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/xxx_your_video_ID" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Motivation</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="Image/motivation.png" alt="motivation">
+        <p class="text-left"> 1) The degeneration of the learned corresponding points. Red and blue represent the source and the target respectively. Pink indicates the learned corresponding points. The matching lines connect the
+          source points and the corresponding points. Due to insufficient supervision, the learned corresponding points of DCP and RPMNet degenerate seriously. 2) Illustration of the distribution limitation of VCPs. The red and green
+          represent the source and the target respectively. In this case, only a part of corresponding points can be fitted by the VCPs, which are generated by performing the weighted average on the target. And the corresponding points
+          of the source points marked by the box can never be fitted since the distribution of the VCPs is limited in the convex set of the target. 3) Illustration of our VRNet. ① source and ④ target have different poses and different shapes (broken tail and wing in source and target respectively).
+          The existing methods will learn degenerated VCPs indicated by the pink in ②. Conversely, our VRNet devotes to learning the RCPs indicated by ③, which maintain the same shape as the source and the same
+          pose as the target, by unfolding VCPs and rectifying the partiality of the wing. Hence, the reliable correspondences of these consistent point clouds, i.e. source and RCPs, can be obtained easily since the influence of outliers
+          has been eliminated. Further, the relative pose between source and RCPs can be solved accurately, which is same as the relative pose between source and target.          
+        </p>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- network -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <img class="img-fluid" width="100%" src="Image/network.png" alt="Architecture">
+      <p class="text-left"> The network architecture of our proposed VRNet. Given the source and target, DGCNN and Transformer are applied to extract point features. Then, a soft matching matrix is achieved based on the constructed similarity matrix. Virtual corresponding
+        points and corresponding point features are obtained by using the matching matrix to perform the weighted average on the target point cloud and the target point features respectively. To break the distribution limitation, a correction-walk module is
+        proposed to learn the offset to amend the VCPs to the desired RCPs. Finally, the rigid transformation is solved by the Procrustes algorithm. The network is supervised by the proposed hybrid loss function, which enforces the rigidity and geometry structure
+        consistency between the learned RCPs and the source point cloud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- comparison 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison with state-of-the-art methods</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="./videos/xxx.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Method Analyze</h3>
+        <hr style="margin-top:0px">
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <img class="img-fluid" width="100%" src="Image/result_vis.png" alt="result">
+      <p class="text-left"> Visualization of the source point (purple), the target point cloud (green), the learned VCPs (gray), RCPs (blue), and the learned offset (red line). All points clouds are calibrated to the same pose for clear comparison. Obviously, the VCPs
+        approximate the source as much as possible but it is limited in the target distribution. Then, the correction-walk module amends the VCPs to the RCPs, which present a more consistent distribution with the source than the VCPs and the origianl target.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@ARTICLE{zhang_vrnet_tcsvt_2022,
+  title={VRNet: Learning the Rectified Virtual Corresponding Points for 3D Point Cloud Registration},
+  author={Zhang, Zhiyuan and Sun, Jiadai and Dai, Yuchao and Fan, Bin and He, Mingyi},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2022},
+  volume={32},
+  number={8},
+  pages={4997-5010}} 
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>

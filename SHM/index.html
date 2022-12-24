@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>End-to-end learning the partial permutation matrix for robust 3D point cloud registration</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>End-to-end learning the partial permutation matrix for robust 3D point cloud registration</h2>
+          <h4 style="color:#5a6268;">AAAI 2022</h4>
+          <hr>
+          <h6>
+            <a href="https://scholar.google.com/citations?user=CQ17Dj8AAAAJ&hl=zh-CN" target="_blank">Zhiyuan Zhang</a><sup>1</sup>,
+            <a href="https://sunjiadai.xyz/" target="_blank">Jiadai Sun</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=pfBeKioAAAAJ&hl=zh-CN" target="_blank">Dingfu Zhou</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=2gudyEQAAAAJ&hl=zh-CN" target="_blank">Xibin Song</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=gLnLpAsAAAAJ&hl=en" target="_blank">Mingyi He</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>Baidu Inc &nbsp;&nbsp;
+            <br>
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ojs.aaai.org/index.php/AAAI/article/view/20250" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+            
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Even though considerable progress has been made in deep learning-based 3D point cloud processing, how to obtain accurate correspondences for robust registration
+           remains a major challenge because existing hard assignment methods cannot deal with outliers naturally. Alternatively, the soft matching-based methods have been proposed to learn the matching probability rather than hard assignment. 
+           However, in this paper, we prove that these methods have an inherent ambiguity causing many deceptive correspondences. To address the above challenges, we propose to learn a partial permutation matching matrix, 
+           which does not assign corresponding points to outliers, and implements hard assignment to prevent ambiguity. 
+           However, this proposal poses two new problems, i.e. existing hard assignment algorithms can only solve a full rank permutation matrix rather than a partial permutation matrix, 
+           and this desired matrix is defined in the discrete space, which is non-differentiable. In response, we design a dedicated soft-to-hard (S2H) matching procedure within the registration pipeline consisting of two steps: 
+           solving the soft matching matrix (S-step) and projecting this soft matrix to the partial permutation matrix (H-step). Specifically, we augment the profit matrix before the hard assignment to solve an augmented permutation matrix, 
+           which is cropped to achieve the final partial permutation matrix. Moreover, to guarantee end-to-end learning, 
+           we supervise the learned partial permutation matrix but propagate the gradient to the soft matrix instead. Our S2H matching procedure can be easily integrated with existing registration frameworks, 
+           which has been verified in representative frameworks including DCP, RPMNet, and DGR. Extensive experiments have validated our method, which creates a new state-of-the-art performance. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We theoretically analyze the inherent ambiguity in the soft matching-based methods, which causes serious de- generation of the learned virtual corresponding points.</li>
+            <li>WeproposeanovelS2Hmatchingproceduretolearnthe PPM, which handles the outliers and prevents ambiguity synchronously. This matching procedure not only solves a real PPM, but also guarantees end-to-end learning.</li>
+            <li>Remarkable performance on benchmark datasets verifies the proposed method, which achieves state-of-the-art performance in robust 3D point cloud registration.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/xxx_your_video_ID" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Motivation</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="Image/compare.png" alt="motivation">
+        <p class="text-left"> Comparison of learning-based point cloud registration methods based on “soft” matching and “hard” matching. Points with different colors indicate the source (green), target (blue), and virtual points (red).
+          $m_{ij}$ is the entry of matching matrix $\mathbf{M} \in \mathbb{R}^{N_\mathcal{X} \times N_\mathcal{Y}}$, where $N_\mathcal{X}$, $N_\mathcal{X}$ are size of the source and target. (The matching result of ours is returned by SHMDCP.)
+        </p>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- network -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <img class="img-fluid" width="100%" src="Image/network.png" alt="Architecture">
+      <p class="text-left"> S2H matching procedure in registration pipeline. Given the source and target, the similarity matrix is obtained based on the point features. Then, S2H is applied for the final PPM. Finally, the rigid motion is estimated by the weighted Procrustes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- comparison 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison with state-of-the-art methods</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="./videos/xxx.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Result Visualization</h3>
+        <hr style="margin-top:0px">
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <img class="img-fluid" width="100%" src="Image/result_vis.png" alt="result">
+      <p class="text-left"> For each pair of point clouds, left upper is the transformed source using the predicted rigid motion and right bottom is the target. The same color represents the cor- respondences, and black indicates the abandoned points.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{zhang_SHM_AAAI_2022,
+  title={End-to-End Learning the Partial Permutation Matrix for Robust 3D Point Cloud Registration},
+  author={Zhiyuan Zhang and Jiadai Sun and Yuchao Dai and Dingfu Zhou and Xibin Song and Mingyi He},
+  booktitle={AAAI Conference on Artificial Intelligence},
+  year={2022}} 
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>

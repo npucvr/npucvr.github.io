@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning a Task-specific Descriptor for Robust Matching of 3D Point Clouds</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Learning a Task-specific Descriptor for Robust Matching of 3D Point Clouds</h2>
+          <h4 style="color:#5a6268;">IEEE Transactions on Circuits and Systems for Video Technology</h4>
+          <hr>
+          <h6>
+            <a href="https://scholar.google.com/citations?user=CQ17Dj8AAAAJ&hl=zh-CN" target="_blank">Zhiyuan Zhang</a><sup>1</sup>,            
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+            <a href="https://gitcvfb.github.io/" target="_blank">Bin Fan</a><sup>1</sup>,
+            <a href="https://sunjiadai.xyz/" target="_blank">Jiadai Sun</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=gLnLpAsAAAAJ&hl=en" target="_blank">Mingyi He</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup>School of Electronics and Information, Northwestern Polytechnical University, Xi'an, China &nbsp;&nbsp;
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ieeexplore.ieee.org/abstract/document/9847261" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2210.14899.pdf" role="button" target="_blank">
+                  <i class="fa fa-file"></i> ArXiv </a> </p>
+            </div>
+            
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Existing learning-based point feature descriptors are usually task-agnostic, which pursue describing the individual 3D point clouds as accurate as possible. However, the matching task aims at describing the corresponding points consistently across different 3D point clouds. Therefore these too accurate features may play a counterproductive role due to the inconsistent point feature representations of correspondences caused by the unpredictable noise, partiality, deformation, etc., in the local geometry. In this paper, we propose to learn a robust task-specific feature descriptor to consistently describe the correct point correspondence under interference. Born with an E ncoder and a D ynamic F usion module, our method EDFNet develops from two aspects. First, we augment the matchability of correspondences by utilizing their repetitive local structure. To this end, a special encoder is designed to exploit two input point clouds jointly for each point descriptor. It not only captures the local geometry of each point in the current point cloud by convolution, but also exploits the repetitive structure from paired point cloud by Transformer. Second, we propose a dynamical fusion module to jointly use different scale features. There is an inevitable struggle between robustness and discriminativeness of the single scale feature. Specifically, the small scale feature is robust since little interference exists in this small receptive field. But it is not sufficiently discriminative as there are many repetitive local structures within a point cloud. Thus the resultant descriptors will lead to many incorrect matches. In contrast, the large scale feature is more discriminative by integrating more neighborhood information. But it is easier to be disturbed since there is much more interference in the large receptive field. Compared with the conventional fusion strategy that handles multiple scale features equally, we analyze the consistency of them to judge the clean ones and perform larger aggregation weights on them during fusion. Then, a robust and discriminative feature descriptor is achieved by focusing on multiple clean scale features. Extensive evaluations validate that EDFNet learns a task-specific descriptor, which achieves state-of-the-art or comparable performance for robust matching of 3D point clouds.
+           </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We propose EDFNet to learn matching task-specific feature descriptors to consistently describe the correspondences under unpredictable interference.</li>
+            <li>We propose an encoder to extract multiple scale features by sensing both two input point clouds simultaneously, which consists of a convolution branch and a Transformer
+              branch. Besides, we design a dynamic fusion module to guide the final fused feature to approach to the consistent and clean scale features and far away from the contaminated ones to reply to disturbers. This dynamic fusion
+              module achieves a good balance between robustness and discriminativeness.</li>
+            <li>Extensive experiments on several benchmark datasets show that our EDFNet achieves comparable if not SOTA performance for robust 3D point cloud matching.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/xxx_your_video_ID" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Motivation</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="Image/motivation.png" alt="motivation">
+        <p class="text-left">  Motivation of our proposed dynamic fusion strategy. There is an inevitable struggle between robustness and discriminativeness of single scale feature description. Due to
+          repetitive minor structures, the small scale descriptors are not discriminative enough but are robust due to little interference. By contrast, the large receptive field improves the discriminativeness of large scale feature, which is easy to be affected by
+          many disturbers. Existing multi-scale fusion methods usually utilize each scale equally, which cannot improve the robustness as the disturbers are also encoded to the final descriptor. Thus, we design a dynamic fusion module, which
+          recognizes and selects consistent and clean ones dynamically during the fusion. By focusing on multiple clean scale features, it achieves a good balance between discriminativeness and robustness. Here, we provide a toy example, where yellow
+          denotes the current point (i.e. $x$, $y$) and red is noise, gray parallelograms indicate different receptive fields. Obviously, the features of the first 3 scales $F^1_x$, $F^2_x$, $F^3_x$ and $F^1_y$, $F^2_y$, $F^3_y$ are consistent in describing similar local geometry (a plane).
+          However, the last scale features $F^4_x$ and $F^4_y$ show deviation due to the noise and deformation. Our designed dynamic fusion module enforces the final feature $F^∗_x$, $F^∗_y$ approach to the first
+          3 scale features while marginalizing the last scale feature.        
+        </p>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- network -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <img class="img-fluid" width="100%" src="Image/network.png" alt="Architecture">
+      <p class="text-left"> Illustration of our proposed EDFNet architecture. Given two point clouds, the CT-encoder network is used to extract different scale features, where convolution and Transformer are employed to extract local information of the current point
+        cloud and the repetitive structure information of paired point clouds, respectively. Then, we design a dynamic fusion module to fuse these different scale features to the final feature descriptor. The entire network is trained with a metric learning loss.
+        Note that the robot indicates the Transformer module.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- comparison 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison with state-of-the-art methods</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="./videos/xxx.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Method Analyze</h3>
+        <hr style="margin-top:0px">
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <img class="img-fluid" width="60%" src="Image/result1.png" alt="result">
+        <p class="text-left"> Feature matching recall at $\tau_1$=10cm, $\tau_2$=5% on the 3DMatch dataset. AVG and STD indicate the average feature matching recall and its standard deviation. Dim. indicates the dimension of the final feature.</p>
+        <img class="img-fluid" width="60%" src="Image/result2.png" alt="result">
+        <p class="text-left"> Matching results of our method on non-rigid point clouds. Green indicates the source point cloud and blue indicates the target. Lines present the matching results, where our method achieves advanced performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@ARTICLE{zhang_tsd_tcsvt_2022,
+  title={Learning a Task-specific Descriptor for Robust Matching of 3D Point Clouds},
+  author={Zhang, Zhiyuan and Dai, Yuchao and Fan, Bin and Sun, Jiadai and He, Mingyi},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2022},
+  volume={32},
+  number={12},
+  pages={8462-8475}} 
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
