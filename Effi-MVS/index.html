@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Efficient Multi-view Stereo by Iterative Dynamic Cost Volume</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Efficient Multi-view Stereo by Iterative Dynamic Cost Volume</h2>
+          <h4 style="color:#5a6268;">IEEE Conference on Computer Vision and Pattern Recognition (CVPR 2022).</h4>
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Shaoqian Wang</a><sup>#</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Bo Li</a><sup>#</sup>
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>*</sup>,
+
+          </h6>
+          <p><sup></sup> Northwestern Polytechnical University &nbsp;&nbsp;
+            <!-- <sup>2</sup>B University -->
+            <br>
+            <sup>#</sup> Contributed equally
+            <sup>*</sup> Corresponding authors
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_Efficient_Multi-View_Stereo_by_Iterative_Dynamic_Cost_Volume_CVPR_2022_paper.pdf" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/bdwsq1996/Effi-MVS" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left">
+          In this paper, we propose a novel iterative dynamic cost volume for multi-view stereo. Compared with other works, our cost volume is much lighter, thus could be processed with 2D convolution based GRU. Notably, the every-step output of the GRU could be further used to generate new cost volume. In this way, an iterative GRU-based optimizer is constructed. Furthermore, we present a cascade and hierarchical refinement architecture to utilize the multi-scale information and speed up the convergence. Specifically, a lightweight 3D CNN is utilized to generate the coarsest initial depth map which is essential to launch the GRU and guarantee a fast convergence. Then the depth map is refined by multi-stage GRUs which work on the pyramid feature maps. Extensive experiments on the DTU and Tanks \& Temples benchmarks demonstrate that our method could achieve state-of-the-art results in terms of accuracy, speed and memory usage.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- CONTRI -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contributions</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left">
+          (1) We propose a novel dynamic cost volume, which is very lightweight and could be processed by 2D convolution based GRU iteratively. In this way, we avoid the memory and time consuming problem of large size static cost volume.
+        </p>
+        <p class="text-left">
+          (2) We present a cascade and hierarchical refinement architecture to utilize the multi-scale information and speed up the convergence. Specifically, with a lightweight 3D CNN, we give a reliable initialization for GRUs, which is critical to fast convergence and final performance.
+        </p>
+        <p class="text-left">
+          (3) Our method achieves state-of-the-art performance in terms of accuracy, inference speed and GPU memory consumption. As for the accuracy, our method achieves the best results on DTU and advanced sequence of Tanks and Temples dataset. More importantly, with the less memory consumption, our method is 2 times faster than the runner-up.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- overview video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="video/cvpr_video_v3.mp4" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Effi-MVS Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/framework.png" alt="Architecture">
+
+        <p> Flowchart of our proposed method. Our method consists of a multi-scale feature extractor and GRU-based optimizers. Specifically, the GRU-based optimizer includes a dynamic cost volume constructor and GRU module. A multi-stage GRUs based cascade architecture is utilized to aggregate multi-scale information and speed up the convergence. Especially, we utilize a lightweight 3D CNN to estimate the initial depth and launch the GRUs.
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Results</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="75%" src="images/results.png" alt="Architecture">
+        <p> Comparison between our method and SOTA learning-based multi-view stereo methods on the DTU dataset. We report the accuracy in terms of the Overall Error with respect to running time (Left) and GPU memory consumption (Right). The image resolution is $1600\times 1184$. The `Iters' represent the numbers of iterations at each stage.
+        <img class="img-fluid" width="100%" src="images/Tank.png" alt="Architecture">
+        <p> Point cloud reconstruction of Tanks and Temples dataset. Top Row: the reconstruction results on the intermediate set. Bottom Row: the reconstruction results on the advanced set.    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- ablation study -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Ablation studies</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video>
+        <img class="img-fluid" width="95%" src="images/xxx.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- comparison -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison with state-of-the-art methods</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="./videos/xxx.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{wang2022efficient,
+  title={Efficient Multi-View Stereo by Iterative Dynamic Cost Volume},
+  author={Wang, Shaoqian and Li, Bo and Dai, Yuchao},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={8655--8664},
+  year={2022}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
