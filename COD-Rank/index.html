@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simultaneously Localize, Segment and Rank the Camouflaged Objects</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Simultaneously Localize, Segment and Rank the Camouflaged Objects</h2>
+          <h4 style="color:#5a6268;">Pattern Recognition</h4>
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Yunqiu Lv</a><sup>1*</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Jing Zhang</a><sup>2,3*</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Aixuan Li</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Bowen Liu</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Nick Barnes</a><sup>2</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Deng-Ping Fan</a><sup>4</sup>,
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University, China &nbsp;&nbsp;
+            <sup>2</sup>Australian National University, Australia
+            <sup>3</sup>CSIRO, Australia
+            <sup>4</sup>Inception Institute of AI (IIAI), Abu Dhabi, UAE
+            <br>
+            <sup>*</sup> denotes equal contribution
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Lv_Simultaneously_Localize_Segment_and_Rank_the_Camouflaged_Objects_CVPR_2021_paper.pdf" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/JingZhang617/COD-Rank-Localize-and-Segment" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/CVPR2021/supplemental/Li_Uncertainty-Aware_Joint_Salient_CVPR_2021_supplemental.zip" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Camouflage is a key defence mechanism across species that is critical to survival. Common strategies for camouflage include background matching, imitating the color and pattern of the environment, and disruptive coloration, disguising body outlines [37]. Camouflaged object detection (COD) aims to segment camouflaged objects hiding in their surroundings. Existing COD models are built upon binary ground truth to segment the camouflaged objects without illustrating the level of camouflage. In this paper, we revisit this task and argue that explicitly modeling the conspicuousness of camouflaged objects against their particular backgrounds can not only lead to a better understanding about camouflage and evolution of animals, but also provide guidance to design more sophisticated camouflage techniques. Furthermore, we observe that it is some specific parts of the camouflaged objects that make them detectable by predators. With the above understanding about camouflaged objects, we present the first ranking based COD network (Rank-Net) to simultaneously localize, segment and rank camouflaged objects. The localization model is proposed to find the discriminative regions that make the camouflaged object obvious. The segmentation model segments the full scope of the camouflaged objects. Further, the ranking model infers the detectability of different camouflaged objects. Moreover, we contribute a large COD testing set to evaluate the generalization ability of COD models. Experimental results show that our model achieves new state-ofthe-art, leading to a more interpretable COD network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/col_cod_rank.png" alt="Architecture">
+        <p> The conventional “Binary” ground truth only provides the scope of the camouflaged objects. We present additional fixation (“Fixation”) and ranking (“Ranking”) annotations, where the former discovers regions that make camouflaged objects detectable and the latter highlights the level of camouflage. Blue color in “Ranking” indicates higher rank (harder) of camouflage.  
+             </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/overview.png" alt="Architecture">
+        <p> Overview of the proposed network. We have two main tasks in our framework, namely the camouflaged object ranking which is supervised by the ranking ground truth and each rank based binary segmentation map, and a joint learning framework for camouflaged object discriminative region localization and segmentation. With the input image, our model is trained end-to-end to produce discriminative region localization, camouflaged object segmentation and camouflage ranking. “FPN” and “RPN” are the Feature Pyramid Network and the Region Proposal Network, respectively..  
+             </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Performance comparison with baseline models on benchmark dataset and our NC4K dataset.</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/result_vis.png" alt="Performance comparison of COD.">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Performance of the discriminative region localization.</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/col_result.png" alt="Performance comparison of COL.">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison of camouflage ranking methods.</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/cor_result.png" alt="Performance comparison of COR.">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{lv2021simultaneously,
+  title={Simultaneously localize, segment and rank the camouflaged objects},
+  author={Lv, Yunqiu and Zhang, Jing and Dai, Yuchao and Li, Aixuan and Liu, Bowen and Barnes, Nick and Fan, Deng-Ping},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={11591--11601},
+  year={2021}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
