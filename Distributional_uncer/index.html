@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modeling the Distributional Uncertainty for Salient Object Detection Models</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Modeling the Distributional Uncertainty for Salient Object Detection Models</h2>
+          <h4 style="color:#5a6268;">CVPR 2023</h4>
+          <hr>
+          <h6>
+            <a href="https://github.com/txynwpu" target="_blank">Xinyu Tian</a><sup>1</sup>,
+            <a href="https://scholar.google.com.hk/citations?user=Qa1DMv8AAAAJ&hl=zh-CN&oi=sra" target="_blank">Jing Zhang</a><sup>2</sup>,
+	    <a href="https://github.com/XiangMochu" target="_blank">Mocha Xiang</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>Australian National University
+            <br>
+          </p>
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper(coming soon) </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Video(coming soon) </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/txynwpu/Distributional_uncertainty_SOD" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+             </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="http://npu-cvr.cn/" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Lab Page </a> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Most of the existing salient object detection (SOD) models focus on improving the overall model performance, without explicitly explaining the discrepancy between the training and testing distributions. In this paper, we investigate a particular type of epistemic uncertainty, namely distributional uncertainty, for salient object detection. Specifically, for the first time, we explore the existing class-aware distribution gap exploration techniques, i.e. long-tail learning, single-model uncertainty modeling and test-time strategies, and adapt them to model the distributional uncertainty for our class-agnostic task. We define test sample that is dissimilar to the training dataset as being “out-of-distribution” (OOD) samples. Different from the conventional OOD definition, where OOD samples are those not belonging to the closed-world training categories, OOD samples for SOD are those break the basic priors of saliency, i.e. center prior, color contrast prior, compactness prior and etc., indicating OOD as being “continuous” instead of being discrete for our task. We’ve carried out extensive experimental results to verify effectiveness of existing distribution gap modeling techniques for SOD, and conclude that both train-time single-model uncertainty estimation techniques and weight-regularization solutions that preventing model activation from drifting too much are promising directions for modeling distributional uncertainty for SOD. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Distributional Uncertainty</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="60%" src="images/uncertainty_explain.png" alt="Architecture">
+        <p class="text-left">  Visualization of different types of uncertainty, where aleatoric uncertainty \(p(y|x^\star,\theta)\) is caused by the inherent randomness of the data, model uncertainty \(p(\theta|D)\) happens when there exists low-density region, leading to multiple solutions within this region, and distributional uncertainty \(p(x^\star|D)\) occurs when the test sample \(x^\star\) fails to fit in the model based on the training dataset $D$. </p>
+	</div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Motivation -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Motivation</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="80%" src="images/sod_distributional_uncertainty.png" alt="Architecture">
+        <p class="text-left">“OOD” samples for salient object detection. Different from the class-aware tasks, OOD for saliency detection is continuous, which can be defined as attributes that break the basic saliency priors, i.e. center prior, contrast prior, compactness prior, etc. We aim to explore distributional uncertainty estimation for saliency detection. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- method1 -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Method1: Classic Strategies </h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/classic_strategies.png" alt="Architecture">
+        <p class="text-left">Performance of classic distribution bias modeling strategies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- method1_image -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3></h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="images/classic_strategies_vis.png" alt="Architecture">
+        <p class="text-left">Visual comparison of MCDropout with DeepEnsemble. The first column shows the input image and segmentation GT, and the other columns show the generated segmentation predictions and uncertainty maps. Compared to other models, the DeepEnsemble method integrates the information of multiple decoders, making it more accurate in distributional uncertainty modeling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- method2 -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Method2: Long-tail learning</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/long_tail.png" alt="Architecture">
+        <p class="text-left">Performance of long-tail learning based distribution bias modeling strategies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- method3 -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Method3: Single-model</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="images/single_model.png" alt="Architecture">
+        <p class="text-left">Performance of single model uncertainty modeling methods.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- method3 -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3></h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="images/single_model_vis.png" alt="Architecture">
+        <p class="text-left">Qualitative comparison of single-model uncertainty modeling strategies, i.e. ReAct and TCP, which both indicate more correct predictions and reliable uncertainty maps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- method4 -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Method4: Test-time Strategies</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/tta.png" alt="Architecture">
+        <p class="text-left">Performance of test-time strategies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- method4 -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3></h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="images/tta_vis.png" alt="Architecture">
+        <p class="text-left">Visual comparison of test-time strategies, i.e. test-time training (CoTTA) and test-time augmentation (CTTA). It shows that test-time augmentation strategy can help explore low-density regions and calibrate incorrect predictions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- all methods -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3></h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="images/all.png" alt="Architecture">
+        <p class="text-left">The distribution of AUROC metric on DUTS testing dateset, where x-axis is the AUROC measure, y-axis is the number of samples. The white line with the black number on the left indicates the mean AUROC of each method. The short blueline on the left represents the value of the lower 5% percentile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{tian2023modeling,
+  title={Modeling the Distributional Uncertainty for Salient Object Detection Models},
+  author={Tian, Xinyu and Zhang, Jing and Xiang, Mochu and Dai, Yuchao},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}},
+  year={2023}
+} 
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
