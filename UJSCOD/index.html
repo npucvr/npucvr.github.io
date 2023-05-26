@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uncertainty-aware Joint Salient Object and Camouflaged Object Detection</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Joint Salient Object Detection and Camouflaged Object Detection via Uncertainty-aware Learning</h2>
+          <h4 style="color:#5a6268;">Submission in progress</h4>    <!-- 投稿中，中了之后改 -->
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Aixuan Li</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Jing Zhang</a><sup>23</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yunqiu Lv</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Tong Zhang</a><sup>4</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yiran Zhong</a><sup>2</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Mingyi He</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University, China &nbsp;&nbsp;
+            <sup>2</sup>Australian National University, Australia
+            <sup>3</sup>CSIRO, Australia
+            <sup>4</sup>EPFL, Switzerland
+            <br>
+            <!-- <sup>*</sup> denotes equal contribution -->
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">     
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"
+                  target="">  
+                  <i class="fa fa-file"></i> Paper(coming soon)</a> </p>
+            </div>
+            <!-- <div class="column">     
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Li_Uncertainty-Aware_Joint_Salient_Object_and_Camouflaged_Object_Detection_CVPR_2021_paper.pdf" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div> -->
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/baneitixiaomai/joint_sod_cod" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/CVPR2021/supplemental/Li_Uncertainty-Aware_Joint_Salient_CVPR_2021_supplemental.zip" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Salient objects attract human attention, which usually stand out clearly from their surroundings.
+           In contrast, camouflaged objects share similar colors or textures with the environment. In this case, salient objects are typically non-camouflaged, and camouflaged objects are usually not salient. Due to this inherent \enquote{contradictory} attribute,we introduce an uncertainty-aware learning pipeline to extensively explore the contradictory information of salient object detection (SOD) and camouflaged object detection (COD) via data-level and task-wise contradiction modeling. We first exploit the \enquote{dataset correlation} of these two tasks and claim that the easy samples in the COD dataset can serve as hard samples for SOD to improve the robustness of the SOD model. 
+           Based on the assumption that these two models should lead to activation maps highlighting different regions of the same input image, we further introduce a \enquote{contrastive} module with a joint-task contrastive learning framework to explicitly model the contradictory attributes of these two tasks. Different from conventional intra-task contrastive learning for unsupervised representation learning, our \enquote{contrastive} module is designed to model the task-wise correlation, leading to cross-task representation learning. To better understand the two tasks from uncertainty's perspective, we extensively investigate the uncertainty estimation techniques for modeling \enquote{task uncertainty} (for SOD) and \enquote{data uncertainty} (for COD), aiming to effectively estimate the challenging regions for each task to achieve difficulty-aware learning.
+            Experimental results on benchmark datasets demonstrate that our solution leads to both state-of-the-art performance and informative uncertainty estimation.     
+       </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- Motivation -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Motivation</h3>
+        <hr style="margin-top:0px">
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <img class="img-fluid" width="95%" src="./image/m1.png" alt="Motivation 1">
+        <p> (1)To achieve data-wise correlation modeling, we introduce data interaction as data augmentation by defining the easy samples from COD as hard samples for SOD, achieving contradiction modeling from the dataset perspective. As shown in figure above, typical camouflaged objects are never salient, but samples in the middle can be defined as hard samples for SOD.</p>
+        <img class="img-fluid" width="95%" src="./image/m2.png" alt="Motivation 2">
+        <p> (2)Besides the contradictory relationship modeling, we also observe two types of uncertainty for SOD and COD respectively.</p>
+        <img class="img-fluid" width="95%" src="./image/m3.png" alt="Motivation 3">
+        <p> (3)Besides investigating the conventional uncertainty modeling techniques, we find the performance of COD is sensitive to the size of camouflaged objects. To explain this, we crop the foreground camouflaged objects with different percentages of background, and show their corresponding prediction maps and uncertainty maps . We observe that the cropping based prediction uncertainty, \ie~variance of multiple predictions, is relatively consistent with    region-level detectability of the camouflaged objects, validating that performance of the model can be influenced by the complexity of the background.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/net.png" alt="Architecture">
+        <p> Overview of the proposed uncertainty-aware joint learning network. The \enquote{Feature Encoders} for SOD $E_{\alpha_{s}}$ and COD $E_{\alpha_{c}}$ are used to extract independent feature representation $F_{\alpha_{s}}$ and  $F_{\alpha_{c}}$, respectively. Given the feature representation of auxiliary image $X^p$, the contrastive module $\mathit{Ctrs}_{\theta}$ is presented to model the contradicting attributes of SOD and COD, achieving effective multi-task learning, and based on which the \enquote{Prediction Decoders} $G_{\beta}$ share weights to produce fine-grained SOD prediction $P_{s}$ and COD prediction $P_{c}$.
+          As an adversarial learning network, we extract confidence indicators from the two discriminators $D_{\gamma_{s}}$ and $D_{\gamma_{c}}$ for uncertainty-aware learning to distinguish the prediction from the ground truth.
+             </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Performance comparison with benchmark saliency detection models.</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/p1.png" alt="Performance comparison of SOD.">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Predictions of competing salient object detection models and ours.</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/ps1.png" alt="Performance comparison of SOD.">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Performance comparison with re-implemented camouflaged object detection models.</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/p1.png" alt="Performance comparison of COD.">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Predictions of competing camouflaged object detection models and ours.</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/ps2.png" alt="Performance comparison of COD.">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@InProceedings{Li_2021_CVPR,
+  author    = {Li, Aixuan and Zhang, Jing and Lv, Yunqiu and Zhang, Tong and Zhong, Yiran and Yiran Zhong and Dai, Yuchao},
+  title     = {Joint Salient Object Detection and Camouflaged Object Detection via Uncertainty-aware Learning},
+  year      = {2023}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
