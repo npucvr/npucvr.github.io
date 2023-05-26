@@ -97,9 +97,9 @@
         <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
           <source src="https://www.youtube.com/xxxxx" type="video/mp4">
         </video> -->
-        <img class="img-fluid" width="95%" src="./image/m1.png" alt="Motivation 1">
+        <img class="img-fluid" width="50%" src="./image/m1.png" alt="Motivation 1">
         <p> (1)To achieve data-wise correlation modeling, we introduce data interaction as data augmentation by defining the easy samples from COD as hard samples for SOD, achieving contradiction modeling from the dataset perspective. As shown in figure above, typical camouflaged objects are never salient, but samples in the middle can be defined as hard samples for SOD.</p>
-        <img class="img-fluid" width="95%" src="./image/m2.png" alt="Motivation 2">
+        <img class="img-fluid" width="40%" src="./image/m2.png" alt="Motivation 2">
         <p> (2)Besides the contradictory relationship modeling, we also observe two types of uncertainty for SOD and COD respectively.</p>
         <img class="img-fluid" width="95%" src="./image/m3.png" alt="Motivation 3">
         <p> (3)Besides investigating the conventional uncertainty modeling techniques, we find the performance of COD is sensitive to the size of camouflaged objects. To explain this, we crop the foreground camouflaged objects with different percentages of background, and show their corresponding prediction maps and uncertainty maps . We observe that the cropping based prediction uncertainty, \ie~variance of multiple predictions, is relatively consistent with    region-level detectability of the camouflaged objects, validating that performance of the model can be influenced by the complexity of the background.</p>
@@ -116,7 +116,7 @@
       <div class="col-12 text-center">
         <h3>Network Architecture</h3>
         <hr style="margin-top:0px">
-        <img class="img-fluid" width="100%" src="./image/net.png" alt="Architecture">
+        <img class="img-fluid" width="65%" src="./image/net.png" alt="Architecture">
         <p> Overview of the proposed uncertainty-aware joint learning network. The \enquote{Feature Encoders} for SOD $E_{\alpha_{s}}$ and COD $E_{\alpha_{c}}$ are used to extract independent feature representation $F_{\alpha_{s}}$ and  $F_{\alpha_{c}}$, respectively. Given the feature representation of auxiliary image $X^p$, the contrastive module $\mathit{Ctrs}_{\theta}$ is presented to model the contradicting attributes of SOD and COD, achieving effective multi-task learning, and based on which the \enquote{Prediction Decoders} $G_{\beta}$ share weights to produce fine-grained SOD prediction $P_{s}$ and COD prediction $P_{c}$.
           As an adversarial learning network, we extract confidence indicators from the two discriminators $D_{\gamma_{s}}$ and $D_{\gamma_{c}}$ for uncertainty-aware learning to distinguish the prediction from the ground truth.
              </p>
