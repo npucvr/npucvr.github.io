@@ -79,9 +79,9 @@
       <div class="col-12 text-center">
         <h3>Contributions</h3>
         <hr style="margin-top:0px">
-        <p class="text-left"> {1)} We introduce a mutual information optimization method to explicitly model the contribution of RGB and depth for weakly-supervised RGB-D saliency detection;        
-        <p class="text-left"> {2)} We present asymmetric feature extractors, taking advantage of different backbones' encoding abilities to achieve more reliable feature representation;
-        <p class="text-left"> {3)} We present a multimodal variational auto-encoder framework as the second stage refinement solution to refine model prediction, which is proven more robust to error propagation issues caused by pseudo labeling. 
+        <p class="text-left"> (1) We introduce a mutual information optimization method to explicitly model the contribution of RGB and depth for weakly-supervised RGB-D saliency detection;        
+        <p class="text-left"> (2) We present asymmetric feature extractors, taking advantage of different backbones' encoding abilities to achieve more reliable feature representation;
+        <p class="text-left"> (3) We present a multimodal variational auto-encoder framework as the second stage refinement solution to refine model prediction, which is proven more robust to error propagation issues caused by pseudo labeling. 
           </div>
   </div>
 </section>
@@ -97,8 +97,6 @@
         <h3>Network Architecture</h3>
         <hr style="margin-top:0px">
         <img class="img-fluid" width="100%" src="./image/net.png" alt="Architecture">
-        <p> Overview of the proposed framework. We propose Asymmetric Encoders to provide task-specific features ($F_r$ and $F_d$) for RGB and depth image. After cross-level fusion ($F_u$), we utilize \textit{Mutual Information} as a regularization term to emphasize the information specificity of the different modalities. And to optimize the dense predictions, we add Prediction Refinement module via tree-energy loss for self-supervised learning in the training phase.  
-             </p>
       </div>
     </div>
   </div>
