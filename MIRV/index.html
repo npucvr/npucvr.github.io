@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mutual Information Regularization for Weakly-supervised RGB-D Salient Object Detection</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Mutual Information Regularization for Weakly-supervised RGB-D Salient Object Detection</h2>
+          <h4 style="color:#5a6268;">TCSVT 2023</h4>
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Aixuan Li</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuxin Mao</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Jing Zhang</a><sup>2</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University, China &nbsp;&nbsp;
+            <sup>2</sup>Australian National University, Australia
+            <br>
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2306.03630.pdf" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/baneitixiaomai/MIRV" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> In this paper, we present a weakly-supervised RGB-D salient object detection model via scribble supervision.
+          Specifically, as a multimodal learning task, we focus on effective multimodal representation learning via inter-modal mutual information regularization.
+          In particular, following the principle of disentangled representation learning, we introduce a mutual information upper bound with a mutual information minimization regularizer to encourage the disentangled representation of each modality for salient object detection. Based on our multimodal representation learning framework, we introduce an asymmetric feature extractor for our multimodal data, which is proven more effective than the conventional symmetric backbone setting. We also introduce multimodal variational auto-encoder as stochastic prediction refinement techniques, which takes pseudo labels from the first training stage as supervision and generates refined prediction. 
+          Experimental results on benchmark RGB-D salient object detection datasets verify both effectiveness of our explicit multimodal disentangled representation learning method and the stochastic prediction refinement strategy, achieving comparable performance with the state-of-the-art fully supervised models.      
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contributions</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> {1)} We introduce a mutual information optimization method to explicitly model the contribution of RGB and depth for weakly-supervised RGB-D saliency detection;        
+        <p class="text-left"> {2)} We present asymmetric feature extractors, taking advantage of different backbones' encoding abilities to achieve more reliable feature representation;
+        <p class="text-left"> {3)} We present a multimodal variational auto-encoder framework as the second stage refinement solution to refine model prediction, which is proven more robust to error propagation issues caused by pseudo labeling. 
+          </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/net.png" alt="Architecture">
+        <p> Overview of the proposed framework. We propose Asymmetric Encoders to provide task-specific features ($F_r$ and $F_d$) for RGB and depth image. After cross-level fusion ($F_u$), we utilize \textit{Mutual Information} as a regularization term to emphasize the information specificity of the different modalities. And to optimize the dense predictions, we add Prediction Refinement module via tree-energy loss for self-supervised learning in the training phase.  
+             </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Benchmarking results of SOD models.</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/per1.png" alt="Performance comparison of SOD.">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Visualization of the generated saliency maps from benchmark RGB-D saliency detection models and ours.</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./image/per2.png" alt="Performance comparison of SOD.">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@misc{li2023mutual,
+  title={Mutual Information Regularization for Weakly-supervised RGB-D Salient Object Detection}, 
+  author={Aixuan Li and Yuxin Mao and Jing Zhang and Yuchao Dai},
+  booktitle = {IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2023}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
