@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forward Flow for Novel View Synthesis of Dynamic Scenes</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Forward Flow for Novel View Synthesis of Dynamic Scenes</h2>
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;"> International Conference on Computer Vision 2023 (ICCV)</h4>
+          <hr>
+          <h6>
+            <a href="" target="_blank">Xiang Guo</a><sup>1</sup>,
+            <a href="https://sunjiadai.xyz/" target="_blank">Jiadai Sun</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+            <a href="https://guanyingc.github.io/" target="_blank">Guanying Chen</a><sup>2</sup>,
+            <a href="https://dblp.org/pid/177/0181.html" target="_blank">Xiaoqing Ye</a><sup>3</sup>,
+            <a href="https://dblp.org/pid/116/7143-1.html" target="_blank">Xiao Tan</a><sup>3</sup>,
+            <a href="https://dblp.org/pid/180/5531.html" target="_blank">Errui Ding</a><sup>3</sup>,
+            <a href="" target="_blank">Yumeng Zhang</a><sup>3</sup>,
+            <a href="https://jingdongwang2017.github.io/" target="_blank">Jingdong Wang</a><sup>3</sup>,
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>FNii and SSE, CUHK-Shenzhen &nbsp;&nbsp;
+            <sup>3</sup>Baidu Inc. &nbsp;&nbsp;
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://www.youtube.com/watch?v=sBQrDf6yoyQ" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Video </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="http://npu-cvr.cn/" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Lab Page </a> </p>
+            </div>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- overview video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview Video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/sBQrDf6yoyQ" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> This paper proposes a neural radiance field (NeRF) approach for novel view synthesis of dynamic scenes using forward warping.
+          Existing methods often adopt a static NeRF to represent the canonical space, and render dynamic images at other time steps by mapping the sampled 3D points back to the canonical space with the learned \emph{backward flow} field. 
+          However, this backward flow field is non-smooth and discontinuous, which is difficult to be fitted by commonly used smooth motion models.
+          To address this problem, we propose to estimate the \emph{forward flow} field and directly warp the canonical radiance field to other time steps. Such forward flow field is smooth and continuous within the object region, which benefits the motion model learning. 
+          To achieve this goal, we represent the canonical radiance field with voxel grids to enable efficient forward warping, and propose a differentiable warping process, including an average splatting operation and an inpaint network, to resolve the many-to-one and one-to-many mapping issues.
+          Thorough experiments show that our method outperforms existing methods in both novel view rendering and motion modeling, demonstrating the effectiveness of our forward flow motion modeling.
+          Code will be released.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>To the best of our knowledge, we are the first to investigate forward warping in dynamic view synthesis for general scenes. We propose a novel canonical based NeRF with forward flow motion modeling for dynamic view synthesis. Thanks to the forward flow field, our method can better represent the object motions, and explicitly recover the trajectory of a surface point.</li>
+            <li>We introduce voxel grid based canonical radiance field to enable reasonable computation of forward warping, and propose a differentiable forward warping method, including an average splatting operation and an inpaint network, to solve the many-to-one and one-to-many issues of forward warping.</li>
+            <li>Experiments on multiple datasets show that our method outperforms existing methods on the D-NeRF dataset, Hypernerf dataset, NHR dataset and our proposed dataset.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Backward Flow vs Forward Flow</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="50%" src="images/backvsforward5.jpg" alt="teaser">
+          <p class="text-left">  <b>Comparison of backward flow and forward flow.</b>
+            This figure shows an example of backward and forward flow changes. <b>(a)</b> An example of dynamic scene. <b>(b)</b> With the bucket lifting up, different types of points cover the green point $\mathbf{p}$, which needs very different backward flows to map this point back to canonical space. <b>(d)</b> shows the norm changes of the backward flow, which is not smooth. <b>(c)</b> On the other hand, the forward flow of position $\mathbf{q}$, which maps the constant object point from canonical space to other times, is smooth and continuous. <b>(e)</b> shows the norm changes of the forward flow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview of the Method</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="90%" src="images/pipeline.jpg" alt="overview">
+          <p class="text-left">  <b>Overview of our proposed method.</b> <b>a)</b> We represent a static scene at canonical time with a voxel grid based radiance field for density & color and a voxel grid based trajectory field for deformations;  <b>b)</b> We propose to first forward warp canonical radiance field using the forward flow by average splatting; <b>c)</b> We then inpaint the warped radiance field using a inpaint network; Specifically, <b>1. Voxel Grid Based Canonical Field</b> contains two models. The canonical radiance field $\mathbf{V}_{\text{R}}^{\text{Can}}$ is estimated by a Light MLP which takes canonical radiance feature $\mathbf{V}_{\text{Rf}}^{\text{Can}}$ and corresponding 3D coordinates $\mathbf{V}_{\text{p}}^{\text{Can}}$ as input. The canonical trajectory field $\mathbf{V}_{\text{T}}^{\text{Can}}$ is estimated by another Light MLP which takes deformation feature and coordinates as input. The deformation flow $\mathbf{V}_{\text{flow}}^{t}$ from canonical to time $t$ can then be obtained; <b>2. Differential Forward Warping</b> first warp $\mathbf{V}_{\text{R}}^{\text{Can}}$ to get radiance field $\mathbf{V}_{\text{R}}^{t}$ at time $t$. Then, the $\mathbf{V}_{\text{R}}^{t}$ is inpainted by a inpaint network, which is $\mathbf{V}_{\text{R}_{\text{Inp}}}^{t}$; <b>3. Volume Rendering</b> render colors of rays at time $t$ based on $\mathbf{V}_{\text{R}_{\text{Inp}}}^{t}$</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Visual Results on DNeRF Dataset</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="40%" src="images/viscompare_dnerfv2.jpg" alt="timeline">
+        <p class="text-left">
+          We show some novel view synthesized images on the selected test set of the dataset. Comparing ours with ground truth, D-NeRF and TiNeuVox. Our model yields cleaner images with more details.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Visual Results on HyperNeRF Dataset</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/hypercompare3.jpg" alt="ablation study">
+        <p class="text-left">
+          <b>Qualitative comparison on HyperNeRF Dataset.</b> Our results are closer to ground truth than other methods.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Learned Canonical Geometry</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="images/cancompare3.jpg" alt="ablation study">
+        <p class="text-left">
+          We show canonical radiance field comparison with D-NeRF. Given the error map between the ground truth and rendered images, we can see that the canonical frame yielded by ours is closer to the ground truth. The results of D-NeRF are blurry and have large displacements.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Trajectory Visualization</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="50%" src="images/vistraj2_newseq.jpg" alt="ablation study">
+        <p class="text-left">
+          <b>Trajectory learned by the canonical trajectory field.</b> Light blue is the canonical frame, the curve represents the historical motion trajectory. More results can be found in video.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
