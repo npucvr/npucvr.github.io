@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RPEFlow: Multimodal Fusion of RGB-PointCloud-Event for Joint Optical Flow and Scene Flow Estimation</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>RPEFlow: Multimodal Fusion of RGB-PointCloud-Event for Joint Optical Flow and Scene Flow Estimation</h2>
+          <h4 style="color:#5a6268;">IEEE International Conference on Computer Vision (ICCV 2023)</h4>
+          <hr>
+          <h6>
+            <a href="https://github.com/danqu130" target="_blank">Zhexiong Wan</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=HPvl-ikAAAAJ" target="_blank">Yuxin Mao</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=Qa1DMv8AAAAJ" target="_blank">Jing Zhang</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>1#</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp; <sup>2</sup>Australian National University &nbsp;
+            <br>
+            <sup>#</sup> corresponding author
+            <br>wanzhexiong@mail.nwpu.edu.cn, daiyuchao@nwpu.edu.cn
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/xx" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> arXiv (Comming soon) </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ieeexplore.ieee.org/document/9950520" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> IEEE </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="Supp_Final_compressed.pdf" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Supp </a> </p>
+            </div> -->
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/danqu130/RPEFlow" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code (Comming soon) </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://drive.google.com/drive/folders/1znj0EqCn5CkaBYhRqrOqnHSKKexhVhIX?usp=sharing" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Dataset </a> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Recently, the RGB images and point clouds fusion methods have been proposed to jointly estimate 2D optical flow and 3D scene flow.
+          However, as both conventional RGB cameras and LiDAR sensors adopt a frame-based data acquisition mechanism, their performance is limited by the fixed low sampling rates, especially in highly-dynamic scenes. 
+          By contrast, the event camera can asynchronously capture the intensity changes with a very high temporal resolution, providing complementary dynamic information of the observed scenes.
+          In this paper, we incorporate \textbf{R}GB images, \textbf{P}oint clouds and \textbf{E}vents for joint optical flow and scene flow estimation with our proposed multi-stage multimodal fusion model, \textbf{RPEFlow}. 
+          First, we present an attention fusion module with a cross-attention mechanism to implicitly explore the internal cross-modal correlation for 2D and 3D branches, respectively. 
+          Second, we introduce a mutual information regularization term to explicitly model the complementary information of three modalities for effective multimodal feature learning. 
+          We also contribute a new synthetic dataset to advocate further research. 
+          Experiments on both synthetic and real datasets show that our model outperforms the existing state-of-the-art by a wide margin.  </p>
+  
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>EKubric Dataset Overview</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/ekubric.jpg" alt="EKubric">
+
+        <p class="text-left"> We use Kubric and ESIM simulator to make our EKubric dataset, which has 15,367 RGB-PointCloud-Event pairs with annotations (including optical flow, scene flow, surface normal, semantic segmentation and object coordinates ground truths).  </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+  
+      <!-- <p class="text-left"> If our work or code helps you, please cite our paper. If our code is very useful for your new research, I hope you can also open source your code including training. </p> -->
+
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+
+<code> @InProceedings{Wan_RPEFlow_ICCV_2023,
+  author    = {Zhexiong Wan, Yuxin Mao, Jing Zhang, Yuchao Dai},
+  title     = {RPEFlow: Multimodal Fusion of RGB-PointCloud-Event for Joint Optical Flow and Scene Flow Estimation},
+  booktitle = {Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
+  year      = {2023},
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Acknowledgments</h3>
+        <hr style="margin-top:0px">
+
+        <p class="text-left"> This research was sponsored by Zhejiang Lab. Zhexiong Wan is sponsored by the scholarship from China Scholarship Council and the Innovation Foundation for Doctor Dissertation of Northwestern Polytechnical University. </p>
+        <p class="text-left"> Thanks the ACs and the reviewers for their comments, which is very helpful to improve our paper. </p>
+
+        <p class="text-left"> Thanks for the following helpful open source projects: 
+          <a href="https://github.com/MCG-NJU/CamLiFlow" target="_blank">CamLiFlow</a>, 
+          <a href="https://github.com/princeton-vl/RAFT" target="_blank">RAFT</a>, 
+          <a href="https://github.com/princeton-vl/RAFT-3D" target="_blank">RAFT-3D</a>, 
+          <a href="https://github.com/google-research/kubric/" target="_blank">kubric</a>, 
+          <a href="https://github.com/uzh-rpg/rpg_vid2e" target="_blank">esim_py</a>, 
+          <a href="https://github.com/Lynn0306/DVS-Voltmeter" target="_blank">DVS-Voltmeter</a>, 
+          <a href="https://github.com/uzh-rpg/E-RAFT" target="_blank">E-RAFT</a>, 
+          <a href="https://github.com/uzh-rpg/DSEC" target="_blank">DSEC</a>, 
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
