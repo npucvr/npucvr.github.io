@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multimodal Variational Auto-encoder based Audio-Visual Segmentation</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Multimodal Variational Auto-encoder based Audio-Visual Segmentation</h2>
+          <h4 style="color:#5a6268;">IEEE International Conference on Computer Vision (ICCV 2023)</h4>
+          <hr>
+          <h6>
+            <a href="https://scholar.google.com/citations?user=HPvl-ikAAAAJ" target="_blank">Yuxin Mao</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=Qa1DMv8AAAAJ" target="_blank">Jing Zhang</a><sup>2</sup>,
+            <a href="https://github.com/XiangMochu" target="_blank">Mochu Xiang</a><sup>1</sup>
+            <a href="https://scholar.google.com/citations?user=E9NVOBUAAAAJ" target="_blank">Yiran Zhong</a><sup>3</sup>
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>1#</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp; <sup>2</sup>Australian National University &nbsp; <sup>2</sup>Shanghai AI Laboratory &nbsp;
+            <br>
+            <sup>#</sup> corresponding author
+            <br>maoyuxin@mail.nwpu.edu.cn, daiyuchao@nwpu.edu.cn
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/xx" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> arXiv (Comming soon) </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ieeexplore.ieee.org/document/xxxx" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> IEEE </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/danqu130/RPEFlow/releases/download/supp/RPEFlow-supp.pdf" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Supp </a> </p>
+            </div> -->
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/OpenNLPLab/MMVAE-AVS" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://drive.google.com/drive/folders/1znj0EqCn5CkaBYhRqrOqnHSKKexhVhIX?usp=sharing" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Dataset </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> We propose an Explicit Conditional Multimodal Variational Auto-Encoder (ECMVAE) for audio-visual segmentation (AVS), aiming to segment sound sources in the video sequence. Existing AVS methods focus on implicit feature fusion strategies, where models are trained to fit the discrete samples in the dataset. With a limited and less diverse dataset, the resulting performance is usually unsatisfactory. In contrast, we address this problem from an effective representation learning perspective, aiming to model the contribution of each modality explicitly. Specifically, we find that audio contains critical category information of the sound producers, and visual data provides candidate sound producer(s). Their shared information corresponds to the target sound producer(s) shown in the visual data. In this case, cross-modal shared representation learning is especially important for AVS. To achieve this, our ECMVAE factorizes the representations of each modality with a modality-shared representation and a modality-specific representation. An orthogonality constraint is applied between the shared and specific representations to maintain the exclusive attribute of the factorized latent code. Further, a mutual information maximization regularizer is introduced to achieve extensive exploration of each modality. Quantitative and qualitative evaluations on the AVSBench demonstrate the effectiveness of our approach, leading to a new state-of-the-art for AVS, with a 3.84 mIOU performance leap on the challenging MS3 subset for multiple sound source segmentation.  </p>
+  
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>MMVAE model framework</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/model.png" alt="framework">
+
+        <p class="text-left"> Overview of the proposed ECMVAE for audio-visual segmentation. The feature extractors are used to extract backbone features for the two modalities. We also design three latent encoders to achieve latent space factorization and obtain both task-driven shared representation and modality-related specific representation, achieving explicit multimodal representation learning. The decoder is introduced to obtain the final segmentation maps, indicating the sound producers of the audio-visual data.  </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>t-SNE visualization</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/tsne.png" alt="tsne">
+
+        <p class="text-left"> Visualization of the modality-shared and modality-specific latent codes.  </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+  
+      <!-- <p class="text-left"> If our work or code helps you, please cite our paper. If our code is very useful for your new research, I hope you can also open source your code including training. </p> -->
+
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+
+<code> @InProceedings{Wan_RPEFlow_ICCV_2023,
+  author    = {Yuxin Mao, Jing Zhang, Mochu Xiang, Yiran Zhong, Yuchao Dai},
+  title     = {Multimodal Variational Auto-encoder based Audio-Visual Segmentation},
+  booktitle = {Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
+  year      = {2023},
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Acknowledgments</h3>
+        <hr style="margin-top:0px">
+
+        <p class="text-left"> This work was done when Yuxin Mao was an intern at Shanghai AI Laboratory, OpenNLPLab. </p>
+        <p class="text-left"> Thanks the ACs and the reviewers for their comments, which is very helpful to improve our paper. </p>
+     
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
