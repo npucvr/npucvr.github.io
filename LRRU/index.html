@@ -18,38 +18,36 @@
       <div class="row">
         <div class="col-12">
           <h2>LRRU: Long-short Range Recurrent Updating Networks for Depth Completion</h2>
-          <h4 style="color:#5a6268;">International Conference on Computer Vision (ICCV), 2023</h4>
+          <h4 style="color:#5a6268;">nternational Conference on Computer Vision (ICCV), 2023.</h4>
           <hr>
           <h6>
-            <a href="https://scholar.google.com/citations?hl=en&user=kDaztnkAAAAJ" target="_blank">Yufei Wang</a><sup>1</sup>,
-            Bo Li</a><sup>1</sup>,
-            Ge Zhang</a><sup>1</sup>,
-            Qi Liu</a><sup>1</sup>,
-            Tao Gao<sup>2</sup>,
-            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai<sup>1</sup>
+            <a href="https://scholar.google.com/citations?user=kDaztnkAAAAJ&hl=en" target="_blank">Yufei Wang</a><sup>1</sup>,
+            <a  target="_blank">Bo Li</a><sup>1</sup>,
+            <a  target="_blank">Ge Zhange</a><sup>1</sup>,
+            <a  target="_blank">Qi Liu</a><sup>1</sup>,
+            <a  target="_blank">Tao Gao</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>
           </h6>
-          <p>
-            <sup>1</sup>Northwestern Polytechnical University and Shaanxi Key Laboratory of
-Information Acquisition and Processing
-            <br>
-            <sup>2</sup>Chang’an University
-            
-          <br>
-            <!-- <sup>*</sup> denotes equal contribution -->
+          <p><sup>1</sup> Northwestern Polytechnical University and Shaanxi Key Laboratory of
+Information Acquisition and Processing &nbsp;&nbsp;
+<br>
+            <sup>2</sup>Chang'an University
+           <!--  <br>
+            <sup>2</sup> Corresponding authors -->
           </p>
 
 
           <div class="row justify-content-center">
             <div class="column">
-              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/xxx" role="button"
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2210.14898" role="button"
                   target="_blank">
-                  <i class="fa fa-file"></i> Paper</a> </p>
+                  <i class="fa fa-file"></i> Arxiv </a> </p>
             </div>
             <div class="column">
-              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
-                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/YufeiWang777/LRRU" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
             </div>
-<!--             <div class="column">
+            <!-- <div class="column">
               <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
                   <i class="fa fa-file"></i> Supplementary </a> </p>
             </div> -->
@@ -64,6 +62,57 @@ Information Acquisition and Processing
   </div>
 </section>
 
+<!-- Performance -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+          <!-- <h3></h3> -->
+          <hr style="margin-top:0px">
+          <p>
+            <!-- <a href="https://paperswithcode.com/sota/monocular-depth-estimation-on-kitti-eigen?p=new-crfs-neural-window-fully-connected-crfs-1">
+              Results on KITTI eigen:
+            </a> -->
+
+<!--               <a href="https://paperswithcode.com/sota/monocular-depth-estimation-on-kitti-eigen?p=new-crfs-neural-window-fully-connected-crfs-1">
+              <img class="img-fluid" src="./NeW CRFs_ Neural Window Fully-connected CRFs for Monocular Depth Estimation_files/endpoint.svg" alt="NeW CRFs">
+            </a> 
+          </p>
+          <p>
+            <a href="https://paperswithcode.com/sota/monocular-depth-estimation-on-nyu-depth-v2?p=new-crfs-neural-window-fully-connected-crfs-1">
+              <img class="img-fluid" src="./NeW CRFs_ Neural Window Fully-connected CRFs for Monocular Depth Estimation_files/endpoint(1).svg" alt="NeW CRFs">
+            </a> 
+          </p>
+          <p> -->
+
+            <a href="http://www.cvlibs.net/datasets/kitti/eval_depth.php?benchmark=depth_completion">
+              Rank 1st on the KITTI depth online benchmark from 29-10-2022 to 27-09-2023:
+            </a>
+            <a href="http://www.cvlibs.net/datasets/kitti/eval_depth.php?benchmark=depth_completion">
+              <img class="img-fluid" src="images/LRRU_on_KITTI.png" alt="KITTI learder board" ,="" width="90%">
+            </a> 
+          </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <!-- <h3>Poster </h3> -->
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/07190_poster.png" alt="Architecture">
+
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
 
 <!-- abstract -->
 <section>
@@ -72,75 +121,25 @@ Information Acquisition and Processing
       <div class="col-12 text-center">
         <h3>Abstract</h3>
         <hr style="margin-top:0px">
-        <p class="text-left"> Existing deep learning-based depth completion methods generally employ massive stacked layers to predict the dense depth map from sparse input data. Although such approaches greatly advance this task, their accompanied huge computational complexity hinders their practical applications. To accomplish depth completion more efficiently, we propose a novel lightweight deep network framework, the Long-short Range Recurrent Updating (LRRU) network. Without learning complex feature representations, LRRU first roughly fills the sparse input to obtain an initial dense depth map, and then iteratively updates it through learned spatially-variant kernels. Our iterative update process is content-adaptive and highly flexible, where the kernel weights are learned by jointly considering the guidance RGB images and the depth map to be updated, and large-to-small kernel scopes are dynamically adjusted to capture long-to-short range dependencies. Our initial depth map has coarse but complete scene depth information, which helps relieve the burden of directly regressing the dense depth from sparse ones, while our proposed method can effectively refine it to an accurate depth map with less learnable parameters and inference time. Experimental results demonstrate that our proposed LRRU variants achieve state-of-the-art performance across different parameter regimes. In particular, the LRRU-Base model outperforms competing approaches on the NYUv2 dataset, and ranks 1st on the KITTI depth completion benchmark at the time of submission. </p>
+        <p class="text-left">
+        Existing deep learning-based depth completion methods generally employ massive stacked layers to predict the dense depth map from sparse input data. Although such approaches greatly advance this task, their accompanied huge computational complexity hinders their practical applications. To accomplish depth completion more efficiently, we propose a novel lightweight deep network framework, the Long-short Range Recurrent Updating (LRRU) network. Without learning complex feature representations, LRRU first roughly fills the sparse input to obtain an initial dense depth map, and then iteratively updates it through learned spatially-variant kernels. Our iterative update process is content-adaptive and highly flexible, where the kernel weights are learned by jointly considering the guidance RGB images and the depth map to be updated, and large-to-small kernel scopes are dynamically adjusted to capture long-to-short range dependencies. Our initial depth map has coarse but complete scene depth information, which helps relieve the burden of directly regressing the dense depth from sparse ones, while our proposed method can effectively refine it to an accurate depth map with less learnable parameters and inference time. Experimental results demonstrate that our proposed LRRU variants achieve state-of-the-art performance across different parameter regimes. In particular, the LRRU-Base model outperforms competing approaches on the NYUv2 dataset, and ranks 1st on the KITTI depth completion benchmark at the time of submission.
+         </p>
       </div>
     </div>
   </div>
 </section>
 <br>
 
-  <!-- Performance -->
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-            <!-- <h3></h3> -->
-            <hr style="margin-top:0px">
-            <p>
-              <!-- <a href="https://paperswithcode.com/sota/monocular-depth-estimation-on-kitti-eigen?p=new-crfs-neural-window-fully-connected-crfs-1">
-                Results on KITTI eigen:
-              </a> -->
-
-<!--               <a href="https://paperswithcode.com/sota/monocular-depth-estimation-on-kitti-eigen?p=new-crfs-neural-window-fully-connected-crfs-1">
-                <img class="img-fluid" src="./NeW CRFs_ Neural Window Fully-connected CRFs for Monocular Depth Estimation_files/endpoint.svg" alt="NeW CRFs">
-              </a> 
-            </p>
-            <p>
-              <a href="https://paperswithcode.com/sota/monocular-depth-estimation-on-nyu-depth-v2?p=new-crfs-neural-window-fully-connected-crfs-1">
-                <img class="img-fluid" src="./NeW CRFs_ Neural Window Fully-connected CRFs for Monocular Depth Estimation_files/endpoint(1).svg" alt="NeW CRFs">
-              </a> 
-            </p>
-            <p> -->
-
-              <a href="http://www.cvlibs.net/datasets/kitti/eval_depth.php?benchmark=depth_completion">
-                Rank 1st on the KITTI depth online benchmark from 29-10-2022 to 27-09-2023:
-              </a>
-              <a href="http://www.cvlibs.net/datasets/kitti/eval_depth.php?benchmark=depth_completion">
-                <img class="img-fluid" src="images/LRRU_on_KITTI.pdf" alt="KITTI learder board" ,="" width="50%">
-              </a> 
-            </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <br>
-
-<!-- poster -->
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-            <h3>Poster</h3>
-            <hr style="margin-top:0px">
-            <img class="img-fluid" src="images/07190_poster.pdf" alt="LRRU" width="500">   
-            <hr style="margin-top:0px">
-           <!--  <p class="text-justify">
-              The neural window fully-connected CRFs take image feature <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="0" style="font-size: 121.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c46 TEX-C"></mjx-c></mjx-mi></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">F</mi></mrow></math></mjx-assistive-mml></mjx-container> and upper-level prediction <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="1" style="font-size: 121.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container> as input, and compute the fully-connected energy <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="2" style="font-size: 121.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>E</mi></math></mjx-assistive-mml></mjx-container> in each window, which is then fed to the networks to output an optimized depth map.
-            </p> -->
-        </div>
-      </div>
-    </div>
-  </section>
 
 <!-- overview video -->
-<!-- <section>
+<section>
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3>Overview video</h3>
+        <h3>Video</h3>
         <hr style="margin-top:0px">
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe width="950" height="534" src="https://www.youtube.com/embed/xxx_your_video_ID" frameborder="0"
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/KBU0asJ8J2Y" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
@@ -148,18 +147,20 @@ Information Acquisition and Processing
     </div>
   </div>
 </section>
-<br> -->
+<br>
 
-<!-- showcase -->
+
+<!-- ablation study -->
 <!-- <section>
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3>XXNet Architecture</h3>
+        <h3>Ablation studies</h3>
         <hr style="margin-top:0px">
-        <img class="img-fluid" width="100%" src="images/network_framework.png" alt="Architecture">
-
-        <p> Zoom in by scrolling. Some comments.</p>
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video>
+        <img class="img-fluid" width="95%" src="images/xxx.png" alt="ablation study">
       </div>
     </div>
   </div>
@@ -189,12 +190,12 @@ Information Acquisition and Processing
       <h3>Citation</h3>
       <hr style="margin-top:0px">
       <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
-<code>@inproceedings{LRRU,
-  title={LRRU: Long-short Range Recurrent Updating Networks for Depth Completion},
-  author={Yufei Wang, Bo Li, Ge Zhang, Qi Liu, Tao Gao, Yuchao Dai},
-  booktitle={ICCV},
-  year={2023}
-} 
+<code>@InProceedings{LRRU_ICCV_2023,
+  author    = {Wang, Yufei and Li, Bo and Zhang, Ge and Liu, Qi and Gao Tao and Dai, Yuchao},
+  title     = {LRRU: Long-short Range Recurrent Updating Networks for Depth Completion},
+  booktitle = {Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
+  year      = {2023},
+}
 </code></pre>
       <hr>
     </div>
