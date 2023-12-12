@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Continuous Parametric Optical Flow</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Continuous Parametric Optical Flow</h2>
+          <h4 style="color:#5a6268;">Thirty-seventh Neural Information Processing Systems (NeurIPS 2023)</h4>
+          <hr>
+          <h6>
+            <a href="https://github.com/danqu130" target="_blank">Jianqin Luo</a><sup>*</sup>,
+            <a href="https://github.com/danqu130" target="_blank">Zhexiong Wan</a><sup>*</sup>,
+            <a href="https://scholar.google.com/citations?user=HPvl-ikAAAAJ" target="_blank">Yuxin Mao</a>,
+            <a target="_blank">Bo Li</a>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>#</sup>
+          </h6>
+          <p>Northwestern Polytechnical University &nbsp;
+            <br>
+            <sup>*</sup> Equal Contribution &nbsp;
+            <sup>#</sup> corresponding author
+            <br>daiyuchao@nwpu.edu.cn
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openreview.net/pdf?id=ZZgfS1DbmO" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> paper </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ieeexplore.ieee.org/document/xxxx" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> IEEE </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/danqu130/RPEFlow/releases/download/supp/RPEFlow-supp.pdf" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Supp </a> </p>
+            </div>-->
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/LuoRadisher/CPFlow" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!--<div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://drive.google.com/drive/folders/1znj0EqCn5CkaBYhRqrOqnHSKKexhVhIX?usp=sharing" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Dataset </a> </p>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> In this paper, we present <i>continuous parametric optical flow</i>, a parametric representation of <b>dense and continuous motion over arbitrary time interval</b>. In contrast
+          to existing discrete-time representations (i.e.flow in between consecutive frames),
+          this new representation transforms the frame-to-frame pixel correspondences to
+          dense continuous flow. In particular, we present a temporal-parametric model that
+          employs B-splines to fit point trajectories using a limited number of frames. To
+          further improve the stability and robustness of the trajectories, we also add an
+          encoder with a neural ordinary differential equation (ODE) to represent features
+          associated with specific times. We also contribute a synthetic dataset and introduce
+          two evaluation perspectives to measure the accuracy and robustness of continuous
+          flow estimation. Benefiting from the combination of explicit parametric modeling
+          and implicit feature optimization, our model focuses on motion continuity and
+          outperforms than the flow-based and point-tracking approaches for fitting long-term
+          and variable sequences. </p>
+  
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overall Pipeline</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/pipeline.svg" alt="EKubric">
+
+        <p class="text-left"> Our model focuses on the representation and optimization of continuous motion, which explicitly describes continuous flow trajectory by cubic B-splines with learnable control points and implicitly aggregates spatio-temporal information by Neural ODE with ConvGRU.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Pixel-wise Continuous Flow Visualization</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/visualization.png" alt="EKubric">
+
+        <p class="text-left"> We evaluate our algorithm on synthetic dataset and real-world benchmark. The 24-frame visualization reveals that our continuous flow could handle with relatively complex rotation motion and keep long-term tracking to suppress drift.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+  
+      <!-- <p class="text-left"> If our work or code helps you, please cite our paper. If our code is very useful for your new research, I hope you can also open source your code including training. </p> -->
+
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+
+<code> @InProceedings{Luo_CPFlow_NeurIPS_2023,
+  author    = {Luo, Jianqin and Wan, Zhexiong and Mao, Yuxin and Zhang, Jing and Dai, Yuchao},
+  title     = {Continuous Parametric Optical Flow},
+  booktitle = {Thirty-seventh Conference on Neural Information Processing Systems},
+  year      = {2023},
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Acknowledgments</h3>
+        <hr style="margin-top:0px">
+
+        <p class="text-left"> This research was supported in part by the National Natural Science Foundation
+          of China (62271410, 62001394), the Fundamental Research Funds for the Central Universities,
+          and the Innovation Foundation for Doctor Dissertation of Northwestern Polytechnical University
+          (CX2023013). </p>
+        <p class="text-left"> Thanks the ACs and the reviewers for their comments, which is very helpful to improve our paper. </p>
+
+        <p class="text-left"> Thanks for the following helpful open source projects: 
+          <a href="https://github.com/psh01087/Vid-ODE" target="_blank">Vid-ODE</a>, 
+          <a href="https://github.com/princeton-vl/RAFT" target="_blank">RAFT</a>, 
+          <a href="https://github.com/google-research/kubric/" target="_blank">kubric</a>, 
+          <a href="https://github.com/google-deepmind/tapnet" target="_blank">TAP-Vid-benchmark</a>, 
+          <a href="https://github.com/aharley/pips" target="_blank">PIPs</a>. 
+    
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
