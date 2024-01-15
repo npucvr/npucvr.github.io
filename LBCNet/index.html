@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning Bilateral Cost Volume for Rolling Shutter Temporal Super-Resolution</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Learning Bilateral Cost Volume for Rolling Shutter Temporal Super-Resolution</h2>
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">TPAMI 2024</h4>
+          <hr>
+          <h6>
+            <a href="https://gitcvfb.github.io/" target="_blank">Bin Fan</a>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a>,
+            <a href="https://scholar.google.com.hk/citations?user=Mq89JAcAAAAJ&hl=zh-CN" target="_blank">Hongdong Li</a>,
+          </h6>
+          <p>School of Electronics and Information, Northwestern Polytechnical University, Xi'an, China &nbsp;&nbsp;
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ieeexplore.ieee.org/document/10382595" role="button" target="">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/GitCVfb/LBCNet" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Rolling shutter temporal super-resolution (RSSR), which aims to synthesize intermediate global shutter (GS) video frames between two consecutive rolling shutter (RS) frames, has made remarkable progress with the development of deep convolutional neural networks over the past years. Existing methods cascade multiple separated networks to sequentially estimate intermediate motion fields and synthesize target GS frames. Nevertheless, they are typically complex, do not facilitate the interaction of complementary motion and appearance information, and suffer from problems such as pixel aliasing or poor interpretation. In this paper, we derive the uniform bilateral motion fields for RS-aware backward warping, which endows our network a more explicit geometric meaning by injecting spatio-temporal consistency information through time-offset embedding. More importantly, we develop a unified, single-stage RSSR pipeline to recover the latent GS video in a coarse-to-fine manner. It first extracts pyramid features from given inputs, and then refines the bilateral motion fields together with the anchor frame until generating the desired output. With the help of our proposed bilateral cost volume, which uses the anchor frame as a common reference to model the correlation with two RS frames, the gradually refined anchor frames not only facilitate intermediate motion estimation, but also compensate for contextual details, making additional frame synthesis or refinement networks unnecessary. Meanwhile, an asymmetric bilateral motion model built on top of the symmetric bilateral motion model further improves the generality and adaptability, yielding better GS video reconstruction performance. Extensive quantitative and qualitative experiments on synthetic and real data demonstrate that our method achieves new state-of-the-art results.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We develop a uniform bilateral motion model for RS-aware frame warping, which is crucial for exploring the intrinsic geometric properties of RSSR tasks.</li>
+            <li>We propose a single-stage pipeline to jointly perform bilateral motion estimation and intermediate frame refinement for efficient GS video extraction.</li>
+            <li>Experiments demonstrate that our approach achieves quite excellent results while maintaining a compact, efficient, and promising network design.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="70%" src="images/main_fig.png" alt="Architecture">
+          <p class="text-left"> Architecture overview of the proposed LBCNet. Our pipeline is an efficient and unified encoder-decoder-based network. In the encoder phase, a shared feature pyramid extractor is used to generate L-level pyramid contextual features. In the decoder phase, we propose a joint motion estimation and occlusion reasoning module (JMOM) to simultaneously estimate the bilateral motion fields and the anchor frame.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Quantitative comparisons on recovering GS images at time stamp</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/table.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative result on recovering GS images at the middle time stamp</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/compare.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{fan_lbcnet_PAMI24,
+  author={Fan, Bin and Dai, Yuchao and Li, Hongdong},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={Learning Bilateral Cost Volume for Rolling Shutter Temporal Super-Resolution}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-17},
+  doi={10.1109/TPAMI.2024.3350900}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>

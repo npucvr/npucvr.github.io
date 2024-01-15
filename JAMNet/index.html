@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning Bilateral Cost Volume for Rolling Shutter Temporal Super-Resolution</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Joint Appearance and Motion Learning for Efficient Rolling Shutter Correction</h2>
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">CVPR 2023</h4>
+          <hr>
+          <h6>
+            <a href="https://gitcvfb.github.io/" target="_blank">Bin Fan</a>,
+            <a href="https://scholar.google.com/citations?user=HPvl-ikAAAAJ" target="_blank">Yuxin Mao</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a>,
+            <a href="https://github.com/danqu130" target="_blank">Zhexiong Wan</a><sup>1</sup>,
+            <a href="https://orcid.org/0000-0002-4974-1518" target="_blank">Qi Liu</a>,
+          </h6>
+          <p>School of Electronics and Information, Northwestern Polytechnical University, Xi'an, China &nbsp;&nbsp;
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Fan_Joint_Appearance_and_Motion_Learning_for_Efficient_Rolling_Shutter_Correction_CVPR_2023_paper.pdf" role="button" target="">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/GitCVfb/JAMNet" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Rolling shutter correction (RSC) is becoming increasingly popular for RS cameras that are widely used in commercial and industrial applications. Despite the promising performance, existing RSC methods typically employ a two-stage network structure that ignores intrinsic information interactions and hinders fast inference. In this paper, we propose a single-stage encoder-decoder-based network, named JAMNet, for efficient RSC. It first extract pyramid features from consecutive RS inputs, and then simultaneously refines the two complementary information (i.e., global shutter appearance and undistortion motion field) to achieve mutual promotion in a joint learning decoder. To inject sufficient motion cues for guiding joint learning, we introduce a transformer-based motion embedding module and propose to pass hidden states across pyramid levels. Moreover, we present a new data augmentation strategy “vertical flip + inverse order” to release the potential of the RSC datasets. Experiments on various benchmarks show that our approach surpasses the state-of-the-art methods by a large margin, especially with a 4.7dB PSNR leap on real-world RSC. 
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We propose a tractable single-stage architecture to jointly perform GS appearance refinement and undistortion motion estimation for efficient RS correction.</li>
+            <li>We develop a general data augmentation strategy, i.e., vertical flip and inverse order, to maximize the exploration of the RS correction datasets.</li>
+            <li>xperiments show that our approach not only achieves SOTA RSC accuracy, but also enjoys a fast inference speed and a flexible and compact network structure.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Network Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="70%" src="images/main_fig.png" alt="Architecture">
+          <p class="text-left"> Overall architecture of our JAMNet. It has three main processes: a feature pyramid encoder, a transformer-based motion embedding module, and a joint appearance and motion decoder. After extracting the hierarchical pyramid features, the transformer is used for motion embedding to inject motion cues, followed by a coarse-to-fine decoder that gradually refines the GS appearance and motion fields at the same time, until synthesizing the final full-resolution GS image. A hidden state $h^{j}$ is also passed sequentially.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Quantitative comparisons</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/table.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative results</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/compare.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{fan2023joint,
+  title={Joint Appearance and Motion Learning for Efficient Rolling Shutter Correction},
+  author={Fan, Bin and Mao, Yuxin and Dai, Yuchao and Wan, Zhexiong and Liu, Qi},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={5671--5681},
+  year={2023}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
