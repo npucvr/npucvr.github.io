@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EvInsMOS: Instance-Level Moving Object Segmentation from a Single Image with Events</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>EvInsMOS: Instance-Level Moving Object Segmentation from a Single Image with Events</h2>
+          <h4 style="color:#5a6268;">under review</h4>
+          <hr>
+          <h6>
+            <a href="https://danquxunhuan.cn" target="_blank">Zhexiong Wan</a><sup>1,2</sup>,
+            <a href="https://gitcvfb.github.io/" target="_blank">Bin Fan</a><sup>3</sup>,
+            <a href="https://fpthink.github.io/" target="_blank">Le Hui</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>1</sup>
+            <a href="https://www.comp.nus.edu.sg/~leegh/index.html" target="_blank">Gim Hee Lee</a><sup>2</sup>
+          </h6>
+          <p><sup>1</sup>School of Electronics and Information, Northwestern Polytechnical University &nbsp; 
+            <br>
+            <sup>2</sup>Department of Computer Science, National University of Singapore&nbsp; 
+            <br>
+            <sup>3</sup>School of Intelligence Science and Technology, Peking University&nbsp;
+            <br>
+          </p>
+
+          <div class="row justify-content-center">
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> arXiv </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Supp </a> </p>
+            </div> -->
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/danqu130/EvInsMOS" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/danqu130/EvInsMOS?tab=readme-ov-file#datasets" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Dataset </a> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col-12 text-center">
+    This page is under construction, please wait for updates.
+  </div>
+</section>  
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Moving object segmentation plays a crucial role in understanding dynamic scenes involving moving objects. 
+          Existing methods based on video frames encounter difficulties in distinguishing whether pixel displacements of an object are caused by camera motion or object motion due to the complexities of accurate image-based motion modeling. 
+          Recent developments utilizing event data alone for motion segmentation have explored the motion sensitivity properties of event cameras. 
+          However, they struggle to accurately segment the pixel-by-pixel map of each object because events lack dense textures. 
+          To address these limitations imposed by unimodal data, we propose the first instance-level moving object segmentation framework that integrates complementary texture and motion cues. 
+          Our model incorporates implicit cross-modal masked attention augmentation, along with explicit contrastive feature learning and flow-guided motion enhancement to exploit dense texture information from a single image and rich motion information from events, respectively. 
+          By leveraging the augmented texture and motion features, we separate mask segmentation from motion classification to handle varying numbers of independently moving objects. 
+          Extensive experiments demonstrate that our approach achieves state-of-the-art performance on both real and simulated datasets, illustrating the effectiveness of multimodal combinations.   </p>
+  
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Acknowledgments</h3>
+        <hr style="margin-top:0px">
+
+        <p class="text-left"> Thanks for the following helpful open source projects: 
+          <a href="https://github.com/open-mmlab/mmdetection" target="_blank">mmdetection</a>, 
+          <a href="https://github.com/swz30/Restormer/" target="_blank">Restormer</a>,
+          <a href="https://github.com/KevinMusgrave/pytorch-metric-learning/" target="_blank">pytorch_metric_learning</a>.
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
