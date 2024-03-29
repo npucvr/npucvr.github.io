@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Geometry-aware Deformable Gaussian Splatting for Dynamic View Synthesis</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Deep Non-rigid Structure-from-Motion: A Sequence-to-Sequence Translation Perspective
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">arXiv: 2204.04730</h4>
+          <hr>
+          <h6>
+            <a href="" target="_blank">Hui Deng</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=kCy8JG8AAAAJ&hl=en" target="_blank">Tong Zhang</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+            <a href="" target="_blank">Jiawei Shi</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=E9NVOBUAAAAJ&hl=en" target="_blank">Yiran Zhong</a><sup>3,4</sup>,
+            <a href="https://cecs.anu.edu.au/~hongdong" target="_blank">Hongdong Li</a><sup>5</sup>
+          </h6>
+          <p><sup>1</sup>School of Electronics and Information, Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>School of Computer and Communication Sciences, EPFL &nbsp;&nbsp;<br>
+            <sup>3</sup>SenseTime Research &nbsp;&nbsp;
+            <sup>4</sup>Shanghai AI Laboratory &nbsp;&nbsp;
+            <sup>5</sup>Australian National University
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2204.04730" role="button" target="_blank">
+                  <i class="fa fa-file"></i> arXiv </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left">Directly regressing the non-rigid shape and camera pose from the individual 2D frame is ill-suited to the Non-Rigid Structure-from-Motion (NRSfM) problem. This frame-by-frame 3D reconstruction pipeline overlooks the inherent spatial-temporal nature of NRSfM, i.e., reconstructing the whole 3D sequence from the input 2D sequence. In this paper, we propose to model deep NRSfM from a sequence-to-sequence translation perspective, where the input 2D frame sequence is taken as a whole to reconstruct the deforming 3D non-rigid shape sequence. First, we apply a shape-motion predictor to estimate the initial non-rigid shape and camera motion from a single frame. Then we propose a context modeling module to model camera motions and complex non-rigid shapes. To tackle the difficulty in enforcing the global structure constraint within the deep framework, we propose to impose the union-of-subspace structure by replacing the self-expressiveness layer with multi-head attention and delayed regularizers, which enables end-to-end batch-wise training. Experimental results across different datasets such as Human3.6M, CMU Mocap and InterHand prove the superiority of our framework. The code will be made publicly available. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/0p7uUSMkahw" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Our Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="95%" src="images/structure.png" alt="Architecture">
+        <p class="text-left"> An overview of our sequence-to-sequence NRSfM framework. Our framework consists of two core modules: Shape/Motion predictor (b) for estimating the initial 3D shape and camera motion from a single frame, and Context Layer (c) for adjusting the 3D shape sequence by exploiting the inherent structure within the whole sequence..</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative comparison</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/comparison.png" alt="Qualitative comparison">
+        <p class="text-left"> 
+          Qualitative comparison between our method and frame-to-shape method <strong>C3dpo</strong> and <strong>DNRSfM</strong> on Human3.6M, where we use the red line to mark the error
+between the predicted 3D shape and the ground truth 3D shape.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Visualization on more dataset</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/viz.png" alt="flow uncertainty visualization">
+        <p class="text-center"> 
+          Visualization of several methods on Human3.6M with detected 2D keypoint and Interhand2.6M dataset
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>IoU per-frame over time</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/iou_with_time.png" alt="IoU per-frame over time">
+        <p class="text-left"> 
+        IoU per-frame over time of Ours, STM and AFB-URR on five video sequences from DAVIS17 validation set. The last three columns have multiple objects, while the first two columns have only a single object. Since we effectively use the motion information between adjacent frames, the IoU can remain high even in the latter part of the video sequences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{lu2024gagaussian,
+  title={3D Geometry-aware Deformable Gaussian Splatting for Dynamic View Synthesis},
+  author={Lu, Zhicheng and Guo, Xiang and Hui, Le and Chen, Tianrui and Yang, Ming and Tang, Xiao and Zhu, Feng and Dai, Yuchao},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
