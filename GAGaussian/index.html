@@ -31,28 +31,27 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>Deep Non-rigid Structure-from-Motion: A Sequence-to-Sequence Translation Perspective
+          <h2>3D Geometry-aware Deformable Gaussian Splatting for Dynamic View Synthesis
           <!-- <h4 style="color:#5a6268;">On submission</h4> -->
-          <h4 style="color:#5a6268;">arXiv: 2204.04730</h4>
+          <h4 style="color:#5a6268;">CVPR 2024</h4>
           <hr>
           <h6>
-            <a href="" target="_blank">Hui Deng</a><sup>1</sup>,
-            <a href="https://scholar.google.com/citations?user=kCy8JG8AAAAJ&hl=en" target="_blank">Tong Zhang</a><sup>2</sup>,
-            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
-            <a href="" target="_blank">Jiawei Shi</a><sup>1</sup>,
-            <a href="https://scholar.google.com/citations?user=E9NVOBUAAAAJ&hl=en" target="_blank">Yiran Zhong</a><sup>3,4</sup>,
-            <a href="https://cecs.anu.edu.au/~hongdong" target="_blank">Hongdong Li</a><sup>5</sup>
+            <a href="" target="_blank">Zhicheng Lu</a><sup>1</sup>,
+            <a href="" target="_blank">Xiang Guo</a><sup>1</sup>,
+            <a href="" target="_blank">Le Hui</a><sup>1</sup>,
+            <a href="" target="_blank">Tianrui Chen</a><sup>1,2</sup>,
+            <a href="" target="_blank">Min Yang</a><sup>2</sup>,
+            <a href="" target="_blank">Xiao Tang</a><sup>2</sup>,
+            <a href="" target="_blank">Feng Zhu</a><sup>2</sup>,
+            <a href="" target="_blank">Yuchao Dai</a><sup>1</sup>
           </h6>
           <p><sup>1</sup>School of Electronics and Information, Northwestern Polytechnical University &nbsp;&nbsp;
-            <sup>2</sup>School of Computer and Communication Sciences, EPFL &nbsp;&nbsp;<br>
-            <sup>3</sup>SenseTime Research &nbsp;&nbsp;
-            <sup>4</sup>Shanghai AI Laboratory &nbsp;&nbsp;
-            <sup>5</sup>Australian National University
+            <sup>2</sup>Samsung R&D Institute
           </p>
 
           <div class="row justify-content-center">
             <div class="column">
-              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2204.04730" role="button" target="_blank">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
                   <i class="fa fa-file"></i> arXiv </a> </p>
             </div>
             <div class="column">
@@ -78,7 +77,7 @@
       <div class="col-12 text-center">
         <h3>Abstract</h3>
         <hr style="margin-top:0px">
-        <p class="text-left">Directly regressing the non-rigid shape and camera pose from the individual 2D frame is ill-suited to the Non-Rigid Structure-from-Motion (NRSfM) problem. This frame-by-frame 3D reconstruction pipeline overlooks the inherent spatial-temporal nature of NRSfM, i.e., reconstructing the whole 3D sequence from the input 2D sequence. In this paper, we propose to model deep NRSfM from a sequence-to-sequence translation perspective, where the input 2D frame sequence is taken as a whole to reconstruct the deforming 3D non-rigid shape sequence. First, we apply a shape-motion predictor to estimate the initial non-rigid shape and camera motion from a single frame. Then we propose a context modeling module to model camera motions and complex non-rigid shapes. To tackle the difficulty in enforcing the global structure constraint within the deep framework, we propose to impose the union-of-subspace structure by replacing the self-expressiveness layer with multi-head attention and delayed regularizers, which enables end-to-end batch-wise training. Experimental results across different datasets such as Human3.6M, CMU Mocap and InterHand prove the superiority of our framework. The code will be made publicly available. </p>
+        <p class="text-left">In this paper, we propose a 3D geometry-aware deformable Gaussian Splatting method for dynamic view synthesis. Existing neural radiance fields (NeRF) based solutions learn the deformation in an implicit manner, which cannot incorporate 3D scene geometry. Therefore, the learned deformation is not necessarily geometrically coherent, which results in unsatisfactory dynamic view synthesis and 3D dynamic reconstruction. Recently, 3D Gaussian Splatting provides a new representation of the 3D scene, building upon which the 3D geometry could be exploited in learning the complex 3D deformation. Specifically, the scenes are represented as a collection of 3D Gaussian, where each 3D Gaussian is optimized to move and rotate over time to model the deformation. To enforce the 3D scene geometry constraint during deformation, we explicitly extract 3D geometry features and integrate them in learning the 3D deformation. In this way, our solution achieves 3D geometry-aware deformation modeling, which enables improved dynamic view synthesis and 3D dynamic reconstruction. Extensive experimental results on both synthetic and real datasets prove the superiority of our solution, which achieves new state-of-the-art performance. </p>
       </div>
     </div>
   </div>
@@ -111,7 +110,7 @@
         <h3>Our Architecture</h3>
         <hr style="margin-top:0px">
           <img class="img-fluid" width="95%" src="images/structure.png" alt="Architecture">
-        <p class="text-left"> An overview of our sequence-to-sequence NRSfM framework. Our framework consists of two core modules: Shape/Motion predictor (b) for estimating the initial 3D shape and camera motion from a single frame, and Context Layer (c) for adjusting the 3D shape sequence by exploiting the inherent structure within the whole sequence..</p>
+        <p class="text-left"> The pipeline of our proposed 3D geometry-aware deformable Gaussian splitting. In the Gaussian canonical field, we reconstruct a static scene in canonical space using 3D Gaussian distributions. We extract positional features using a MLP, as well as local geometric features using a 3D U-Net, fused by another MLP to form the geometry-aware features. In the deformation field, taking the geometry-aware features and timestamp t, a MLP estimates the 3D Gaussian deformation, which transfers the canonical 3D Gaussian distributions to timestamp $t$. Finally, a rasterizer renders the transformed 3D Gaussian to images.</p>
       </div>
     </div>
   </div>
@@ -125,10 +124,13 @@
       <div class="col-12 text-center">
         <h3>Qualitative comparison</h3>
         <hr style="margin-top:0px">
-        <img class="img-fluid" width="95%" src="images/comparison.png" alt="Qualitative comparison">
+        <img class="img-fluid" width="95%" src="images/comparison1.png" alt="Qualitative comparison">
         <p class="text-left"> 
-          Qualitative comparison between our method and frame-to-shape method <strong>C3dpo</strong> and <strong>DNRSfM</strong> on Human3.6M, where we use the red line to mark the error
-between the predicted 3D shape and the ground truth 3D shape.
+          Qualitative comparisons between baselines and our method on the synthetic dataset.
+        </p>
+        <img class="img-fluid" width="95%" src="images/comparison2.png" alt="Qualitative comparison">
+        <p class="text-left"> 
+          Quantitative comparison between our method and competing methods on the D-NeRF dataset. The best results are highlighted in bold.
         </p>
       </div>
     </div>
@@ -145,7 +147,7 @@ between the predicted 3D shape and the ground truth 3D shape.
         <hr style="margin-top:0px">
         <img class="img-fluid" width="95%" src="images/viz.png" alt="flow uncertainty visualization">
         <p class="text-center"> 
-          Visualization of several methods on Human3.6M with detected 2D keypoint and Interhand2.6M dataset
+          Rendered images with varying timestamps.
         </p>
       </div>
     </div>
