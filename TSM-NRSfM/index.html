@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Non-rigid Structure-from-Motion: Temporally-smooth Procrustean Alignment and Spatially-variant Deformation Modeling</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Non-rigid Structure-from-Motion: Temporally-smooth Procrustean Alignment and Spatially-variant Deformation Modeling</h2>
+          <h4 style="color:#5a6268;">CVPR 2024</h4>
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Jiawei Shi</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Hui Deng</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>1*</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <br>
+            <sup>*</sup> denotes corresponding author
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2405.04309" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Even though Non-rigid Structure-from-Motion (NRSfM) has been extensively studied and great progress has been made, there are still key challenges that hinder their broad real-world applications: 1. the inherent motion/rotation ambiguity requires either explicit camera motion recovery with extra constraint or complex Procrustean Alignment; 2. existing low-rank modeling of the global shape can over-penalize drastic deformations in the 3D shape sequence.
+          This paper proposes to resolve the above issues from a \emph{spatial-temporal modeling} perspective. 
+          First, we propose a novel Temporally-smooth Procrustean Alignment module that estimates 3D deforming shapes and adjusts the camera motion by aligning the 3D shape sequence consecutively.
+          Our new alignment module remedies the requirement of complex reference 3D shape during alignment, which is more conductive to non-isotropic deformation modeling.
+          Second, we propose a spatial-weighted approach to enforce the \emph{low-rank constraint adaptively} at different locations to accommodate drastic spatially-variant deformation reconstruction better.
+          Our modeling outperform existing low-rank based methods, and extensive experiments across different datasets validate the effectiveness of our method. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/6r5GMbZqUhI?si=FbxvB1qO0TE2leF9" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>XXNet Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/network_framework.png" alt="Architecture">
+
+        <p> Zoom in by scrolling. Some comments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- ablation study -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Ablation studies</h3>
+        <hr style="margin-top:0px"> -->
+        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video> -->
+        <!-- <img class="img-fluid" width="95%" src="images/xxx.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- comparison -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison with state-of-the-art methods</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="./videos/xxx.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative Results</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="25%" src="images/Dance.gif" alt="Qualitative Results">
+        <!-- <p class="text-center"> 
+          Qualitative comparisons between baselines and our method on the synthetic dataset.
+        </p> -->
+        <img class="img-fluid" width="25%" src="images/Walking.gif" alt="Qualitative Results">
+        <img class="img-fluid" width="25%" src="images/Face.gif" alt="Qualitative Results">
+        <img class="img-fluid" width="25%" src="images/Shark.gif" alt="Qualitative Results">
+        <p class="text-center"> 
+          Quantitative comparison between our method and competing methods on the D-NeRF dataset. The best results are highlighted in bold.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{xx,
+  title={Non-rigid Structure-from-Motion: Temporally-smooth Procrustean Alignment and Spatially-variant Deformation Modeling},
+  author={Jiawei Shi, Hui Deng, Yuchao Dai},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
