@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Improving Depth Completion via Depth Feature Upsampling</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Improving Depth Completion via Depth Feature Upsampling</h2>
+          <h4 style="color:#5a6268;">The IEEE / CVF Computer Vision and Pattern Recognition Conference (CVPR), 2024.</h4>
+          <hr>
+          <h6>
+            <a href="https://scholar.google.com/citations?user=kDaztnkAAAAJ&hl=en" target="_blank">Yufei Wang</a><sup>1</sup>,
+            <a  target="_blank">Ge Zhange</a><sup>2</sup>,
+            <a  target="_blank">Shaoqian Wang</a><sup>1</sup>,
+            <a  target="_blank">Bo Li</a><sup>1</sup>,
+            <a  target="_blank">Qi Liu</a><sup>1</sup>,
+            <a  target="_blank">Le Hui</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup> Northwestern Polytechnical University and Shaanxi Key Laboratory of
+Information Acquisition and Processing &nbsp;&nbsp;
+<br>
+            <sup>2</sup>Beijing Institute of Tracking and Telecommunication Technology
+           <!--  <br>
+            <sup>2</sup> Corresponding authors -->
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_Improving_Depth_Completion_via_Depth_Feature_Upsampling_CVPR_2024_paper.pdf" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Openaccess </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/YufeiWang777/DFU" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <!-- <h3>Poster </h3> -->
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/poster.jpeg" alt="Architecture">
+
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left">
+        The encoder-decoder network (ED-Net) is a commonly employed choice for existing depth completion methods, but its working mechanism is ambiguous. In this paper, we visualize the internal feature maps to analyze how the network densifies the input sparse depth. We find that the encoder feature of ED-Net focus on the areas with input depth points around. To obtain a dense feature and thus estimate complete depth, the decoder feature tends to complement and enhance the encoder feature by skip-connection to make the fused encoder-decoder feature dense, resulting in the decoder feature also exhibits sparse. However, ED-Net obtains the sparse decoder feature from the dense fused feature at the previous stage, where the ``dense-to-sparse'' process destroys the completeness of features and loses information. To address this issue, we present a depth feature upsampling network (DFU) that explicitly utilizes these dense features to guide the upsampling of a low-resolution (LR) depth feature to a high-resolution (HR) one. The completeness of features is maintained throughout the upsampling process, thus avoiding information loss. Furthermore, we propose a confidence-aware guidance module (CGM), which is confidence-aware and performs guidance with adaptive receptive fields (GARF), to fully exploit the potential of these dense features as guidance. Experimental results show that our DFU, a plug-and-play module, can significantly improve the performance of existing ED-Net based methods with limited computational overheads, and new SOTA results are achieved. Besides, the generalization capability on sparser depth is also enhanced.
+         </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- overview video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/M7KbxzKcY04" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- ablation study -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Ablation studies</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
+        </video>
+        <img class="img-fluid" width="95%" src="images/xxx.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- comparison -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison with state-of-the-art methods</h3>
+        <hr style="margin-top:0px">
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="./videos/xxx.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@InProceedings{DFU_CVPR_2024,
+  author    = {Wang, Yufei and Zhang, Ge and Wang, Shaoqian and Li, Bo and Liu, Qi and Hui, Le and Dai, Yuchao},
+  title     = {Improving Depth Completion via Depth Feature Upsampling},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={21104--21113},
+  year      = {2024}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
