@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Focusing-and-Matching Network for Multi-Instance Point Cloud Registration</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>3D Focusing-and-Matching Network for Multi-Instance Point Cloud Registration
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">NeurIPS 2024</h4>
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Liyuan Zhang</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Le Hui</a><sup>1*</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Qi Liu</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Bo Li</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>1*</sup>,
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <br>
+            <sup>*</sup> denotes corresponding author
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2411.07740" role="button" target="_blank">
+                  <i class="fa fa-file"></i> arXiv </a> </p>
+            </div>
+            <!--div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3> 
+        <hr style="margin-top:0px">
+        <p class="text-left"> Multi-instance point cloud registration aims to estimate the pose of all instances of a model point cloud in the whole scene. Existing methods all adopt the strategy of first obtaining the global correspondence and then clustering to obtain the pose of each instance. However, due to the cluttered and occluded objects in the scene, it is difficult to obtain an accurate correspondence between the model point cloud and all instances in the scene. To this end, we propose a simple yet powerful 3D focusing-and-matching network for multi-instance point cloud registration by learning the multiple pair-wise point cloud registration. Specifically, we first present a 3D multi-object focusing module to locate the center of each object and generate object proposals. By using self-attention and cross-attention to associate the model point cloud with structurally similar objects, we can locate potential matching instances by regressing object centers. Then, we propose a 3D dual-masking instance matching module to estimate the pose between the model point cloud and each object proposal. It performs instance mask and overlap mask masks to accurately predict the pair-wise correspondence. Extensive experiments on two public benchmarks, Scan2CAD and ROBI, show that our method achieves a new state-of-the-art performance on the multi-instance point cloud registration task. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/0p7uUSMkahw" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Our Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="95%" src="images/pipline.png" alt="Architecture">
+        <p class="text-left"> The framework of our 3D focusing-and-matching network for multi-instance pint cloud registration. Given the scene point cloud and the CAD model, we first present the 3D multi-object focusing module to localize the centers of the potential objects in the scene. Then, we design the 3D dual-masking instance matching module to learn pair-wise point cloud registration from the localized object proposals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative comparison</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/comparison.png" alt="Qualitative comparison">
+        <p class="text-center"> 
+          Qualitative comparisons between competing methods and our method on the Scan2CAD and ROBI dataset. The best results are highlighted in bold.
+        </p>
+        <img class="img-fluid" width="95%" src="images/comparisonScan.png" alt="Qualitative comparison">
+        <p class="text-center"> 
+          Quantitative comparison between our method and baseline on the Scan2CAD dataset.
+        </p>
+        <img class="img-fluid" width="95%" src="images/comparisonRobi.png" alt="Qualitative comparison">
+        <p class="text-center"> 
+          Quantitative comparison between our method and baseline on the ROBI dataset.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<!-- More visualization
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>IoU per-frame over time</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/iou_with_time.png" alt="IoU per-frame over time">
+        <p class="text-left"> 
+        IoU per-frame over time of Ours, STM and AFB-URR on five video sequences from DAVIS17 validation set. The last three columns have multiple objects, while the first two columns have only a single object. Since we effectively use the motion information between adjacent frames, the IoU can remain high even in the latter part of the video sequences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{zhang20243dfmnet,
+  title={3D Focusing-and-Matching Network for Multi-Instance Point Cloud Registration},
+  author={Zhang, Liyuan and Hui, Le and Liu, Qi and Li, Bo and Dai, Yuchao},
+  booktitle={Proceedings of the Advances in Neural Information Processing Systems},
+  year={2024}
+}
+
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
