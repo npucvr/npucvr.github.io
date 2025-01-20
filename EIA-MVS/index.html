@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adaptive Feature Enhanced Multi-View Stereo with Epipolar Line Information Aggregation</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Adaptive Feature Enhanced Multi-View Stereo with Epipolar Line Information Aggregation
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">RAL</h4>
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Shaoqian Wang</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Bo Li</a><sup>1*</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Jian Yang</a><sup>2</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>1*</sup>,
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <br>
+            <sup>2</sup>Rocket Force University of Engineering &nbsp;&nbsp;
+            <br>
+            <sup>*</sup> denotes corresponding author
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ieeexplore.ieee.org/abstract/document/10700633" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/npucvr/EIA-MVS" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Github </a> </p>
+            </div>
+            <!--div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3> 
+        <hr style="margin-top:0px">
+        <p class="text-left"> Despite the promising performance achieved by the learning-based multi-view stereo (MVS) methods, the commonly used feature extractors still struggle with the perspective transformation across different viewpoints. Furthermore, existing methods generally employ a ``one-to-many'' strategy, computing the correlations between the fixed reference image feature and multiple source image features, which limits the diversity of feature enhancement for the reference image.
+To address these issues, we propose a novel Epipolar Line Information Aggregation (EIA) method. Specifically, we present a feature enhancement layer (EIA-F) that utilizes the epipolar line information to enhance image features. EIA-F employs a ``many-to-many'' strategy, adaptively enhancing the reference-source feature pairs with diverse epipolar line information. Additionally, we propose a correlation enhancement module (EIA-C) to improve the robustness of correlations.
+Extensive experiments demonstrate that our method achieves state-of-the-art performance across multiple MVS benchmarks, particularly in terms of reconstruction integrity. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/0p7uUSMkahw" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Our Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="95%" src="images/many2many.png" alt="Architecture">
+        <p class="text-left">
+          (a) Visualization of the ``one-to-many'' strategy, the same reference image feature is used to match various source image features to compute correlations.
+    (b) Visualization of our proposed ``many-to-many'' strategy. The same reference feature and different source features form a series of feature pairs. For each pair, pixel-wise sampling is utilized to extract epipolar line information for each point. Note that, the reference feature exhibits different epipolar line correspondence across various feature pairs, thus corresponding to distinct epipolar line information. Then, the proposed EIA-F layers are employed to aggregate the corresponding epipolar line information to enhance the features. This enables the reference feature to be adaptively enhanced with distinct epipolar line information, yielding various enhanced reference features.
+        </p>
+          <img class="img-fluid" width="95%" src="images/framework.png" alt="Architecture">
+        <p class="text-left"> Network architecture of our method. The epipolar line information aggregation (EIA) strategy is utilized to enhance the feature maps and correlations. A ``many-to-many'' feature extractor is proposed to extract multi-scale reference-source feature pairs. Meanwhile, the epipolar line information aggregation-based network layers (EIA-F) are applied to the feature extractor to perform feature enhancement along the epipolar line direction. The correlations are constructed based on the feature pairs and then enhanced by an epipolar line information-based correlation enhancement module (EIA-C). Finally, the enhanced correlations are fused to estimate the depth map with the regularization module.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative comparison</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="80%" src="images/DTU-compare.png" alt="Qualitative comparison">
+        <p class="text-left">
+          Reconstruction comparison with state-of-the-art works on the DTU dataset. Our method achieves more complete point cloud reconstruction performance in challenging areas.
+        </p>
+        <img class="img-fluid" width="80%" src="images/point-results.png" alt="Qualitative comparison">
+        <p class="text-left">
+          Point cloud results of our method. The results for the DTU dataset are shown in the top row, while the results for the Tanks \& Temples dataset are presented in the bottom row.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<!-- More visualization
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>IoU per-frame over time</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/iou_with_time.png" alt="IoU per-frame over time">
+        <p class="text-left"> 
+        IoU per-frame over time of Ours, STM and AFB-URR on five video sequences from DAVIS17 validation set. The last three columns have multiple objects, while the first two columns have only a single object. Since we effectively use the motion information between adjacent frames, the IoU can remain high even in the latter part of the video sequences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@ARTICLE{wang2024eiamvs,
+  author={Wang, Shaoqian and Li, Bo and Yang, Jian and Dai, Yuchao},
+  journal={IEEE Robotics and Automation Letters},
+  title={Adaptive Feature Enhanced Multi-View Stereo With Epipolar Line Information Aggregation},
+  year={2024},
+  volume={9},
+  number={11},
+  pages={10439-10446}}
+
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
