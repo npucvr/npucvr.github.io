@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Efficient Multi-view Stereo by Dynamic Cost Volume and Cross-scale Propagation</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Efficient Multi-view Stereo by Dynamic Cost Volume and Cross-scale Propagation
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">TCSVT</h4>
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Shaoqian Wang</a><sup>1</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Bo Li</a><sup>1*</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>1*</sup>,
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <br>
+            <sup>*</sup> denotes corresponding author
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://ieeexplore.ieee.org/document/10522746" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/npucvr/Effi-MVS-plus" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Github </a> </p>
+            </div>
+            <!--div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3> 
+        <hr style="margin-top:0px">
+        <p class="text-left">
+Currently, learning-based multi-view stereo (MVS) has been dominated by the pipeline of 3D cost volume and regularization network over the static cost volume for depth regression. However, this methodology is plagued by heavy time and memory consumption, which greatly hinders the applications of these methods for real-world high-resolution images.
+To address these challenges, we present Effi-MVS+, an efficient multi-scale dynamic cost volume based MVS method.
+Firstly, instead of constructing a static cost volume and predicting a probability distribution map for depth regression, we update the depth map by iteratively predicting depth residuals.
+In each iteration, we construct a lightweight dynamic cost volume by encoding local matching and regularization information. The dynamic cost volume is subsequently processed using a 2D convolution-based GRU, which owns significant advantages in computational complexity and efficiency.
+Secondly, we propose a cross-scale propagation mechanism to enhance the multi-scale dynamic cost volume. This mechanism facilitates the progressive aggregation of multi-scale information, thereby providing enhanced matching and regularization information.
+Thirdly, to further improve the efficiency, we provide a reliable initial depth map to launch the framework and guarantee fast convergence.
+Extensive experiments on the DTU and Tanks and Temples benchmarks demonstrate the superiority of our method, which outperforms other state-of-the-art methods by a large margin in terms of reconstruction quality, speed, and memory usage. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/0p7uUSMkahw" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Our Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="95%" src="images/costs.png" alt="Architecture">
+        <p class="text-left">
+Comparison between different cost volume construction schemes and the corresponding representative works. Within the first three schemes (standard cost volume, recurrent cost volume, coarse-to-fine cost volume), the cost volume encodes the matching information and is then regularized to a probability map, which is ultimately regressed to a depth map. By contrast, our proposed multi-scale dynamic cost volume updates the depth map in an iterative way. In each iteration, the dynamic cost volume encodes both matching and regularization information and is then processed by the GRU optimizer to estimate the residual depth values.
+        </p>
+          <img class="img-fluid" width="95%" src="images/framework.png" alt="Architecture">
+        <p class="text-left"> Overall pipeline of our proposed method. Our method consists of a multi-scale feature extractor and GRU-based optimizers. Specifically, the GRU-based optimizer includes a dynamic cost volume constructor and a GRU module. At each scale, we iteratively construct a dynamic cost volume, which is processed by the GRU module to update the depth map. The cross-scale propagation (CSP) module is utilized to enhance the dynamic cost volume. Specifically, the CSP module propagates and
+    enhances the matching and regularization information for the dynamic cost volume construction. Additionally, a reliable initial depth map is predicted at the coarsest scale to launch the framework and speed up convergence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative comparison</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="80%" src="images/timeresults.png" alt="Qualitative comparison">
+        <p class="text-left">
+          Comparison of the running time (s) and memory consumption (GB) on the DTU (Resolution: 1600 X 1184, 5 views), Tanks and Temples (Resolution: 1920 X 1056, 11 views) and ETH3D
+   (Resolution: 2432 X 1600, 11 views) benchmarks between different methods.
+        </p>
+        <img class="img-fluid" width="80%" src="images/tankresults.png" alt="Qualitative comparison">
+        <p class="text-left">
+          Detailed quantitative results (the higher the better) of different methods on the Intermediate set and Advanced set of Tanks and Temples benchmark.
+        </p>
+        <img class="img-fluid" width="90%" src="images/point-results.png" alt="Qualitative comparison">
+        <p class="text-left">
+          Point cloud reconstructions on the Tanks and Temples and ETH3D datasets. The reconstruction results of the Tanks and Temples dataset are presented in the first and second rows, while the reconstruction results of the ETH3D dataset are shown in the third row.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<!-- More visualization
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>IoU per-frame over time</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/iou_with_time.png" alt="IoU per-frame over time">
+        <p class="text-left"> 
+        IoU per-frame over time of Ours, STM and AFB-URR on five video sequences from DAVIS17 validation set. The last three columns have multiple objects, while the first two columns have only a single object. Since we effectively use the motion information between adjacent frames, the IoU can remain high even in the latter part of the video sequences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@ARTICLE{effimvsplus,
+  author={Wang, Shaoqian and Li, Bo and Dai, Yuchao},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  title={Efficient Multi-View Stereo by Dynamic Cost Volume and Cross-Scale Propagation},
+  year={2024},
+  volume={34},
+  number={10},
+  pages={9414-9427}}
+
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
