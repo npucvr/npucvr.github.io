@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Geometry-Aware 3D Salient Object Detection Network</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Geometry-Aware 3D Salient Object Detection Network
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">AAAI 2025</h4>
+          <hr>
+          <h6>
+            <a href="" target="_blank">Chen Wang</a><sup>1</sup>,
+            <a href="" target="_blank">Liyuan Zhang</a><sup>1</sup>,
+            <a href="" target="_blank">Le Hui</a><sup>1,2*</sup>,
+            <a href="" target="_blank">Qi Liu</a><sup>1</sup>,
+            <a href="" target="_blank">Yuchao Dai</a><sup>1*</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>Nanjing University of Science and Technology
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2502.16488" role="button" target="_blank">
+                  <i class="fa fa-file"></i> arXiv </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/Chenc-W/3DGAS" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code  </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left">Point cloud salient object detection has attracted the attention of researchers in recent years. Since existing works do not fully utilize the geometry context of 3D objects, blurry boundaries are generated when segmenting objects with complex backgrounds. In this paper, we propose a geometry-aware 3D salient object detection network that explicitly clusters points into superpoints to enhance the geometric boundaries of objects, thereby segmenting complete objects with clear boundaries. Specifically, we first propose a simple yet effective superpoint partition module to cluster points into superpoints. In order to improve the quality of superpoints, we present a point cloud class-agnostic loss to learn discriminative point features for clustering superpoints from the object. After obtaining superpoints, we then propose a geometry enhancement module that utilizes superpoint-point attention to aggregate geometric information into point features for predicting the salient map of the object with clear boundaries. Extensive experiments show that our method achieves new state-of-the-art performance on the PCSOD dataset. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/0p7uUSMkahw" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Our Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="95%" src="images/structure1.jpg" alt="Architecture">
+        <p class="text-left"> The pipeline of our geometry-aware 3D salient object detection network. Given a point cloud, we first use the 3D CNN backbone to extract point features. Then, we adopt the superpoint partition module to obtain superpoints. After that, we propose the geometry enhancement module to encode structural information into point clouds. In addition, we propose a point cloud class-agnostic loss Lagn to learn discriminative point features for improving superpoint quality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative comparison</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/comparison1.jpg" alt="Qualitative comparison">
+        <p class="text-center"> 
+          Visualization results of five methods under different views in the test set of the PCSOD dataset. 
+        </p>
+        <img class="img-fluid" width="95%" src="images/comparison2.jpg" alt="Qualitative comparison">
+        <p class="text-center"> 
+          Comparison results of different models on the test set of the PCSOD dataset. The best results are highlighted in bold.
+        </p>
+        <img class="img-fluid" width="95%" src="images/curves.jpg" alt="Qualitative comparison">
+        <p class="text-center"> 
+          Precision-recall (PR), F-measure, and E-measure curves of different methods on the test set of the PCSOD dataset.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Visualization on more dataset</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/sp.jpg" alt="flow uncertainty visualization">
+        <p class="text-center"> 
+          Rendered images with varying timestamps.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- More visualization
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>IoU per-frame over time</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/iou_with_time.png" alt="IoU per-frame over time">
+        <p class="text-left"> 
+        IoU per-frame over time of Ours, STM and AFB-URR on five video sequences from DAVIS17 validation set. The last three columns have multiple objects, while the first two columns have only a single object. Since we effectively use the motion information between adjacent frames, the IoU can remain high even in the latter part of the video sequences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{Wang20253dgas,
+  title={Geometry-Aware 3D Salient Object Detection Network},
+  author={Chen, Wang and Zhang, Liyuan and Hui, Le and Liu, Qi and Dai, Yuchao},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2025}
+}
+
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
