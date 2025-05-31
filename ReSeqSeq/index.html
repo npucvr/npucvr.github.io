@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deep Non-rigid Structure-from-Motion Revisited: Canonicalization and Sequence Modeling</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Deep Non-rigid Structure-from-Motion Revisited: Canonicalization and Sequence Modeling
+          <!-- <h4 style="color:#5a6268;">On submission</h4> -->
+          <h4 style="color:#5a6268;">AAAI 2025</h4>
+          <hr>
+          <h6>
+            <a target="_blank">Hui Deng</a><sup>1</sup>,
+            <a target="_blank">Jiawei Shi</a><sup>1</sup>,
+            <a target="_blank">Zhen Qin</a><sup>2</sup>
+            <a href="https://scholar.google.com/citations?user=E9NVOBUAAAAJ&hl=en" target="_blank">Yiran Zhong</a><sup>3</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+          </h6>
+          <p><sup>1</sup>School of Electronics and Information, Northwestern Polytechnical University <br>
+            <sup>2</sup>Tap Tap &nbsp;&nbsp;<sup>3</sup> OpenNLPLab
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2412.07230" role="button" target="_blank">
+                  <i class="fa fa-file"></i> arXiv </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/npucvr/Seq2Seq" href="" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left">Non-Rigid Structure-from-Motion (NRSfM) is a classic 3Dvision problem, where a 2D sequence is taken as input to estimate the corresponding 3D sequence. Recently, deep neural networks have greatly advanced the task of NRSfM. However, existing deep NRSfM methods still have limitations in handling the inherent sequence property and motion ambiguity associated with the NRSfM problem. In this paper, we revisit deep NRSfM from two perspectives to address the limitations of current deep NRSfM methods: (1) canonicalization and (2) sequence modeling. We propose an easy-to-implement per-sequence canonicalization method as opposed to the previous per-dataset canonicalization approaches. With this in mind, we propose a sequence modeling method that combines temporal information and subspace constraints. As a result, we have achieved a more optimal NRSfM reconstruction pipeline compared to previous efforts. The effectiveness of our method is verified by testing the sequence-to-sequence deep NRSfM pipeline with corresponding regularization modules on several commonly used datasets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/0p7uUSMkahw" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Our Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="95%" src="img/pipeline.png" alt="Architecture">
+        <p class="text-left"> An overview of deep NRSfM pipeline with proposed shape sequence reconstruction and GPA layer. The whole pipeline consists of three parts: the single-frame shape/rotation predictor, the shape sequence reconstruction stage and general procrustean analysis layer. The General Procrustean Analysis layer is a parameter-free layer, which is not needed for inference when training is finished. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>What is Canonical</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="img/canonical.png" alt="Canoincal">
+        <p class="text-left"> 
+          The left side of the figure shows the canonicalization method in <strong>C3dpo</strong>, which performs random rotations for each frame, <strong>i.e.</strong> training the network over the entire dataset to determine the canonical coordinate. The right side shows our method to align for each sequence, explicitly helping the network to determine the canonical coordinate.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Visualization on more dataset</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="img/dataset2.png" alt="flow uncertainty visualization">
+        <p class="text-center"> 
+          Visualization of several methods on Human3.6M with detected 2D keypoint and Interhand2.6M dataset
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- More visualization
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>IoU per-frame over time</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/iou_with_time.png" alt="IoU per-frame over time">
+        <p class="text-left"> 
+        IoU per-frame over time of Ours, STM and AFB-URR on five video sequences from DAVIS17 validation set. The last three columns have multiple objects, while the first two columns have only a single object. Since we effectively use the motion information between adjacent frames, the IoU can remain high even in the latter part of the video sequences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{deng2025aaai,
+  title={Deep Non-rigid Structure-from-Motion Revisited: Canonicalization and Sequence Modeling},
+  author={Deng, Hui and Shi, jiawei and Zhen, Qin and Yiran, Zhong and Dai, Yuchao},
+  journal={The 39th Annual AAAI Conference on Artificial Intelligence},
+  year={2025}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
