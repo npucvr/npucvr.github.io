@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PanoSplatt3R</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>PanoSplatt3R: Leveraging Perspective Pretraining for Generalized Unposed Wide-Baseline Panorama Reconstruction</h2>
+          <h4 style="color:#5a6268;">ICCV 25</h4>
+          <hr>
+          <h6>
+            <a href="http://npu-cvr.cn/" target="_blank">Jiahui Ren</a><sup>⭐️</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Mochu Xiang</a><sup>⭐️</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Jiajun Zhu</a>,
+            <a href="http://npu-cvr.cn/" target="_blank">Yuchao Dai</a><sup>✉️</sup>,
+          </h6>
+          <p> School of Electronics and Information, Northwestern Polytechnical University and
+            <br>Shaanxi Key Laboratory of Information Acquisition and Processing, Xi'an, Shaanxi, China
+            <br>
+            <br>
+            <a style="color:#9b9fa2">
+              <sup>⭐️</sup> denotes equal contribution &nbsp;&nbsp;
+              <sup>✉️</sup> Corresponding author &nbsp; <a style="font-family: 'Courier New', monospace; color: #9abad3;"> daiyuchao[at]nwpu.edu.cn</a>
+            </a>
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/xxx" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <!-- <i class="fa fa-file"></i> Model weights </a> </p> -->
+                  &#129303; Model weights </a> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- notive -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <!-- <h3>This page is still under construction.</h3> -->
+        <a style="font-size: large; color: tomato;"> <strong> 
+          This page is still under construction. Please come back frequently for updates.
+        </strong> </a>
+        <hr style="margin-top:0px">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left">
+          Wide-baseline panorama reconstruction has emerged as a highly effective and pivotal approach for not only achieving geometric reconstruction of the surrounding 3D environment, but also generating highly realistic and immersive novel views.
+          Although existing methods have shown remarkable performance across various benchmarks, they are predominantly reliant on accurate pose information. In real-world scenarios, the acquisition of precise pose often requires additional computational resources and is highly susceptible to noise. 
+          These limitations hinder the broad applicability and practicality of such methods.
+          In this paper, we present PanoSplatt3R, an unposed wide-baseline panorama reconstruction method. We extend and adapt the foundational reconstruction pretrainings from the perspective domain to the panoramic domain, thus enabling powerful generalization capabilities.
+          To ensure a seamless and efficient domain-transfer process, we introduce RoPE rolling that spans rolled coordinates in rotary positional embeddings across different attention heads, maintaining a minimal modification to RoPE's mechanism, while modeling the horizontal periodicity of panorama images.
+          Comprehensive experiments demonstrate that PanoSplatt3R, even in the absence of pose information, significantly outperforms current state-of-the-art methods. This superiority is evident in both the generation of high-quality novel views and the accuracy of depth estimation, thereby showcasing its great potential for practical applications.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/xxx_your_video_ID" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>PanoSplatt3R Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./imgs/PanoSplatt3R_architecture.png" alt="Architecture">
+        <p><strong>Overview of our proposed PanoSplatt3R.</strong> 
+          Given two panorama images as input and without knowing their relative pose, 
+          our model reconstructs the entire 3D scene using Gaussian Splats. 
+          The estimated geometry can provide photorealistic renderings at novel view points. 
+          We removed two walls from the final reconstruction to better display the room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- ablation study -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Ablation studies</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/xxx.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+<br> -->
+
+<!-- comparison -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Comparison with state-of-the-art methods</h3>
+        <hr style="margin-top:0px">
+        <p><strong>Quantitative comparisons on wide-baseline panorama reconstructions.</strong>
+          We compare our model with methods that require accurate known pose, 
+          including those with cube map inputs and panorama inputs. 
+          Our model, even in the absence of camera pose, 
+          presents the best performance in both novel view synthesis quality and depth estimation accuracy.</p>
+        <img class="img-fluid" width="100%" src="./imgs/comparison.png" alt="Performance">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{PanoSplatt3R,
+  title={PanoSplatt3R: Leveraging Perspective Pretraining for Generalized Unposed Wide-Baseline Panorama Reconstruction},
+  author={Ren, Jiahui and Xiang, Mochu and Zhu, Jiajun and Dai, Yuchao},
+  booktitle={ICCV},
+  year={2025}
+}
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
