@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MUNet: Motion Uncertainty-aware Semi-supervised Video Object Segmentation</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>LDT: Efficient Scalable Video Generation Using <br> Linear Diffusion Transformer </h2>
+          <h4 style="color:#5a6268;">On submission</h4>
+          <!-- <h4 style="color:#5a6268;">Pattern Recognition (PR) 2023</h4> -->
+          <hr>
+          <h6>
+            <a href="https://scholar.google.com/citations?user=HPvl-ikAAAAJ&hl=en" target="_blank">Yuxin Mao</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=IcBRtycAAAAJ&hl=en" target="_blank">Zhen Qin</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=k6Q1mcoAAAAJ&hl=en" target="_blank">Xuyang Shen</a><sup>3</sup>,
+            <a href="https://openreview.net/profile?id=~Jinxing_Zhou1" target="_blank">Jingxing Zhou</a><sup>3</sup>,
+            <a href="https://scholar.google.com/citations?user=Qa1DMv8AAAAJ&hl=en" target="_blank">Jing Zhang</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=E9NVOBUAAAAJ&hl=en" target="_blank">Yiran Zhong</a><sup>3</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ&hl=en" target="_blank">Yuchao Dai</a><sup>1</sup>,
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp;
+            <sup>2</sup>TapTap &nbsp;&nbsp;
+            <sup>3</sup>OpenNLPLab &nbsp;&nbsp;
+          </p>
+
+          <div class="row justify-content-center">
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://www.sciencedirect.com/science/article/pii/S0031320323001000" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2111.14646" role="button" target="_blank">
+                  <i class="fa fa-file"></i> arXiv </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Diffusion-based models have established new benchmarks in high-quality video generation. 
+          However, they encounter significant challenges regarding computational efficiency, particularly when dealing with longer sequences, because of their inherent quadratic complexity. 
+          To address these challenges, we introduce the Linear Diffusion Transformer (LDT), which utilizes the linear attention mechanism to reduce computational complexity to a linear scale. 
+          This advancement facilitates the efficient generation of longer video sequences without sacrificing the quality of the output. 
+          Among the key innovations in our approach include two sophisticated positional encoding techniques: Exponential Relative Positional Encoding (ERPE) and 3D Linearized Relative Positional Encoding (3D-LRPE). 
+          By capturing local correlations between video tokens through these position-aware encodings, our model effectively preserves computational efficiency while maintaining the ability to model fine-grained spatiotemporal relationships. 
+          These techniques enhance the capability of the model to capture intricate spatial and temporal dependencies effectively. Furthermore, we propose the Spatial-Global Transformer (SGT), which alternates between spatial attention and global sequence attention to improve video modeling efficacy. 
+          Extensive experimental evaluations demonstrate that LDT not only achieves stateof- the-art efficiency but also excels in generation performance. Notably, under the “train short, test long” setting, our method exhibits remarkable scalability as the length of the video frames increases, underscoring its robustness for longer video sequences. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- overview video -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Overview video</h3>
+        <hr style="margin-top:0px">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="950" height="534" src="https://www.youtube.com/embed/JAMjbKCzVDU" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>LDT Architecture</h3>
+        <hr style="margin-top:0px">
+          <img class="img-fluid" width="100%" src="images/network_framework.png" alt="Architecture">
+        <p class="text-left"> The architecture of the Linear Diffusion Transformer (LDT). 
+          (a) The LDT framework comprises a video latent patchification module, the Enhanced Relative Positional Encoding (ERPE) mechanism, multiple LDT layers, and a noise estimation module. 
+          (b) Each LDT layer leverages in-context condition via token concatenation: $\mathbf{X}=\text{Concat}(\mathbf{X}, c)$, followed by linear attention and a Gated Linear Unit (GLU). 
+          (c) The linear attention integrates a gating mechanism with the proposed 3D Linearized Relative Positional Encoding (3D-LRPE). 
+          We define the input and output of the LDT layer as $\mathbf{X}$ for simplicity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Video Sequence Modeling methods</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="60%" src="images/compare_three_seq.png" alt="ablation study">
+        <p class="text-left"> 
+          Illustration of different Video Sequence Modeling methods. 
+          The figure shows three types of attention mechanisms used in the LDT layer. 
+          Spatial-Temporal Transformer and Spatial-Global Transformer contain two attention layers per block and are applied $N/2$ times, 
+          while Global Sequential Transformer has a single attention layer per block and is applied $N$ times. 
+          This figure illustrates the organization within a single layer or two-layer configuration for clarity, omitting full $N$-block stacking.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- More visualization -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Memory Usage and Speed</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="60%" src="images/iou_with_time.png" alt="IoU per-frame over time">
+        <p class="text-left"> 
+        Comparative Analysis of Memory Usage and Speed. We fix batch size and image size, then increase the video length (number of frames) for testing.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+
+<!-- <footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer> -->
+
+</body>
+
+</html>
