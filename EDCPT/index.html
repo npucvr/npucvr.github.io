@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EvInsMOS: Instance-Level Moving Object Segmentation from a Single Image with Events</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Event-aided Dense and Continuous Point Tracking: Everywhere and Anytime</h2>
+          <h4 style="color:#5a6268;">ICCV 2025</h4>
+          <hr>
+          <h6>
+            <a href="https://danquxunhuan.cn" target="_blank">Zhexiong Wan</a><sup>1,2</sup>,
+            <a href="" target="_blank">Jianqin Luo</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>1</sup>
+            <a href="https://www.comp.nus.edu.sg/~leegh/index.html" target="_blank">Gim Hee Lee</a><sup>2</sup>
+          </h6>
+          <p><sup>1</sup>School of Electronics and Information, Northwestern Polytechnical University &nbsp; 
+            <br>
+            <sup>2</sup>Department of Computer Science, National University of Singapore&nbsp; 
+            <br>
+          </p>
+
+          <div class="row justify-content-center">
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> PDF </a> </p>
+            </div> -->
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://figshare.com/articles/media/EDCPT_demo_video/29656805" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Demo Video </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Supp </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
+                  <i class="fa fa-file"></i> Dataset </a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Recent point tracking methods have made great strides in recovering the trajectories of any point (especially key points) in long video sequences associated with large motions. However, the spatial and temporal granularities of point trajectories remain constrained by limited motion estimation accuracy and video frame rate. Leveraging the high temporal resolution and motion sensitivity of event cameras, we introduce event data for the first time to recover spatially dense and temporally continuous trajectories of every point at any time. Specifically, we define the dense and continuous point trajectory representation as estimating multiple control points of curves for each pixel and model the movement of sparse events triggered along continuous point trajectories. Building on this, we propose a novel multi-frame iterative streaming framework that first estimates local inter-frame motion representations from two consecutive frames with inter-frame events, then aggregates them into a global long-term motion representation to utilize input full video and event data with an arbitrary number of frames. Extensive experiments on simulated and real data demonstrate the significant improvement of our framework over state-of-the-art methods and the crucial role of introducing events to model continuous point trajectories.     </p>
+  
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Demo Video</h3>
+        <hr style="margin-top:0px">
+        <iframe src="https://widgets.figshare.com/articles/29656805/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+  
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Acknowledgments</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> This research/project is supported by the National Natural Science Foundation of China (62271410, 12150007), the National Research Foundation, Singapore, under its NRF-Investigatorship Programme (Award ID. NRF-NRFI09-0008), and the Tier 1 grant T1-251RES2305 from the Singapore Ministry of Education. Zhexiong Wan was also supported by the Program of China Scholarship Council (202306290193), and the Innovation Foundation for Doctor Dissertation of Northwestern Polytechnical University (CX2023013). </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
