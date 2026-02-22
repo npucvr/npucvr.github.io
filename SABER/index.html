@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SABER: Spatially Consistent 3D Universal Adversarial Objects for BEV Detectors</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!-- cover -->
+<section>
+  <div class="jumbotron text-center mt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>SABER: Spatially Consistent 3D Universal Adversarial Objects for BEV Detectors</h2>
+          <h4 style="color:#5a6268;">CVPR 2026</h4>
+          <hr>
+          <h6>
+            <a href="https://scholar.google.com/citations?user=YvxUi1oAAAAJ" target="_blank">Aixuan Li</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=OC5oCTgAAAAJ" target="_blank">Mochu Xiang</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=aES1otMAAAAJ" target="_blank">Bosen Hou</a><sup>1</sup>,
+            <a href="https://danquxunhuan.cn/" target="_blank">Zhexiong Wan</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=Qa1DMv8AAAAJ" target="_blank">Jing Zhang</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>1</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University, China &nbsp;&nbsp;
+          </p>
+
+
+          <div class="row justify-content-center">
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/xxx" role="button"
+                  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+            <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
+                  <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
+            </div>
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
+                  <i class="fa fa-file"></i> Supplementary </a> </p>
+            </div> -->
+            <!-- <div class="column">
+              <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
+                  <i class="fa fa-database"></i> Data</a> </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- abstract -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Abstract</h3>
+        <hr style="margin-top:0px">
+        <p class="text-left"> Adversarial robustness of BEV 3D object detectors is critical for autonomous driving (AD). 
+Existing invasive attacks require altering the target vehicle itself (e.g. attaching patches), making them unrealistic and impractical for real-world evaluation. 
+While non-invasive attacks that place adversarial objects in the environment are more practical, current methods still lack the multi-view and temporal consistency needed for physically plausible threats. 
+In this paper, we present the first framework for generating universal, non-invasive, and 3D-consistent adversarial objects that expose fundamental vulnerabilities for BEV 3D object detectors. 
+Instead of modifying target vehicles, our method inserts rendered objects into scenes with an occlusion-aware module that enforces physical plausibility across views and time. 
+To maintain attack effectiveness across views and frames, we optimize adversarial object appearance using a BEV spatial feature-guided optimization strategy that attacks the detector's internal representations. 
+Extensive experiments demonstrate that our learned universal adversarial objects can consistently degrade multiple BEV detectors from various viewpoints and distances.
+More importantly, the new environment-manipulation attack paradigm exposes models' over-reliance on contextual cues and provides a practical pipeline for robustness evaluation in AD systems. </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- contribution -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Contribution</h3>
+        <hr style="margin-top:0px">
+          <ul class="text-left">
+            <li>We propose the first 3D-consistent, non-invasive threat model where a universal adversarial object, placed nearby without physical contact, can mislead BEV detectors and cause hazards;</li>
+            <li>We realize this attack with a novel pipeline that leverages differentiable rendering for 3D-consistency, a Realistic Occlusion Processing Module for physical realism, and a BEV feature-based scene confusion loss for robust feature-level attacks; </li>
+            <li>Results on public datasets and in physical experiments show that our attack reveals a profound semantic vulnerability in current models: our non-invasive object manipulates the model's contextual reasoning about object co-occurrence, exposing a deep over-reliance on learned environmental priors and suggesting significant dataset deficiencies.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- showcase -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>XXNet Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/overall.png" alt="Architecture">
+
+        <p> Overview of our adversarial object generation pipeline.Appropriate locations are first chosen to place adversarial meshes in the 3D scene, which are then rendered onto the input images. Our differentiable renderer ensures 3D-consistent, multi-view renderings with correct perspective. The Realistic Occlusion Processing Module further simulates partial visibility for improved robustness. Finally, the adversarial object is optimized via BEV Spatial Feature-Guided Optimization to enable effective attacks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Quantitative comparisons</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/table1.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Qualitative results</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/pic1.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Qualitative comparison-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Physical Experiments</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="95%" src="images/pic2.png" alt="ablation study">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- citing -->
+<div class="container">
+  <div class="row ">
+    <div class="col-12">
+      <h3>Citation</h3>
+      <hr style="margin-top:0px">
+      <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{li2026saber,
+  title={SABER: Spatially Consistent 3D Universal Adversarial Objects for BEV Detectors},
+  author={Li, Aixuan and Xiang, Mochu and Hou, Bosen and Wan, Zhexiong and Zhang, Jing and Dai, Yuchao},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2026}
+}
+<!-- !! Please replace this code with your own paper info. -->
+<!-- It is best not to add blank lines or extra indentation. -->
+</code></pre>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center" style="margin-bottom:10px">
+  <br>
+  Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+</footer>
+
+</body>
+
+</html>
