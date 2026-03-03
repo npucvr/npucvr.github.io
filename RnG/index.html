@@ -20,36 +20,47 @@
           <h2>RnG: A Unified Transformer for Complete <br>3D Modeling from Partial Observations</h2>
           <h4 style="color:#5a6268;">CVPR 26</h4>
           <hr>
-          <!-- <h6>
-            <a href="http://npu-cvr.cn/" target="_blank">Jiahui Ren</a><sup>⭐️</sup>,
-            <a href="https://scholar.google.com/citations?user=OC5oCTgAAAAJ" target="_blank">Mochu Xiang</a><sup>⭐️</sup>,
-            <a href="http://npu-cvr.cn/" target="_blank">Jiajun Zhu</a>,
-            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>✉️</sup>,
+          <h6>
+            <a href="https://scholar.google.com/citations?user=OC5oCTgAAAAJ" target="_blank">Mochu Xiang</a><sup>1,2 ‡</sup>,
+            <a href="https://scholar.google.com/citations?user=pfzhh0IAAAAJ" target="_blank">Zhelun Shen</a><sup>2 ✽ †</sup>,
+            <a href="https://scholar.google.com/citations?user=HIeMGxcAAAAJ" target="_blank">Xuesong Li</a><sup>3,4</sup>,
+            <a href="http://npu-cvr.cn/" target="_blank">Jiahui Ren</a><sup>1</sup>,
+            <a href="https://scholar.google.com/citations?user=Qa1DMv8AAAAJ" target="_blank">Jing Zhang</a><sup>3</sup>,
           </h6>
-          <p> School of Electronics and Information, Northwestern Polytechnical University and
-            <br>Shaanxi Key Laboratory of Information Acquisition and Processing, Xi'an, Shaanxi, China
-            <br>
-            <br>
-            <a style="color:#9b9fa2">
-              <sup>⭐️</sup> denotes equal contribution &nbsp;&nbsp;
-              <sup>✉️</sup> Corresponding author &nbsp; <a style="font-family: 'Courier New', monospace; color: #9abad3;"> daiyuchao[at]nwpu.edu.cn</a>
+          <h6>
+            <a href="https://scholar.google.com/citations?user=kWzyOa8AAAAJ" target="_blank">Chen Zhao</a><sup>2</sup>,
+            <a href="" target="_self"> Shanshan Liu </a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=pnuQ5UsAAAAJ" target="_blank">Haocheng Feng</a><sup>2</sup>,
+            <a href="https://jingdongwang2017.github.io" target="_blank">Jingdong Wang</a><sup>2</sup>,
+            <a href="https://scholar.google.com/citations?user=fddAbqsAAAAJ" target="_blank">Yuchao Dai</a><sup>1 †</sup>
+          </h6>
+          <p> <sup>1</sup> Northwestern Polytechnical University, China
+            <span style="margin: 0 20px"> <sup>2</sup> Baidu Inc., China </span>
+            <span style="margin: 0 20px"> <sup>3</sup> Australian National University, Australia </span>
+            <span style="margin: 0 20px"> <sup>4</sup> CSIRO, Australia </span>
+            </p>
+          <p>
+            <a style="color:#888888">
+              <sup>✽</sup> Project leader <span style="margin: 0 20px">
+              <sup>†</sup> Corresponding authors <span style="margin: 0 20px">
+              <sup>‡</sup> Work done during an internship at Baidu 
             </a>
-          </p> -->
+          </p>
 
 
           <div class="row justify-content-center">
             <div class="column">
-              <p class="mb-5"><a class="btn btn-large btn-light" role="button"
+              <p class="mb-5"><a class="btn btn-large btn-light" role="button" href="https://arxiv.org/abs/2603.01194"
                   target="_blank">
-                  <i class="fa fa-file"></i> Paper coming soon</a> </p>
+                  <i class="fa fa-file"></i> arXiv </a> </p>
             </div>
             <div class="column">
               <p class="mb-5"><a class="btn btn-large btn-light" role="button" target="_blank">
                   <i class="fa fa-github-alt"></i> Code coming soon</a> </p>
             </div>
             <div class="column">
-              <p class="mb-5"><a class="btn btn-large btn-light" role="button" target="_blank">
-                  &#129303; Model weights & Data coming soon</a> </p>
+              <p class="mb-5"><a class="btn btn-large btn-light" role="button" href="https://huggingface.co/MochuXiang/RnG/tree/main" target="_blank">
+                  &#129303; Model weights</a> </p>
             </div>
           </div>
         </div>
@@ -84,81 +95,71 @@
 <br>
 
 
-<!-- showcase -->
-<!-- <section>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h3>PanoSplatt3R Architecture</h3>
-        <hr style="margin-top:0px">
-        <img class="img-fluid" width="100%" src="./imgs/PanoSplatt3R_architecture.png" alt="Architecture">
-        <p><strong>Overview of our proposed PanoSplatt3R.</strong> 
-          Given two panorama images as input and without knowing their relative pose, 
-          our model reconstructs the entire 3D scene using Gaussian Splats. 
-          The estimated geometry can provide photorealistic renderings at novel view points. 
-          We removed two walls from the final reconstruction to better display the room.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<br> -->
-
-
-<!-- comparison -->
-<!-- <section>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h3>Comparison with state-of-the-art methods</h3>
-        <hr style="margin-top:0px">
-        <p><strong>Quantitative comparisons on wide-baseline panorama reconstructions.</strong>
-          We compare our model with methods that require accurate known pose, 
-          including those with cube map inputs and panorama inputs. 
-          Our model, even in the absence of camera pose, 
-          presents the best performance in both novel view synthesis quality and depth estimation accuracy.</p>
-        <img class="img-fluid" width="100%" src="./imgs/comparison.png" alt="Performance">
-      </div>
-    </div>
-  </div>
-</section>
-<br> -->
-
 <!-- visual comparison video -->
 <section>
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3>Visual Comparison</h3>
+        <h3>What can RnG do?</h3>
         <hr style="margin-top:0px">
         <div class="embed-responsive embed-responsive-16by9">
           <iframe width="950" height="534" src="https://youtube.com/embed/l1X6U8xiMyE" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
+
+        <p> Given a few unposed images of an object, 
+          3D reconstruction foundation models like VGGT can recover the structure of <strong>observed regions</strong>, 
+          but leaves the unseen part un-modeled. 
+          RnG can estimate its complete 3D geometry within a second on an A800 GPU, using a single feed-forward transformer. 
+          RnG implicitly reconstructs 3D and render onto new viewpoints with appearance and geometry. 
+          By accumulating these rendered point maps, RnG can generate a complete 3D object, working like a virtual 3D scanner.</p>
       </div>
     </div>
   </div>
 </section>
 <br>
 
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>RnG Architecture</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="./imgs/RnG_architecture.png" alt="Architecture">
+        <p><strong>The Network Architecture of RnG.</strong> 
+          (a) Source view images are first tokenized using the DINO vision transformer; 
+              the Plücker ray map representing the target view point goes through a linear layer. 
+              After adding camera tokens for each view, all tokens will then alternately attend to global- and frame-level attention blocks. 
+              Finally, camera tokens from input views are used to estimate camera poses, while a point head and an RGB head process ray tokens from the target view, providing geometry and appearance estimations. 
+          (b) In inference, the model can cache K/V token from source views, synthesizing novel view geometry and geometry at a higher speed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+
 <!-- citing -->
-<!-- <div class="container">
+<div class="container">
   <div class="row ">
     <div class="col-12">
       <h3>Citation</h3>
       <hr style="margin-top:0px">
       <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
-<code>@inproceedings{PanoSplatt3R,
-  title={PanoSplatt3R: Leveraging Perspective Pretraining for Generalized Unposed Wide-Baseline Panorama Reconstruction},
-  author={Ren, Jiahui and Xiang, Mochu and Zhu, Jiajun and Dai, Yuchao},
-  booktitle={ICCV},
-  year={2025}
+<code>@inproceedings{RnG,
+  title={RnG: A Unified Transformer for Complete 3D Modeling from Partial Observations},
+  author={Xiang, Mochu and Shen, Zhelun and Li, Xuesong and Ren, Jiahui and Zhang, Jing and 
+          Zhao, Chen and Liu, Shanshan and Feng, Haocheng and Wang, Jingdong and Dai, Yuchao},
+  booktitle={CVPR},
+  year={2026}
 }
 </code></pre>
       <hr>
     </div>
   </div>
-</div> -->
+</div>
 
 <footer class="text-center" style="margin-bottom:10px">
   <br>
