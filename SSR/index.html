@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PanoSplatt3R</title>
+  <title>SSR</title>
   <!-- Bootstrap -->
   <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,23 +17,14 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>PanoSplatt3R</h2>
-          <h4 style="color:#5a6268;">ICCV 25</h4>
+          <h2>Self-Expressive Sequence Regularization: <br> A Training-Free Approach for Streaming 3D Reconstruction
+          </h2>
+          <h4 style="color:#5a6268;">ArXiv</h4>
           <hr>
           <h6>
-            <a href="http://npu-cvr.cn/" target="_blank">name1</a><sup>1*</sup>,
-            <a href="http://npu-cvr.cn/" target="_blank">name2</a><sup>1*</sup>,
-            <a href="http://npu-cvr.cn/" target="_blank">name3</a><sup>1</sup>,
-            <a href="http://npu-cvr.cn/" target="_blank">name4</a><sup>2</sup>,
-            name5<sup>1</sup>,
-            name6<sup>1</sup>
+            Hui Deng, Yuxin Mao, Yuxin He, Yuchao Dai
           </h6>
-          <p><sup>1</sup>A University &nbsp;&nbsp;
-            <sup>2</sup>B University
-            <br>
-            <sup>*</sup> denotes equal contribution
-          </p>
-
+          <p>Northwestern Polytechnical University</p>
 
           <div class="row justify-content-center">
             <div class="column">
@@ -45,10 +36,10 @@
               <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
                   <i class="fa fa-github-alt"></i> Code (coming soon) </a> </p>
             </div>
-            <div class="column">
+            <!-- <div class="column">
               <p class="mb-5"><a class="btn btn-large btn-light" href="https://xxx" role="button">
                   <i class="fa fa-file"></i> Supplementary </a> </p>
-            </div>
+            </div> -->
             <!-- <div class="column">
               <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
                   <i class="fa fa-database"></i> Data</a> </p>
@@ -65,17 +56,25 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center">
+      <div class="col-12">
         <h3>Abstract</h3>
         <hr style="margin-top:0px">
-        <p class="text-left"> The Paper Abstract. xxxxx </p>
+        <p class="text-justify">
+          Streaming 3D reconstruction requires long-horizon state updates under strict latency constraints, but stateful
+          recurrent models often suffer from geometric drift due to accumulated errors. We revisit this problem from a
+          <b>Grassmannian manifold perspective</b>: the latent persistent state is viewed as a subspace representation
+          evolving on a manifold. Based on this, we propose <b>Self-expressive Sequence Regularization (SSR)</b>, a
+          plug-and-play, training-free operator that enforces sequence regularity during inference. SSR computes an
+          analytical affinity matrix via the self-expressive property to pull noisy predictions back toward the
+          manifold-consistent trajectory with minimal overhead. Experiments demonstrate that SSR consistently reduces
+          drift and improves reconstruction quality across multiple streaming 3D tasks.
+        </p>
       </div>
     </div>
   </div>
 </section>
-<br>
 
-<!-- overview video -->
+<!-- overview video
 <section>
   <div class="container">
     <div class="row">
@@ -91,18 +90,23 @@
     </div>
   </div>
 </section>
-<br>
+<br> -->
 
 <!-- showcase -->
 <section>
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3>XXNet Architecture</h3>
+        <h3>SSR Pipeline</h3>
         <hr style="margin-top:0px">
-        <img class="img-fluid" width="100%" src="images/network_framework.png" alt="Architecture">
+        <img class="img-fluid" width="100%" src="images/pipeline.png" alt="Architecture">
 
-        <p> Zoom in by scrolling. Some comments.</p>
+        <p class="text-justify"><b>Illustration of the Self-expressive Sequence Regularization (SSR).</b> We introduce a
+          training-free
+          regularization scheme for CUT3R. Specifically, we refine the frame-wise states calculated by foundation models
+          through a sliding-window reconstruction process. By leveraging the affinity between temporal states, our
+          method achieves sequence regularization without introducing learnable parameters, making it directly
+          applicable to off-the-shelf pre-trained foundation model.</p>
       </div>
     </div>
   </div>
@@ -113,34 +117,61 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center">
-        <h3>Ablation studies</h3>
+      <div class="col-12">
+        <h3 class="text-center">Key Contributions</h3>
         <hr style="margin-top:0px">
-        <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-          <source src="https://www.youtube.com/xxxxx" type="video/mp4">
-        </video> -->
-        <img class="img-fluid" width="95%" src="images/xxx.png" alt="ablation study">
+        <ul>
+          <li><b>Manifold Perspective:</b> We interpret the persistent latent state in streaming models as a point
+            evolving on a Grassmannian manifold.</li>
+          <li><b>Training-Free Regularization:</b> We introduce SSR, an analytical correction mechanism that leverages
+            historical context to mitigate drift without backpropagation.</li>
+          <li><b>Broad Applicability:</b> Our method proves effective across various tasks, including video depth
+            estimation and camera pose estimation, especially in long-sequence and dynamic scenarios.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
-<br>
 
 <!-- comparison -->
 <section>
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3>Comparison with state-of-the-art methods</h3>
+        <h3>Quality Comparison</h3>
         <hr style="margin-top:0px">
-        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-          <source src="./videos/xxx.mp4" type="video/mp4">
-        </video>
+        <img class="img-fluid" width="100%" src="images/two-on-davis.png" alt="Architecture">
+        <p class="text-justify">
+          Our approach substantially improves temporal coherence and structural stability. On the <b>KITTI</b>
+          benchmark, SSR remains robust as sequence length increases, whereas vanilla models exhibit clear degradation.
+          Furthermore, on in-the-wild dynamic sequences from <b>DAVIS</b>, our method reduces structural artifacts and
+          prevents catastrophic failures by alleviating long-range contextual decay, preserving global scene consistency
+          even under challenging motion patterns.
+        </p>
       </div>
     </div>
   </div>
 </section>
-<br>
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Length Generalization</h3>
+        <hr style="margin-top:0px">
+        <img class="img-fluid" width="100%" src="images/length.png" alt="length">
+        <p class="text-justify">
+          Our approach substantially improves temporal coherence and structural stability. On the <b>KITTI</b>
+          benchmark, SSR remains robust as sequence length increases, whereas vanilla models exhibit clear degradation.
+          Furthermore, on in-the-wild dynamic sequences from <b>DAVIS</b>, our method reduces structural artifacts and
+          prevents catastrophic failures by alleviating long-range contextual decay, preserving global scene consistency
+          even under challenging motion patterns.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- citing -->
 <div class="container">
@@ -149,15 +180,12 @@
       <h3>Citation</h3>
       <hr style="margin-top:0px">
       <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
-<code>@inproceedings{xx,
-  title={Your Paper Title},
-  author={author list},
-  booktitle={xxxx},
-  year={xxxx}
-} !! Please replace this code with your own paper info.
-It is best not to add blank lines or extra indentation.
-</code></pre>
-      <hr>
+<code>@inproceedings{deng2026ssr,
+  title={Self-Expressive Sequence Regularization: A Training-Free Approach for Streaming 3D Reconstruction},
+  author={Deng, Hui and Mao, Yuxin and He, Yuxin and Dai, Yuchao},
+  booktitle={arxiv},
+  year={2026}
+}</code></pre>
     </div>
   </div>
 </div>
