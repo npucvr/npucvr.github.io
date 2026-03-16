@@ -162,11 +162,13 @@
         <hr style="margin-top:0px">
         <img class="img-fluid" width="100%" src="images/length.png" alt="length">
         <p class="text-justify">
-          Our approach substantially improves temporal coherence and structural stability. On the <b>KITTI</b>
-          benchmark, SSR remains robust as sequence length increases, whereas vanilla models exhibit clear degradation.
-          Furthermore, on in-the-wild dynamic sequences from <b>DAVIS</b>, our method reduces structural artifacts and
-          prevents catastrophic failures by alleviating long-range contextual decay, preserving global scene consistency
-          even under challenging motion patterns.
+          Following the original protocol, the baseline evaluation length for Cut3R on KITTI is set to 110 frames. As
+          sequence length increases, vanilla Cut3R exhibits clear degradation in depth estimation accuracy. In contrast,
+          incorporating the historical context fusion operation consistently improves over the baseline and remains
+          robust across the full range of a. The same pattern is observed on TUM-D pose estimation benchmarks. Together,
+          these cross-task and cross-dataset findings support our hypothesis that contextual forgetting is a core
+          limitation of Cut3R, and that reducing this effect is essential for length generalization in streaming spatial
+          models.
         </p>
       </div>
     </div>
