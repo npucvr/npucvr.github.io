@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning Spatio-Temporal Dynamic Event Voxels for Robust Event-based Object Tracking</title>
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row"><div class="col-12">
+          <h2>Learning Spatio-Temporal Dynamic Event Voxels<br>for Robust Event-based Object Tracking</h2>
+          <h4 style="color:#5a6268;">IEEE Transactions on Circuits and Systems for Video Technology</h4>
+          <hr>
+          <h6>
+            Yuting He<sup>1</sup>,
+            Bin Fan<sup>1,&#9993;</sup>,
+            Zhongyang Ren<sup>1</sup>,
+            Qi Liu<sup>1</sup>,
+            Yuchao Dai<sup>1,&#9993;</sup>
+          </h6>
+          <p><sup>1</sup>Northwestern Polytechnical University &nbsp;&nbsp; Shaanxi Key Laboratory of Information Acquisition and Processing<br><sup>&#9993;</sup> corresponding authors</p>
+          <div class="row justify-content-center">
+            <div class="column"><p class="mb-5"><a class="btn btn-large btn-light" href="paper.pdf" role="button" target="_blank"><i class="fa fa-file"></i> Paper</a></p></div>
+            <div class="column"><p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target=""><i class="fa fa-github-alt"></i> Code (coming soon)</a></p></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section><div class="container"><div class="row"><div class="col-12 text-center">
+    <h3>Abstract</h3><hr style="margin-top:0px">
+    <p class="text-left">Event-based object tracking has garnered significant attention due to its unique advantages in high-speed and high-dynamic-range scenarios. However, existing trackers often rely on hand-crafted event representations, which struggle to capture the complex spatio-temporal dynamics of moving objects. We propose the <b>Spatio-Temporal Dynamic Voxel (STDV)</b>, a novel, multi-scale, and well-structured event representation jointly optimized with the tracking network. STDV discretizes asynchronous event streams into multi-level voxels with varying temporal resolutions. Cascaded temporal dilated convolutions progressively expand the receptive field to capture long-range temporal dependencies, while the representations from all levels are aggregated in a coarse-to-fine fashion. We further introduce <b>Spatio-Temporal Variance Modeling (STVM)</b>, which captures event fluctuations across temporal scales to highlight motion-intensive regions. Experiments on RGB-event and event-only tracking benchmarks demonstrate consistent improvements and new state-of-the-art performance.</p>
+  </div></div></div></section><br>
+
+  <section><div class="container"><div class="row"><div class="col-12 text-center">
+    <h3>Spatio-Temporal Dynamic Voxel</h3><hr style="margin-top:0px">
+    <img class="img-fluid" width="100%" src="images/fig-stdv.png" alt="STDV architecture">
+    <p class="text-left"><b>Hierarchical architecture of STDV.</b> The event stream is represented at coarse, medium, and fine temporal granularities. Each branch employs a Temporal Dynamic Block with cascaded dilated convolutions to capture motion patterns at different temporal scales. The three outputs are concatenated into the final structured event representation.</p>
+  </div></div></div></section><br>
+
+  <section><div class="container"><div class="row"><div class="col-12 text-center">
+    <h3>Spatio-Temporal Variance Modeling</h3><hr style="margin-top:0px">
+    <img class="img-fluid" width="80%" src="images/fig-stvm.png" alt="STVM-guided attention">
+    <p class="text-left"><b>STVM-guided attention.</b> Variance across STDV's temporal granularities provides a motion-saliency prior that guides cross-modal attention toward dynamically active, target-relevant regions.</p>
+  </div></div></div></section><br>
+
+  <section><div class="container"><div class="row"><div class="col-12 text-center">
+    <h3>Experimental Results</h3><hr style="margin-top:0px">
+    <p class="text-left">Our method reaches <b>64.0% SR / 94.6% PR</b> on FE240, <b>68.9% SR / 81.8% PR / 80.7% NPR</b> on COESOT, and <b>56.7% SR / 60.3% PR</b> on EventVOT. It runs at <b>58.1 fps</b> when integrated with TENet, retaining near-baseline inference speed.</p>
+    <img class="img-fluid" width="100%" src="images/fig-results.png" alt="Qualitative tracking comparisons">
+    <p class="text-left"><b>Qualitative comparison on FE240 and COESOT.</b> STDV produces clearer motion structures, while STVM improves localization under high dynamic range, low illumination, fast motion, and severe background motion.</p>
+  </div></div></div></section><br>
+
+  <div class="container"><div class="row"><div class="col-12">
+    <h3>Citation</h3><hr style="margin-top:0px">
+    <pre style="background-color:#e9eeef;padding:1.25em 1.5em"><code>@article{he2026stdv,
+  title={Learning Spatio-Temporal Dynamic Event Voxels for Robust Event-based Object Tracking},
+  author={He, Yuting and Fan, Bin and Ren, Zhongyang and Liu, Qi and Dai, Yuchao},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2026}
+}</code></pre><hr>
+  </div></div></div>
+
+  <footer class="text-center" style="margin-bottom:10px"><br>Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.</footer>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap-4.4.1.js"></script>
+</body>
+</html>
